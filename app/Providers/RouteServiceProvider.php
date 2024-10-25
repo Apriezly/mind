@@ -17,6 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+
+    //jika user sudah login maka user tidak bisa mengakses url login atau halaman login kembali.
     public const HOME = '/redirect';
 
     /**
