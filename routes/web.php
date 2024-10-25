@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\PenggunaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +15,27 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('login',[LoginController::class, 'login'])->name('login');
+
+//  jika user belum login
+Route::group(['middleware' => 'guest'], function() {
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('/', [AuthController::class, 'dologin']);
+
+});
+
+// untuk superadmin dan pegawai
+Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/redirect', [RedirectController::class, 'cek']);
+});
+
+// untuk pengguna
+Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+    Route::get('/pengguna', [PenggunaController::class, 'index']);
+});
+
+
+// Route::get('/',[LoginController::class, 'mind'])->name('mind');
 
 // Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index'); //menampilkan halaman dashboard
 
@@ -31,9 +53,9 @@ Route::get('login',[LoginController::class, 'login'])->name('login');
 // Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
 // Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //contohnya ini
 // Route::get('products', [ProductController::class, 'index'])->name('products.index'); //membuat alamat situs
