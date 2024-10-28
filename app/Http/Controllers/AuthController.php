@@ -25,13 +25,14 @@ class AuthController extends Controller
             //buat ulang session login
             $request->session()->regenerate();
             
-            // return redirect()->intended('/pengguna');
+            return redirect()->intended('/pengguna');
 
-            if (auth()->user()->role_id === 1) {
-                return redirect()->intended('/pengguna');
-            } else {
-                return redirect()->intended('/admin');
-            }
+            // if (auth()->user()->role_id === 1) {
+            //     return redirect()->intended('/pengguna');
+            // } 
+            // else {
+            //     return redirect()->intended('/admin');
+            // }
         }
 
         //jika email atau password salah
