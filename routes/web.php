@@ -25,7 +25,7 @@ Route::group(['middleware' => 'guest'], function() {
 });
 
 // untuk admin dan pengguna
-Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
@@ -35,10 +35,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/pengguna', [PenggunaController::class, 'index']);
 });
 
-// // untuk pengguna
-// Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-//     Route::get('/admin', [AdminController::class, 'index']);
-// });
+// untuk admin
+Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
+    Route::get('/admin', [AdminController::class, 'index']);
+});
 
 
 // Route::get('/',[LoginController::class, 'mind'])->name('mind');

@@ -29,8 +29,8 @@ class UserFactory extends Factory
             // 'gambar' => fake()->image(),
 
             //mt_rand berfungsi untuk menggenerator angka acak
-            // 'role_id' => mt_rand(1, 2),
-            'role_id' => mt_rand(1),
+            'role_id' => mt_rand(1, 2),
+            // 'role_id' => mt_rand(1),
 
             'remember_token' => Str::random(10),
         ];
