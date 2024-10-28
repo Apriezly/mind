@@ -19,13 +19,13 @@ use App\Http\Controllers\AdminController;
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'dologin']);
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'dologin']);
 
 });
 
 // untuk admin dan pengguna
-Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
+Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
@@ -35,10 +35,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
     Route::get('/pengguna', [PenggunaController::class, 'index']);
 });
 
-// untuk pengguna
-Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-    Route::get('/admin', [AdminController::class, 'index']);
-});
+// // untuk pengguna
+// Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
+//     Route::get('/admin', [AdminController::class, 'index']);
+// });
 
 
 // Route::get('/',[LoginController::class, 'mind'])->name('mind');

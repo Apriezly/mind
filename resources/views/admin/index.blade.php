@@ -1,4 +1,4 @@
-@extends('layouts.main')
+<!-- @extends('layouts.main')
 
 @section('contents')
     <div class="container">
@@ -8,4 +8,4 @@
             <button type="submit" class="btn btn-primary">Logout</button>
         </form>
     </div>
-@endsection
+@endsection -->
