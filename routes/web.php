@@ -19,8 +19,8 @@ use App\Http\Controllers\AdminController;
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'dologin']);
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('/', [AuthController::class, 'dologin']);
 
 });
 
