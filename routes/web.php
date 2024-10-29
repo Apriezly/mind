@@ -41,6 +41,9 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
 });
 
 
+Route ::get('/all', 'AllController@index');
+
+
 // Route::get('/',[LoginController::class, 'mind'])->name('mind');
 
 // Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index'); //menampilkan halaman dashboard
