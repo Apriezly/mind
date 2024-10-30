@@ -8,6 +8,6 @@ class AllController extends Controller
 {
     //
     public function index(){
-        return view('template/all');
+        return view('template.all');
     }
 }

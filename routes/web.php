@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AllController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
