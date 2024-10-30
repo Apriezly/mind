@@ -1,5 +1,5 @@
 <!-- ambil kode dari layouts.main -->
-@extends('layouts.main')
+@extends('login.layout')
 
 @section('contents')
     <div class="d-flex justify-content-center align-items-center vh-100">
