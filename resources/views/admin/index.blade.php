@@ -1,9 +1,8 @@
 @extends('layouts/main')
 
-@section('contents')
+@section('content')
     <div class="container">
-        <h2>Hai</h2>
-        <h2>Selamat Pagi, Admin!</h2>
+        <h2>Selamat Datang Admin</h2>
         <form action="/logout" method="post">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
