@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AllController extends Controller
+class MainController extends Controller
 {
-    //
     public function index(){
-        return view('template/all');
+        return view('login.layouts');
     }
 }

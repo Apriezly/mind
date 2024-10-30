@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LayoutsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +41,9 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
 });
 
+Route::get('/test', [LayoutsController::class, 'index']);
 
-Route ::get('/all', 'AllController@index');
+// Route ::get('/all', 'AllController@index');
 
 
 // Route::get('/',[LoginController::class, 'mind'])->name('mind');
