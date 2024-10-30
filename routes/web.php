@@ -6,10 +6,6 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LayoutsController;
-use App\Http\Controllers\KalenderController;
-use App\Http\Controllers\PengingatController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\BantuanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
