@@ -6,6 +6,10 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LayoutsController;
+use App\Http\Controllers\KalenderController;
+use App\Http\Controllers\PengingatController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\BantuanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,13 +37,18 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
 
 // untuk pengguna
 Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
-    Route::get('/pengguna', [PenggunaController::class, 'index']);
+    Route::get('/beranda-p', [PenggunaController::class, 'index']);
 });
 
 // untuk admin
 Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/beranda-a', [AdminController::class, 'index']);
 });
+
+Route::get('/kalender', [KalenderController::class, 'index']);
+Route::get('/pengingat', [PengingatController::class, 'index']);
+Route::get('/laporan', [LaporanController::class, 'index']);
+Route::get('/bantuan', [BantuanController::class, 'index']);
 
 Route::get('/test', [LayoutsController::class, 'index']);
 

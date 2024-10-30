@@ -8,9 +8,9 @@ class RedirectController extends Controller
 {
     public function cek() {
         if (auth()->user()->role_id === 1) {
-            return redirect('/pengguna');
+            return redirect('/beranda-p');
         }else {
-            return redirect('/admin');
+            return redirect('/beranda-a');
         }
     }
 }

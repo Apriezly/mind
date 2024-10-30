@@ -11,7 +11,7 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        //
+        return view('pengingat.index');
     }
 
     /**
