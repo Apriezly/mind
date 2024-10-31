@@ -47,7 +47,7 @@
           <br> --> 
         <img class="mr-2 img-profile rounded-circle" scr="https://jombangwifi.id/img/undraw profile.svg"> 
       <div> ==$0
-        <span class="d-none d-lg-block small">Administrator
+        <span class="d-none d-lg-block small">
         </span>
         <span class="d-none d-lg-block small">Admin</span>
       </div>
