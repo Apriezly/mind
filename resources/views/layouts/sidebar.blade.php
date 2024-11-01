@@ -11,20 +11,20 @@
       <nav class="pt-5">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{ url('/beranda-p') }}" class="nav-link {{ Request::segment(1) == 'beranda-p' ? 'active-link' : 'nonactive-link'}}">
+            <a href="{{ url('/beranda-p') }}" class="nav-link {{ Request::segment(1) == 'beranda-p'? 'active-link' : 'nonactive-link'}}">
             <img src="{{ asset('/element/beranda-active.png') }}">
               <span>&emsp;Beranda</span>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a href="{{ url('/kalender') }}" class="nav-link {{ Request::segment(1) == 'kalender' ? 'active-link' : 'nonactive-link'}}">
-            <img src="{{ asset('/element/kalender.png') }}" style="width:25px">
+            <img src="{{ asset('/element/kalender.png') }}">
               <span>&emsp;Kalender</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ url('/pengingat') }}" class="nav-link {{ Request::segment(1) == 'pengingat' ? 'active-link' : 'nonactive-link'}}">
-            <img src="{{ asset('/element/pengingat.png') }}">
+            <img src="{{ asset('/element/pengingat.png') }}" style="width:25px">
               <span>&emsp;Pengingat</span>
             </a>
           </li>
@@ -60,3 +60,5 @@
     })
   </script>
   @endsection
+
+ 
