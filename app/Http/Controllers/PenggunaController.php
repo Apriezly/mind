@@ -9,4 +9,8 @@ class PenggunaController extends Controller
     public function index() {
         return view('pengguna.index');
     }
+
+    public function profil() {
+        return view('pengguna.profil');
+    }
 }

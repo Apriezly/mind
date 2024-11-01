@@ -10,6 +10,7 @@ use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\PengingatController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\BantuanController;
+use App\Http\Controllers\NotifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,10 @@ Route::get('/kalender', [KalenderController::class, 'index']);
 Route::get('/pengingat', [PengingatController::class, 'index']);
 Route::get('/laporan', [LaporanController::class, 'index']);
 Route::get('/bantuan', [BantuanController::class, 'index']);
+
+Route::get('/notifikasi', [NotifikasiController::class, 'index']);
+
+Route::get('/profil', [PenggunaController::class, 'profil']);
 
 Route::get('/test', [LayoutsController::class, 'index']);
 

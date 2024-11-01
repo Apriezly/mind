@@ -5,7 +5,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a href="index3.html" class="nav-link">Hallo, selamat pagi!</a>
+        <a class="nav-link">Hallo, selamat pagi!</a>
       </li>
     </ul>
 
@@ -16,28 +16,11 @@
       <!-- Messages Dropdown Menu -->
       
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/notifikasi') }}">
           <i class="fa fa-bell-o"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge">12</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
       </li>
 
       
@@ -47,7 +30,7 @@
           <br> --> 
         <img class="mr-2 img-profile rounded-circle" scr="https://jombangwifi.id/img/undraw profile.svg"> 
       <div> ==$0
-        <span class="d-none d-lg-block small">Administratore
+        <span class="d-none d-lg-block small">
         </span>
         <span class="d-none d-lg-block small">Admin</span>
       </div>
