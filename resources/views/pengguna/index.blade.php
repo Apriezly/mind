@@ -73,104 +73,103 @@
                                   <div class="form-inline float-right">
                                     <form action="" method="get">
                                       <input type="hidden" name="entries" value>
-                                                    <div  class="input-group ml-3">
-                                                    <input type="text" name="search" class="form-control border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-primary" type="submit">
-                                                            <i class="fas fa-search fa-sm">
-                                                                ::before
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                      <div  class="input-group ml-3">
+                                        <input type="text" name="search" class="form-control border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
+                                        <div class="input-group-append">
+                                          <button class="btn btn-primary" type="submit">
+                                            <i class="fas fa-search fa-sm">
+                                              ::before
+                                            </i>
+                                          </button>
                                         </div>
-                                    </div>
-                                    </div>
-                                    <table class="table table-borderless table-striped" id="dataTable">
-                                        <thead> 
-                                            <tr>
-                                                <th>Kegiatan</th>
-                                                <th>Deskripsi</th>
-                                                <th>Waktu</th>
-                                                <th>Kategori</th>
-                                                <th>Status</th>
-                                            </tr>
-                                                </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td scope="row">Ujian Mapel Produktif</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">STS</td>
-                                                            <td>17-10-2024 21:00</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Sekolah</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
-                                                            <td scope="row">
-                                                        </td>
-                                                        <td>
-                                                        </tr>    
-                                                        <tr>
-                                                            <td scope="row">Reuni Keluarga Slamet</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Tempat : Rumah Dinda</td>
-                                                            <td>18-10-2024 10:00</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Keluarga</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">2 hari lagi</td>
-                                                            <td scope="row">
-                                                        </td>
-                                                        <td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Bayar Kredit Montor</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Kurang 10 juta</td>
-                                                            <td>20-10-2024 08:00</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Pribadi</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
-                                                            <td scope="row">
-                                                        </td>
-                                                        <td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td scope="row">Bayar Sewa Toko</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">200 ribu</td>
-                                                            <td>20-10-2024 15:00</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">Bisnis</td>
-                                                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
-                                                            <td scope="row">
-                                                        </td>
-                                                        <td>
-                                                        </tr>
-                                                        <tbody>
-                                                         </table>
-                                                          <div class="row">
-                                                            <div class="col-md-6">
-                                                              <p>1- 10 dari 46 data</p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                              <ul class="pagination justify-content-end">
-                                                               <li class="page-item disabled">
-                                                                <p> Previous </p>
-                                                                 <span class="page-link"></span>
-                                                                </li>
-                                                                <li class="page-item active">
-                                                                  <a class="page-link" href="">1</a>
-                                                                </li>
-                                                                <li class="page-item ">
-                                                                  <a class="page-link" href="">2</a>
-                                                                </li>
-                                                                <li class="page-item ">
-                                                                  <a class="page-link" href="">3</a>
-                                                                </li>
-                                                                <li class="page-item ">
-                                                                  <a class="page-link" href="">4</a>
-                                                                </li>
-                                                                <li class="page-item ">
-                                                                  <a class="page-link" href="">5</a>
-                                                                </li>
-                                                                <li class="page-item disabled">
-                                                                  <a class="page-link" href="">Next</span>
-                                                               </ul>
-                                                            </div>
-
-                                <div class="modal fade" id="exampleModel" tabindex="-1" aria-labelledy="exampleModellabel" aria-hidden="true">
+                                     </div>
+                                   </form>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-borderless table-striped" id="dataTable">
+                              <thead> 
+                                <tr>
+                                    <th>Kegiatan</th>
+                                    <th>Deskripsi</th>
+                                    <th>Waktu</th>
+                                    <th>Kategori</th>
+                                    <th>Status</th>
+                                </tr>                          
+                             </thead>
+                             <tbody>
+                              <tr>
+                                <td scope="row">Ujian Mapel Produktif</td>
+                                <td style="white-space: normal; word-wrap: break-word;">STS</td>
+                                <td>17-10-2024 21:00</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Sekolah</td>
+                                <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
+                                <td scope="row">
+                              </td>
+                              <td>
+                              </tr>    
+                              <tr>
+                                <td scope="row">Reuni Keluarga Slamet</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Tempat : Rumah Dinda</td>
+                                <td>18-10-2024 10:00</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Keluarga</td>
+                                <td style="white-space: normal; word-wrap: break-word;">2 hari lagi</td>
+                                <td scope="row">
+                              </td>
+                             <td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Bayar Kredit Montor</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Kurang 10 juta</td>
+                                <td>20-10-2024 08:00</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Pribadi</td>
+                                <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
+                                <td scope="row">
+                              </td>
+                            <td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Bayar Sewa Toko</td>
+                                <td style="white-space: normal; word-wrap: break-word;">200 ribu</td>
+                                <td>20-10-2024 15:00</td>
+                                <td style="white-space: normal; word-wrap: break-word;">Bisnis</td>
+                                <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
+                                <td scope="row">
+                             </td>
+                            <td>
+                        </tr>
+                        <tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-6">
+                               <p>1- 10 dari 46 data</p>
+                            </div>
+                            <div class="col-md-6">
+                             <ul class="pagination justify-content-end">
+                              <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                              </li>
+                              <li class="page-item active">
+                                <a class="page-link" href="">1</a>
+                              </li>
+                              <li class="page-item ">
+                                <a class="page-link" href="">2</a>
+                              </li>
+                              <li class="page-item ">
+                                <a class="page-link" href="">3</a>
+                              </li>
+                              <li class="page-item ">
+                                <a class="page-link" href="">4</a>
+                              </li>
+                              <li class="page-item ">
+                                <a class="page-link" href="">5</a>
+                              </li>
+                              <li class="page-item disabled">
+                                <a class="page-link" href="">Next</span>
+                              </li>
+                              </ul>
+                            </div>
+                            <div class="modal fade" id="exampleModel" tabindex="-1" aria-labelledy="exampleModellabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -194,19 +193,6 @@
                                     <!--End of Main Content -->
                                     <!-- Footer-->
                                      
-
-
-
-
-
-                                                   
-
-
-
-                                                        
-                                                        
-
-
 @endsection
 
                                    
