@@ -41,55 +41,39 @@
         </div>
     </div>
 
-   
-
-
-
-
-
-
-    
-
-   
     <div class="container">
-        <h2>Selamat Datang Pengguna</h2>
-        <form action="/logout" method="post">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </div>
-@endsection
-
-<div class="container-fluid mb-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h1 class="h3 mb-4 text-gray-900">Pengaduan</h1>
+        <div class="container-fluid mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                    <h1 class="h3 mb-4 text-gray-900">Daftar Kadarluarsa</h1>
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="row mb-3">
                                 <div class="col-mb-6">
-                                    <form action="https://jombangwiwfi.id/pengaduan" method="get" id="sort-form">
+                                    <form action="" method="get" id="sort-form">
                                         <input type="hidden" name="search" value>
                                         <div classs="form-inline">
-                                            <label for="entries" class="mr-2">Show:</label>
+                                            <label for="entries" class="mr-2"> Show:</label>
                                             <select id="entries" name="entries" class="form-control">
-                                            <option value="10" selected> 10</option>
-                                            <option value="25"> 25</option>
-                                             <option value="50"> 50</option>
-                                             <option value="100">
-                                                "100"
-                                                </option>
-                                                </select>
-                                                <label for="entries" class="ml-2">entries</label>
-                                            </div>
-                                          </form>
+                                              <option value="10" selected> 10</option>
+                                              <option value="25"> 25</option>
+                                              <option value="50"> 50</option>
+                                              <option value="100">
+                                                100
+                                              </option>
+                                            </select>
+                                            <label for="entries" class="ml-3">entries</label>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-inline float-right">
-                                                <form action="https://jombangwifi.id/pengaduan" method="get">
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-inline float-right">
+                                    <form action="" method="get">
+                                      <input type="hidden" name="entries" value>
+                                                    <div  class="input-group ml-3">
                                                     <input type="text" name="search" class="form-control border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
                                                     <div class="input-group-append">
                                                         <button class="btn btn-primary" type="submit">
@@ -103,3 +87,133 @@
                                         </div>
                                     </div>
                                     </div>
+                                    <table class="table table-borderless table-striped" id="dataTable">
+                                        <thead> 
+                                            <tr>
+                                                <th>Kegiatan</th>
+                                                <th>Deskripsi</th>
+                                                <th>Waktu</th>
+                                                <th>Kategori</th>
+                                                <th>Status</th>
+                                            </tr>
+                                                </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td scope="row">Ujian Mapel Produktif</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">STS</td>
+                                                            <td>17-10-2024 21:00</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Sekolah</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
+                                                            <td scope="row">
+                                                        </td>
+                                                        <td>
+                                                        </tr>    
+                                                        <tr>
+                                                            <td scope="row">Reuni Keluarga Slamet</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Tempat : Rumah Dinda</td>
+                                                            <td>18-10-2024 10:00</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Keluarga</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">2 hari lagi</td>
+                                                            <td scope="row">
+                                                        </td>
+                                                        <td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td scope="row">Bayar Kredit Montor</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Kurang 10 juta</td>
+                                                            <td>20-10-2024 08:00</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Pribadi</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
+                                                            <td scope="row">
+                                                        </td>
+                                                        <td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td scope="row">Bayar Sewa Toko</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">200 ribu</td>
+                                                            <td>20-10-2024 15:00</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">Bisnis</td>
+                                                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
+                                                            <td scope="row">
+                                                        </td>
+                                                        <td>
+                                                        </tr>
+                                                        <tbody>
+                                                         </table>
+                                                          <div class="row">
+                                                            <div class="col-md-6">
+                                                              <p>1- 10 dari 46 data</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <ul class="pagination justify-content-end">
+                                                               <li class="page-item disabled">
+                                                                <p> Previous </p>
+                                                                 <span class="page-link"></span>
+                                                                </li>
+                                                                <li class="page-item active">
+                                                                  <a class="page-link" href="">1</a>
+                                                                </li>
+                                                                <li class="page-item ">
+                                                                  <a class="page-link" href="">2</a>
+                                                                </li>
+                                                                <li class="page-item ">
+                                                                  <a class="page-link" href="">3</a>
+                                                                </li>
+                                                                <li class="page-item ">
+                                                                  <a class="page-link" href="">4</a>
+                                                                </li>
+                                                                <li class="page-item ">
+                                                                  <a class="page-link" href="">5</a>
+                                                                </li>
+                                                                <li class="page-item disabled">
+                                                                  <a class="page-link" href="">Next</span>
+                                                               </ul>
+                                                            </div>
+
+                                <div class="modal fade" id="exampleModel" tabindex="-1" aria-labelledy="exampleModellabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModallabel">Lampiran</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"></span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-fluid" id="lampiran" alt>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                    </div>
+                                    <!--End of Main Content -->
+                                    <!-- Footer-->
+                                     
+
+
+
+
+
+                                                   
+
+
+
+                                                        
+                                                        
+
+
+@endsection
+
+                                   
+                                                        
+                                                        
+
+
+
+
+                                   
