@@ -36,7 +36,7 @@
             <span>&ensp;Pengaturan Profil</span>
           </a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url('#') }}"> 
+          <a class="dropdown-item" href="{{ url('/logout') }}"> 
           <img src="{{ asset('/element/keluar.png') }}">
             <span>&ensp;Keluar</span>
           </a>

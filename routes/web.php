@@ -11,6 +11,8 @@ use App\Http\Controllers\PengingatController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\SendEmail;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,70 +25,55 @@ use App\Http\Controllers\NotifikasiController;
 |
 */
 
+//nyoba login baru
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
+
+// Route::get('/beranda-p', [PenggunaController::class, 'index']);
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/beranda', [PenggunaController::class, 'index']);
+    Route::get('/kalender', [KalenderController::class, 'index']);
+    Route::get('/pengingat', [PengingatController::class, 'index']);
+    Route::get('/laporan', [LaporanController::class, 'index']);
+    Route::get('/bantuan', [BantuanController::class, 'index']);
+    Route::get('/notifikasi', [NotifikasiController::class, 'index']);
+    Route::get('/profil', [PenggunaController::class, 'profil']);
+});
 
 //  jika user belum login
-Route::group(['middleware' => 'guest'], function() {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'dologin']);
-
-});
-
-// untuk admin dan pengguna
-Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/redirect', [RedirectController::class, 'cek']);
-});
-
-// untuk pengguna
-Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
-    Route::get('/beranda-p', [PenggunaController::class, 'index']);
-});
-
-// untuk admin
-Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
-    Route::get('/beranda-a', [AdminController::class, 'index']);
-});
-
-Route::get('/kalender', [KalenderController::class, 'index']);
-Route::get('/pengingat', [PengingatController::class, 'index']);
-Route::get('/laporan', [LaporanController::class, 'index']);
-Route::get('/bantuan', [BantuanController::class, 'index']);
-
-Route::get('/notifikasi', [NotifikasiController::class, 'index']);
-
-Route::get('/profil', [PenggunaController::class, 'profil']);
-
-Route::get('/test', [LayoutsController::class, 'index']);
-
-// Route ::get('/all', 'AllController@index');
-
-
-// Route::get('/',[LoginController::class, 'mind'])->name('mind');
-
-// Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index'); //menampilkan halaman dashboard
-
-// Route::get('dashboard/kategori/create',[KategoriController::class, 'create'])->name('kategori.create'); //tambah kategori
-// Route::post('dashboard',[KategoriController::class, 'new'])->name('kategori.new'); //form tambah kategori
-// Route::get('dashboard/kategori/{judul}',[KategoriController::class, 'edit'])->name('kategori.edit'); //lihat kategori yang dipilih
-// Route::get('dashboard/kategori/{judul}',[KategoriController::class, 'tampil'])->name('kategori.tampil'); //lihat kategori yang dipilih
-
-// Route::get('dashboard/kategori/{judul}/tambah',[DashboardController::class, 'tambah'])->name('dokumen.tambah'); //tambah data
-// Route::post('dashboard/kategori/{judul}/{id_dokumen}/show',[DashboardController::class, 'show'])->name('dokumen.show');//tampilkan dokumen
-// Route::get('dashboard/kategori/{judul}/{id_dokumen}/edit',[DashboardController::class, 'edit'])->name('dokumen.edit');//edit dokumen
-// Route::put('dashboard/kategori/{judul}/{id_dokumen}/show',[DashboardController::class, 'show'])->name('dokumen.show');//tampilkan dokumen
-// Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
-// Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
-// Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
-// Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard.index');
-
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::group(['middleware' => 'guest'], function() {
+//     Route::get('/', [AuthController::class, 'login'])->name('login');
+//     Route::post('/', [AuthController::class, 'dologin']);
 // });
 
-//contohnya ini
-// Route::get('products', [ProductController::class, 'index'])->name('products.index'); //membuat alamat situs
-// Route::get('products/create', [ProductController::class, 'create'])->name('products.create'); //GET, menampilkan form tambah product
-// Route::post('products', [ProductController::class, 'store'])->name('products.store'); //POST, menghandle ketika form tambah product disubmit
-// Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-// Route::put('products/{id}', [ProductController::class, 'update'])->name('products.update');
-// Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+// untuk admin dan pengguna
+// Route::group(['middleware' => ['auth', 'checkrole:1,2']], function() {
+//     Route::post('/logout', [AuthController::class, 'logout']);
+//     Route::get('/redirect', [RedirectController::class, 'cek']);
+// });
+
+// untuk pengguna
+// Route::group(['middleware' => ['auth', 'checkrole:1']], function() {
+//     Route::get('/beranda-p', [PenggunaController::class, 'index']);
+// });
+
+// // untuk admin
+// Route::group(['middleware' => ['auth', 'checkrole:2']], function() {
+//     Route::get('/beranda-a', [AdminController::class, 'index']);
+// });
+
+
+
+Route::get('/test', [LayoutsController::class, 'index']);
+Route::get('/send-email', [SendEmail::class, 'index']);
+
+
+
+
+
+

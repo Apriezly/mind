@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- bootstrap -->
    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
   <!-- icon site -->
-   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">

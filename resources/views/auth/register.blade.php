@@ -27,20 +27,34 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="login-logo mt-3">
-        <a href="{{ url('/login') }}"><b>Mind</b></a>
+        <a href="{{ url('/register') }}"><b>Mind</b></a>
     </div>
 
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Register</p>
 
-      <form action="{{ route('login-proses') }}" method="post">
+      <form action="{{ route('register-proses') }}" method="post">
         @csrf
         <div class="form-group has-feedback">
-          <input type="email" name="email" class="form-control" placeholder="Email">
+          <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ old('name') }}">
+        </div>
+        @error('name')
+            <small>{{ $message }}</small>
+        @enderror
+
+        <div class="form-group has-feedback">
+          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
         </div>
         @error('email')
             <small>{{ $message }}</small>
         @enderror
+
+        <!-- <div class="form-group has-feedback">
+          <input type="text" name="nomor" class="form-control" placeholder="Nomor Whatsapp" value="{{ old('nomor') }}">
+        </div>
+        @error('nomor')
+            <small>{{ $message }}</small>
+        @enderror -->
 
         <div class="form-group has-feedback">
           <input type="password" name="password" class="form-control" placeholder="Password">
@@ -49,26 +63,13 @@
             <small>{{ $message }}</small>
         @enderror
 
-        <div class="row">
-          <div class="col-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Remember Me
-              </label>
-            </div>
-          </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-
-      <p class="mb-1">
-        <a href="#">I forgot my password</a>
-      </p>
 
     </div>
     <!-- /.login-card-body -->
