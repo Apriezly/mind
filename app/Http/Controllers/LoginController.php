@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Bcrypt;
 class LoginController extends Controller
 {
     public function index(){
+        return view('auth.index');
+    }
+    
+    public function login(){
         return view('auth.login');
     }
 

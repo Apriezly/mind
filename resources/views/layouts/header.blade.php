@@ -25,7 +25,7 @@
 
       
       <li class="nav-item dropdown no-arrow"> 
-        <a class="nav-link mr-5" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="{{ asset('/element/user.png') }}">
         <span>&ensp;user</span>
         </a>
@@ -36,7 +36,7 @@
             <span>&ensp;Pengaturan Profil</span>
           </a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url('#') }}"> 
+          <a class="dropdown-item" href="{{ url('/logout') }}"> 
           <img src="{{ asset('/element/keluar.png') }}">
             <span>&ensp;Keluar</span>
           </a>

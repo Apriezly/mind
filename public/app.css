@@ -5,5 +5,22 @@
 }
 
 .nonactive-link {
-    color: #D1F4F0 !important
+    color: #D1F4F0 !important;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.background-image{
+   background-image: url('/element/loginbg.jpg'); 
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
+}
+
+.background-sidebar{
+    background-image: url('/element/bg-max.png');
+    border-radius: 0px 32px 32px 0px;
 }

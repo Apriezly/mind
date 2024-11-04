@@ -25,8 +25,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+Route::get('/', [LoginController::class, 'index'])->name('awal');
+
 //nyoba login baru
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

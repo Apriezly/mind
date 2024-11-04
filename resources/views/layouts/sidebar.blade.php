@@ -1,4 +1,4 @@
-<aside class="main-sidebar elevation-2" style="background:#19A177; border-radius: 0px 32px 32px 0px;">
+<aside class="main-sidebar elevation-4 background-sidebar">
     <!-- Brand Logo -->
     <nav class="pt-5">
     <a class="px-5">
@@ -9,7 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <nav class="pt-5">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="{{ url('/beranda') }}" class="nav-link {{ Request::segment(1) == 'beranda'? 'active-link' : 'nonactive-link'}}">
             <img src="{{ Request::segment(1) == 'beranda'? asset('/element/beranda-active.png') : asset('/element/beranda.png')}}">
