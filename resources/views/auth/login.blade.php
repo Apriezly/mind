@@ -2,50 +2,60 @@
 
 @section('content')
 
-<div class="card">
-    <div class="login-logo mt-3">
-        <a href="{{ url('/login') }}"><b>Mind</b></a>
-    </div>
+<div class="card-login"><div class="card-body login-card-body">
+      <div class="login-logo">
+        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Logo">
+      </div>
 
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="katamind">-- Login --</p>
+
 
       <form action="{{ route('login-proses') }}" method="post">
         @csrf
         <div class="form-group has-feedback">
+          <p class="tx-login"> Email
           <input type="email" name="email" class="form-control" placeholder="Email">
-        </div>
-        @error('email')
+
+          @error('email')
             <small>{{ $message }}</small>
-        @enderror
+          @enderror
+          </p>
+        </div>
 
         <div class="form-group has-feedback">
+          <p class="tx-login"> Password
           <input type="password" name="password" class="form-control" placeholder="Password">
-        </div>
-        @error('password')
-            <small>{{ $message }}</small>
-        @enderror
 
+          @error('password')
+            <small>{{ $message }}</small>
+          @enderror
+          </p>
+        </div>
+        
         <div class="row">
-          <div class="col-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Remember Me
-              </label>
+          <div class="col-6">
+            <div class="checkbox icheck" style="color:#FFA363">
+              <small>
+                <input type="checkbox" class="sm-checkbox">   Ingat sandi
+              </small>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <div class="col-6" style="text-align: right;">
+            <small class="mb-1">
+              <a style="color:#FFA363" href="#"><u>Lupa kata sandi?</u></a>
+            </small>
           </div>
-          <!-- /.col -->
+        </div>
+        
+        <div class="row mt-4">
+          <div class="col-6">
+            <button type="submit" class="btn log-green btn-block btn-flat">Masuk</button>
+          </div>
+          <div class="col-6">
+            <a href="{{ url('/')}}" class="btn log-outline btn-block btn-flat">Batal</a>
+          </div>
         </div>
       </form>
-
-
-      <p class="mb-1">
-        <a href="#">I forgot my password</a>
-      </p>
 
     </div>
     <!-- /.login-card-body -->

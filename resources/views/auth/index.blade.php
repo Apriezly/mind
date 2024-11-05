@@ -2,21 +2,27 @@
 
 @section('content')
 
-<div class="card">
-    <div class="login-logo mt-3">
-        <a href="{{ url('/') }}"><b>Mind</b></a>
-    </div>
-
+<div class="card-login">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <div class="login-logo">
+        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Maskot">
+      </div>
 
-      <form action="{{ route('login') }}" method="post">
+      <p class="katamind"><span style="color:#19A177"><b>Mind</b></span> hadir sebagai sahabat yang akan senantiasa mengingatkan hal-hal penting dalam hidupmu!</p>
+
+      <div class="login-maskot">
+        <img src="{{ asset('/element/maskot.png')}}" alt="Mind Maskot">
+      </div>
+
+      <form action="" method="post">
         @csrf
-          <div class="row-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
+        <div class="row">
+          <div class="col-6">
+            <a href="{{ url('login')}}" class="btn log-green btn-block btn-flat">Masuk</a>
           </div>
-          <!-- /.col -->
+          <div class="col-6">
+            <a href="{{ url('register')}}" class="btn log-outline btn-block btn-flat">Buat Akun</a>
+          </div>
         </div>
       </form>
 
