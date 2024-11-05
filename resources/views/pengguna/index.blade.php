@@ -50,25 +50,25 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <div class="row mb-3">
-                                <div class="col-mb-6">
-                                    <form action="" method="get" id="sort-form">
+                    
+                             <div cass="row mb-3">
+                                <div class="col-md-6">
+                                    <form action="https://jomabangwifi.id/notification" method="get" id="sort-form">
                                         <input type="hidden" name="search" value>
-                                        <div classs="form-inline">
-                                            <label for="entries" class="mr-2"> Show:</label>
+                                        <div class="form-inline">
+                                            <label for="entries" class="mr-2">Show:</label>
                                             <select id="entries" name="entries" class="form-control">
-                                              <option value="10" selected> 10</option>
-                                              <option value="25"> 25</option>
-                                              <option value="50"> 50</option>
-                                              <option value="100">
-                                                100
-                                              </option>
+                                                <option value="10" selected> 10</option>
+                                                <option value="25"> 25</option>
+                                                <option value="50"> 50</option>
+                                                <option value="100"> 100</option>
                                             </select>
-                                            <label for="entries" class="ml-3">entries</label>
+                                            <label for="entries" class="ml-2">entries</label>
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+                          </div>
                                 <div class="col-md-6">
                                   <div class="form-inline float-right">
                                     <form action="" method="get">
@@ -78,7 +78,7 @@
                                         <div class="input-group-append">
                                           <button class="btn btn-primary" type="submit">
                                             <i class="fas fa-search fa-sm">
-                                              ::before
+                                              
                                             </i>
                                           </button>
                                         </div>
@@ -87,7 +87,7 @@
                                 </div>
                               </div>
                             </div>
-                            <table class="table table-borderless table-striped" id="dataTable">
+                           <table class="table table-borderless table-striped" id="dataTable">
                               <thead> 
                                 <tr>
                                     <th>Kegiatan</th>
@@ -167,31 +167,25 @@
                               <li class="page-item disabled">
                                 <a class="page-link" href="">Next</span>
                               </li>
-                              </ul>
-                            </div>
-                            <div class="modal fade" id="exampleModel" tabindex="-1" aria-labelledy="exampleModellabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModallabel">Lampiran</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true"></span>
-                                                </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img class="img-fluid" id="lampiran" alt>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                              </li>
+                              <li class="page-itemdisabled">
+                               <a class="page-link" href=""></a>
+                              </li>
 
-                                    </div>
-                                    <!--End of Main Content -->
-                                    <!-- Footer-->
+                              
+                            
+                           
+                                           
+
+                                    
+
+                                      
+                                    
+                                       
+
+                                    
+
+                                   
                                      
 @endsection
 

@@ -13,6 +13,8 @@ use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\SendEmail;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\DokumenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/notifikasi', [NotifikasiController::class, 'index']);
     Route::get('/profil', [PenggunaController::class, 'profil']);
 });
+
+Route::get('/kategori', [KategoriController::class, 'index'])->name('index');
+Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
 
 //  jika user belum login
 // Route::group(['middleware' => 'guest'], function() {
