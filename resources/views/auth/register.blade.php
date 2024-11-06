@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card">
+<div class="card-login">
     <div class="login-logo mt-3">
         <a href="{{ url('/register') }}"><b>Mind</b></a>
     </div>

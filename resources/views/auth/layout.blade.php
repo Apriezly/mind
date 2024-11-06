@@ -22,13 +22,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
   
 </head>
-<body class="login-page background-image">
+<body class="hold-transition login-page background-image">
 <div class="login-box">
   <!-- /.login-logo -->
   @yield('content')
 </div>
 <!-- /.login-box -->
 
+
+<script src>"{{ asset('/script.js')}}"</script>
 <!-- jQuery -->
 <script src="{{ asset('/lte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
@@ -42,7 +44,7 @@
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass   : 'iradio_square-blue',
-      increaseArea : '20%' // optional
+      increaseArea : '100%' // optional
     })
   })
 </script>
