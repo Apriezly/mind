@@ -55,6 +55,7 @@ Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
 Route::get('/tambahkategori', [KategoriController::class, 'create'])->name('create');
 Route::get('/editdata', [DokumenController::class, 'edit'])->name('edit');
 Route::get('/editpengingat', [PengingatController::class, 'edit'])->name('edit');
+Route::get('/editkategori', [KategoriController::class, 'edit'])->name('edit');
 
 
 //  jika user belum login
