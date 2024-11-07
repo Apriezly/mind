@@ -17,12 +17,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table="users";
+    
     protected $fillable = [
         'name',
         'email',
+        'nomor',
         'password',
-        // 'nomor',
-        // 'gambar',
+        'ulangi_password',
+        'image',
     ];
 
     /**
@@ -33,6 +37,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'ulangi_password',
     ];
 
     /**
@@ -42,11 +47,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        // 'nomor_verified_at' => 'datetime',
+        'nomor_verified_at' => 'datetime',
     ];
 
     //inverse one to many ke tabel role
-    public function role() {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
+    // public function role() {
+    //     return $this->belongsTo(Role::class, 'role_id');
+    // }
 }

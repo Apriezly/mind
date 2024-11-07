@@ -5,10 +5,10 @@
 <div class="card-login">
     <div class="card-body login-card-body">
       <div class="login-logo">
-        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Maskot">
+        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Logo">
       </div>
 
-      <p class="katamind"><span style="color:#19A177"><b>Mind</b></span> hadir sebagai sahabat yang akan senantiasa mengingatkan hal-hal penting dalam hidupmu!</p>
+      <p class="katamind"><span style="color:#19A177;font-weight:700">Mind</span> hadir sebagai sahabat yang akan senantiasa mengingatkan hal-hal penting dalam hidupmu!</p>
 
       <div class="login-maskot">
         <img src="{{ asset('/element/maskot.png')}}" alt="Mind Maskot">

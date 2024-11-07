@@ -27,7 +27,7 @@
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="{{ asset('/element/user.png') }}">
-        <span>&ensp;user</span>
+        <span>&ensp;{{ Session::get('name') }}</span>
         </a>
 
         <div class="mr-3 dropdown-menu dropdown-menu-right shadow animated --grow-in" aria-labelledby="userDropdown"> 
