@@ -3,54 +3,84 @@
 @section('content')
 
 <div class="card-login">
-    <div class="login-logo mt-3">
-        <a href="{{ url('/register') }}"><b>Mind</b></a>
-    </div>
-
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Register</p>
+    <div class="login-logo">
+        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Logo">
+      </div>
+
+      <p class="katamind">-- Register --</p>
+
 
       <form action="{{ route('register-proses') }}" method="post">
         @csrf
         <div class="form-group has-feedback">
-          <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ old('name') }}">
-        </div>
-        @error('name')
+          <p class="tx-login"> Nama
+          <input type="text" name="name" class="form-control" placeholder="Nama user" value="{{ old('name') }}">
+
+          @error('name')
             <small>{{ $message }}</small>
-        @enderror
+          @enderror
+          </p>
+        </div>
 
         <div class="form-group has-feedback">
-          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
-        </div>
-        @error('email')
-            <small>{{ $message }}</small>
-        @enderror
+          <p class="tx-login" for="email"> Email
+          <input type="email" name="email" class="form-control" placeholder="example@gmail.com" value="{{ old('email') }}">
 
-        <!-- <div class="form-group has-feedback">
-          <input type="text" name="nomor" class="form-control" placeholder="Nomor Whatsapp" value="{{ old('nomor') }}">
-        </div>
-        @error('nomor')
+          @error('email')
             <small>{{ $message }}</small>
-        @enderror -->
+          @enderror
+          </p>
+        </div>
 
         <div class="form-group has-feedback">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-        </div>
-        @error('password')
-            <small>{{ $message }}</small>
-        @enderror
+          <p class="tx-login"> Nomor WhatsApp
+          <input type="tel" name="nomor" class="form-control" placeholder="62xxxxxxxxxxx" value="{{ old('nomor') }}">
 
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
+          @error('nomor')
+            <small>{{ $message }}</small>
+          @enderror
+          </p>
+        </div>
+
+        <div class="form-group has-feedback">
+          <p class="tx-login" for="password"> Sandi
+          <input type="password" name="password" class="form-control" placeholder="Kata sandi minimal 6 karakter">
+
+          @error('password')
+            <small>{{ $message }}</small>
+          @enderror
+          </p>
+        </div>
+
+        <div class="form-group has-feedback">
+          <p class="tx-login"> Ulangi Sandi
+          <input type="password" name="ulangi_password" class="form-control" placeholder="Masukkan kata sandi yang sama">
+          <!-- <small id="message"></small> -->
+          @error('ulangi_password')
+            <small>{{ $message }}</small>
+          @enderror
+          </p>
+        </div>
+      
+        <div class="row">
+          <div class="col-12">
+            <div class="checkbox icheck">
+              <small style="color:#FFA363">
+                <input type="checkbox" class="sm-checkbox">  i agree to the terms and conditions
+              </small>
+            </div>
           </div>
-          <!-- /.col -->
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-6">
+            <button type="submit" class="btn log-green btn-block btn-flat">Daftar</button>
+          </div>
+          <div class="col-6">
+            <a href="{{ url('/')}}" class="btn log-outline btn-block btn-flat">Batal</a>
+          </div>
         </div>
       </form>
-
-    </div>
-    <!-- /.login-card-body -->
-  </div>
-
 @endsection
 

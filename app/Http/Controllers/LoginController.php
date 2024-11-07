@@ -54,15 +54,16 @@ class LoginController extends Controller
         $request->validate([
             'name'      => 'required',
             'email'     => 'required|email|unique:users,email',
-            // 'nomor'     => 'required',
+            'nomor'     => 'required|numeric|min:11',
             'password'  => 'required|min:6',
+            'ulangi_password' => 'required_with:password|same:password|min:6'
         ]);
 
         $data['name']       = $request->name;
         $data['email']      = $request->email;
-        // $data['nomor']      = $request->nomor;
-        // $data['password']   = $request->password;
+        $data['nomor']      = $request->nomor;
         $data['password']   = bcrypt($request->password);
+        $data['ulangi_password']    = $request->ulangi_password;
 
         User::create($data);
 
@@ -72,9 +73,10 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($login)){
-            return redirect()->intended('/beranda');
+            // Session::put('name', $data->name);
+            return redirect()->intended('/login')->with('success', 'Login dulu yaaa ^.^');
         }else{
-            return redirect()->intended('/login')->with('failed', 'Login dulu');
+            return redirect()->intended('/register')->with('failed', 'Ups! Ada yang salah nih kayaknya 0-0');
         }
     }
 }

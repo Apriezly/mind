@@ -34,8 +34,8 @@
         
         <div class="row">
           <div class="col-6">
-            <div class="checkbox icheck" style="color:#FFA363">
-              <small>
+            <div class="checkbox icheck">
+              <small style="color:#FFA363">
                 <input type="checkbox" class="sm-checkbox">   Ingat sandi
               </small>
             </div>
