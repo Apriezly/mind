@@ -26,18 +26,18 @@
       
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{ asset('/element/user.png') }}">
+        <img src="{{ asset('/element/user.svg') }}">
         <span>&ensp;{{ Session::get('name') }}</span>
         </a>
 
         <div class="mr-3 dropdown-menu dropdown-menu-right shadow animated --grow-in" aria-labelledby="userDropdown"> 
           <a class="dropdown-item" href="{{ url('/profil') }}">
-          <img src="{{ asset('/element/setting.png') }}">
+          <img src="{{ asset('/element/setting.svg') }}">
             <span>&ensp;Pengaturan Profil</span>
           </a>
         <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ url('/logout') }}"> 
-          <img src="{{ asset('/element/keluar.png') }}">
+          <img src="{{ asset('/element/keluar.svg') }}">
             <span>&ensp;Keluar</span>
           </a>
         </div>
