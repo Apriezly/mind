@@ -13,9 +13,35 @@
                 <form action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="" aoutocomplete="off">
                     <input type="hidden" name="_method" value="PUT">
-                    <div class="row">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Kegiatan</label>
+                            <input type="text" class="form-control " name="name" value=""  placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Kegiatan</label>
+                            <input type="text" class="form-control" style="height:150px" name="name" value=""  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Kegiatan</label>
+                            <input type="text" class="form-control " name="name" value=""  placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Kegiatan</label>
+                            <input type="text" class="form-control " name="name" value=""  placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Kegiatan</label>
+                            <input type="text" class="form-control " name="name" value=""  placeholder="">
+                        </div>
+                    </div>
+                </div>
                    
-                <div class="col-6">
+                <!-- <div class="col-6">
                     <div class="row">
                     <div class="col-sm-6">
                             <div class="form-group">
@@ -78,7 +104,7 @@
                                                         Whatsapp
                                                 </label>
                                             </div>
-                                    </fieldset>
+                                    </fieldset> -->
 
                         <div class="col-sm-12">
                             
