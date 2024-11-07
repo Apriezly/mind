@@ -67,11 +67,9 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                          </div>
                                 <div class="col-md-6">
                                   <div class="form-inline float-right">
-                                    <form action="" method="get">
+                                    <form action="https://jombangwifi.id/pengaduan" method="get">
                                       <input type="hidden" name="entries" value>
                                       <div  class="input-group ml-3">
                                         <input type="text" name="search" class="form-control border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
@@ -171,6 +169,16 @@
                               <li class="page-itemdisabled">
                                <a class="page-link" href=""></a>
                               </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+
 
                               
                             

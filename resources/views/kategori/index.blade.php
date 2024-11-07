@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div>
                     <h1 class="h3 mb-4 text-gray-900">Kategori - Sekolah</h1>
-                </div1>
+                </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
                         <a href="https://jombangwifi.id/notification/create" class="btn btn-md btn-darker mb-3">

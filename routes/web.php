@@ -16,6 +16,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DokumenController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,10 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('index');
 Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
+Route::get('/tambahkategori', [KategoriController::class, 'create'])->name('create');
+Route::get('/editdata', [DokumenController::class, 'edit'])->name('edit');
+Route::get('/editpengingat', [PengingatController::class, 'edit'])->name('edit');
+
 
 //  jika user belum login
 // Route::group(['middleware' => 'guest'], function() {

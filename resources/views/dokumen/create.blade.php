@@ -17,17 +17,59 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="font-weight-bold">Kegiatan</label>
-                                <input type="text" class="form-control " name="name" value="Perumahan Pulo Asri Sejahtera " placeholder="Masukkan Nama Perumahan">
+                                <input type="text" class="form-control " name="name" value=""  placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Waktu</label>
+                                <select id="kota" class="form-control " name="kota">
+                                    <option value selected disabled>
+                                </select>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Deskripsi</label>
+                                <input type="text" class="form-control " name="name" value=""  placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Kategori</label>
+                                <input type="text" class="form-control " name="name" value=""  placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Deskripsi</label>
+                                <input type="text" class="form-control " name="name" value=""  placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold">Lampiran(opsional)</label>
+                                <input type="text" class="form-control " name="name" value=""  placeholder="">
+                                <button class="btn btn-darker btn-sm ml-2" id="Icon_img">
+                                    <i style="font-size:14px" class="fa"></i>
+                                    "tambah icon"
+                                </button>
+                            </div>
+                        </div>
 
-                                </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="font-weight-bold">Waktu</label>
-                                        <select id="kota" class="form-control " name="kota">
-                                        </select>
-                                    </div>
-                                </div>
+                        <div class="col-sm-12">
+                            
+                            <button type="submit" class="btn btn-md btn-primary">Simpan</button>
+                            <input type="hidden" name="curr_url" value="https://jombangwifi.id/perumahan">
+                            <a href="https://jombangwifi.id/perumahan" class="btn btn-md btn-secondary">Batal</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div
+                            
 
 
 @endsection
