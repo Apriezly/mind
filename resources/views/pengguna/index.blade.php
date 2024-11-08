@@ -67,6 +67,9 @@
                           <form action="" method="get">
                             <input type="hidden" name="entries" value>
                               <div class="form-inline float-right">
+                              <!-- <form>
+                                  <input type="text" name="search" placeholder="Search.." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
+                              </form> -->
                                 <div class="input-group">
                                   <div class="input-group-append">
                                     <button class="btn btn-search" type="submit">
