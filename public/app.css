@@ -175,6 +175,10 @@ input.sm-checkbox {
     border-radius: 0px 32px 32px 0px;
 }
 
+.bg-main{
+    background-color: #1CAF82;
+}
+
 small{
     color: #E06196;
     font-size: 12px;
@@ -249,11 +253,11 @@ small{
     background-color: #19A177;
 }
 
-.pencarian{
+/* .pencarian{
     font-weight: 400;
     font-size: 12px;
     color: #999999;
-}
+} */
 
 .button-search{
     background-color: white !important;
@@ -272,15 +276,38 @@ small{
     color: white;
 }
 
-/* input[type=text] {
+/* input[type=text].search {
     width: 100%;
     box-sizing: border-box;
     border: 2px solid #ccc;
+    font-weight: 400;
+    color: #999999;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 12px;
     background-color: white;
-    background-image: url('searchicon.png');
+    background-image: url('/element/search.svg');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 10px 20px 10px 40px;
   } */
+
+  .search-mind{
+    font-weight: 400;
+    font-size: 12px;
+    color: #999999;
+    border-radius: 10px;
+    background-color: white;
+    background-image: url('/element/search.svg');
+    background-position: 10px 6px; 
+    background-repeat: no-repeat;
+    padding: 6px 12px 6px 40px;
+  }
+
+  /* .main-header{
+    position: fixed;
+    border-radius: 30px 30px 0px 0px;
+  } */
+
+.content-wrapper{
+    background-color: white;
+}

@@ -2,10 +2,10 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" data-auto-collapse-size="768" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Hallo, selamat pagi!</a>
+        <a class="nav-link">Selamat pagi, user!</a>
       </li>
     </ul>
 
