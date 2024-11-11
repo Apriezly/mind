@@ -340,3 +340,12 @@ small{
 .content-wrapper{
     background-color: white;
 }
+
+.sudah-diatur{
+    color: #13aa7d !important;
+    border-color: #13aa7d !important;
+    background-color: #e0f8f3 !important;
+    border-radius: 50px !important;
+    font-size: 8px !important;
+    font-weight: 500 !important;
+}

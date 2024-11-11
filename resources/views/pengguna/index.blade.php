@@ -68,15 +68,7 @@
                           <form action="" method="get">
                             <input type="hidden" name="entries" value>
                               <div class="form-inline float-right">
-                              <!-- <form>
-                                  <input type="text" name="search" placeholder="Search.." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
-                              </form> -->
                                 <div class="input-group">
-                                  <!-- <div class="input-group-append">
-                                    <button class="btn btn-search" type="submit">
-                                    <img src="{{ asset('/element/search.svg') }}" alt="filter icon">
-                                    </button>
-                                  </div> -->
                                   <input type="text" name="search" class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
                                 </div>
                                 <div class="ml-3">
