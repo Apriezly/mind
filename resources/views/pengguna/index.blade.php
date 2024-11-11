@@ -14,6 +14,7 @@
             <div class="col-sm-3 my-2">
                 <div class="kategori1 h-100 py-2">
                     <div class="card-body"> 
+                      <a href="{{ url('/data-sekolah') }}">halo</a>
                     </div>
                 </div>
             </div>
