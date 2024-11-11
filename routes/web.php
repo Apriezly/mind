@@ -42,6 +42,10 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/beranda', [PenggunaController::class, 'index']);
+    Route::get('/data-sekolah', [DokumenController::class, 'index'])->name('index');
+    Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
+    Route::get('/editdata', [DokumenController::class, 'edit'])->name('edit');
+
     Route::get('/kalender', [KalenderController::class, 'index']);
     Route::get('/pengingat', [PengingatController::class, 'index']);
     Route::get('/laporan', [LaporanController::class, 'index']);
@@ -50,10 +54,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/profil', [PenggunaController::class, 'profil']);
 });
 
-Route::get('/kategori', [KategoriController::class, 'index'])->name('index');
-Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
+
+
 Route::get('/tambahkategori', [KategoriController::class, 'create'])->name('create');
-Route::get('/editdata', [DokumenController::class, 'edit'])->name('edit');
+
 Route::get('/editpengingat', [PengingatController::class, 'edit'])->name('edit');
 Route::get('/editkategori', [KategoriController::class, 'edit'])->name('edit');
 

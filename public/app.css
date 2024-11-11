@@ -203,6 +203,28 @@ small{
     color: #404040;
 }
 
+.style-input{
+    font-weight: 500;
+    font-size: 12px;
+    color: #404040;
+}
+
+.button-simpan{
+    background-color: #19A177;
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.button-batal{
+    background-color: #F56E6B;
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
 .se-mind{
     font-weight: 400 !important;
     font-size: 12px !important;
@@ -251,6 +273,13 @@ small{
 
 .button-tabel{
     background-color: #19A177;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.btn:hover{
+    color: white;
 }
 
 /* .pencarian{
