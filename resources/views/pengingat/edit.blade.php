@@ -31,10 +31,7 @@
                             <label class="font-weight-bold">Waktu</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">
                         </div>
-                        <div class="form-group">
-                            <label class="font-weight-bold">Set</label>
-                            <input type="text" class="form-control " name="name" value=""  placeholder="">
-                        </div>
+                       
                         <div class="form-group">
                             <label class="font-weight-bold">Ulangi Setiap</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">
