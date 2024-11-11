@@ -45,8 +45,8 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <button type="submit" class="btn btn-md btn-primary">Simpan</button>
-                                                    <input type="hidden" name="curr_url" value="https://jombangwifi.id/perumahan">
-                                                        <a href="https://jombangwifi.id/perumahan" class="btn btn-md btn-secondary">Batal</a>
+                                                    <input type="hidden" name="curr_url" value="">
+                                                        <a href="" class="btn btn-md btn-secondary">Batal</a>
                                                 </form>
                                             </div>
                                         </div>
@@ -57,4 +57,3 @@
 
 @endsection
 
-    

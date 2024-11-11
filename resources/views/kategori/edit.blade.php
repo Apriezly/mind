@@ -17,8 +17,8 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label class="font-weight-bold">Icon</label>
-                                                     <input type="text" class="form-control " name="name" value=""  placeholder="No file choosen">
-                                                </div>
+                                                <input type="file" id="file" class="form-control " name="name" value=""  placeholder="No file choosen">
+                                            </div>
                                             </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">

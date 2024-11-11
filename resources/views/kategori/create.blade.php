@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div>
-                <p class="mb-4 judul-utama">Kategori -- Tambah Kategori</p>
+                <p class="mb-4 judul-utama">Tambah - Kategori</p>
             </div>
 
             <div class="card border-0 shadow-sm rounded">
@@ -17,7 +17,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="font-weight-bold">Icon</label>
-                                    <input type="text" class="form-control " name="name" value=""  placeholder="No file choosen">
+                                    <input type="file" id="file" class="form-control " name="name" value=""  placeholder="No file choosen">
                                 </div>
                             </div>
                             <div class="col-sm-12">
