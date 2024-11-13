@@ -24,8 +24,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group style-input">
                                     <label>Judul Kategori</label>
-                                    <textarea name="judul kategori" id class="form-control " name="name" value=""  placeholder="">
-                                    </textarea>
+                                    <input type="text" class="form-control " name="name" value=""  placeholder="">
                                 </div>
                             </div>
 
