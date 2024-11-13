@@ -41,16 +41,33 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 // Route::get('/beranda-p', [PenggunaController::class, 'index']);
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::get('/beranda', [PenggunaController::class, 'index']);
-    Route::get('/data-sekolah', [DokumenController::class, 'index'])->name('index');
+    Route::get('/beranda', function () {
+
+        $dokumen = DB::table('dokumens')->get();
+    
+        return view('pengguna.index', ['dokumen' => $dokumen]);
+    });
+    Route::get('/data-sekolah', function () {
+
+        $dokumen = DB::table('dokumens')->get();
+    
+        return view('dokumen.index', ['dokumen' => $dokumen]);
+    });
     Route::get('/tambahdata', [DokumenController::class, 'create'])->name('create');
     Route::get('/editdata', [DokumenController::class, 'edit'])->name('edit');
+    Route::get('/lihatdata', function () {
+
+        $dokumen = DB::table('dokumens')->get();
+    
+        return view('dokumen.show', ['dokumen' => $dokumen]);
+    });
 
     Route::get('/kalender', [KalenderController::class, 'index']);
     Route::get('/pengingat', [PengingatController::class, 'index']);
     Route::get('/laporan', [LaporanController::class, 'index']);
     Route::get('/bantuan', [BantuanController::class, 'index']);
     Route::get('/notifikasi', [NotifikasiController::class, 'index']);
+    Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);
     Route::get('/profil', [PenggunaController::class, 'profil']);
 });
 

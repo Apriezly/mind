@@ -23,8 +23,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/pengingat') }}" class="nav-link {{ Request::segment(1) == 'pengingat' ? 'active-link' : 'nonactive-link'}}">
-            <img src="{{ Request::segment(1) == 'pengingat'? asset('/element/pengingat-active.svg') : asset('/element/pengingat.svg')}}">
+            <a href="{{ url('/pengingat') }}" class="nav-link {{ in_array(Request::segment(1), ['pengingat', 'editpengingat']) ? 'active-link' : 'nonactive-link'}}">
+            <img src="{{ in_array(Request::segment(1), ['pengingat', 'editpengingat'])? asset('/element/pengingat-active.svg') : asset('/element/pengingat.svg')}}">
               <span>&emsp;Pengingat</span>
             </a>
           </li>

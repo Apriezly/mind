@@ -65,7 +65,9 @@
                           <td>Kamis (07.00)</td>
                           <td>17-10-2024 21.00</td>
                           <td>Email</td>
-                          <td><span class="sudah-diatur">Sudah Diatur</span></td>
+                          <td scope="row">
+                            <span class="sudah-diatur">Sudah diatur</span>
+                          </td>
                           <td>
                                         
                               <a href="{{ url('/editpengingat') }}" class="btn btn-sm button-edit">
@@ -81,7 +83,9 @@
                           <td>-</td>
                           <td>20-10-2024 15.00</td>
                           <td>-</td>
-                          <td class="belum-diatur">Belum Diatur</td>
+                          <td scope="row">
+                            <span class="belum-diatur">Belum diatur</span>
+                          </td>
                           <td>
                                         
                               <a href="{{ url('/editpengingat') }}" class="btn btn-sm button-edit">

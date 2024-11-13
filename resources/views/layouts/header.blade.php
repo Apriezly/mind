@@ -5,7 +5,7 @@
         <a class="nav-link" data-widget="pushmenu" data-auto-collapse-size="768" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Selamat pagi, {{Auth::user()->name;}}!</a>
+        <a class="nav-link">Selamat pagi, {{Auth::user()->name}}!</a>
       </li>
     </ul>
 
@@ -27,7 +27,7 @@
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="{{Auth::user()->image;}}">
-        <span>&ensp;{{Auth::user()->name;}}</span>
+        <span>&ensp;{{Auth::user()->name}}</span>
         </a>
 
         <div class="mr-3 dropdown-menu dropdown-menu-right shadow animated --grow-in" aria-labelledby="userDropdown"> 
