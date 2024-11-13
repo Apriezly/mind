@@ -58,6 +58,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script> -->
 <!-- jQuery -->
 <script src="{{ asset('/lte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->

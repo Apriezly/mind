@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('content-header')
+@section('content')
 <div class="container">
     <div class="container-fluid mb-5">
         <div class="row">
