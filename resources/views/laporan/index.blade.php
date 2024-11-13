@@ -26,7 +26,7 @@
                                         data: {
                                         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt','Nov', 'Des',],
                                         datasets: [{
-                                        //label: '# of Votes',
+                                        label: 'Laporan',
                                         data: [200,  100, 23, 12,  194, 50, 150, 52, 85, 27, 43, 195],
                                         backgroundColor: [
                                         '#E06196',
@@ -55,6 +55,7 @@
                                 }
                             });
                 </script>
+                
 
              
 

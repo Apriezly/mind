@@ -23,7 +23,8 @@
                             <div class="col-sm-12 style-input">
                                 <div class="form-group">
                                     <label>Judul Kategori</label>
-                                        <input type="text" class="form-control " name="name" value=""  placeholder="">
+                                        <textarea name="judul kategori" id class="form-control " name="name" value=""  placeholder="">
+                                    </textarea>
                                 </div>
                             </div>
 

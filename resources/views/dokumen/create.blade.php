@@ -25,7 +25,8 @@
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Deskripsi</label>
-                                    <input type="text" class="form-control" style="height:118px" name="name" value=""  placeholder="">
+                                    <textarea name="judul kategori" id class="form-control "  style="height:118px" name="name" value=""  placeholder="">
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-6">

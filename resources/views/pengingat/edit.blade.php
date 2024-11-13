@@ -32,12 +32,14 @@
                         </div>
                         <div class="form-group style-input">
                             <label>Set</label>
-                            <input type="text" class="form-control " name="name" value=""  placeholder="">
-                        </div>
+                            <select id="i_set" class="form-control " name="name" value=""  placeholder="">
+                            <option value="0" selected></option>
+                        </select>
                         <div class="form-group style-input">
                             <label>Ulangi Setiap</label>
-                            <input type="text" class="form-control " name="name" value=""  placeholder="">
-                        </div>
+                            <select id="i_set" class="form-control " name="name" value=""  placeholder="">
+                            <option value="0" selected></option>
+                        </select>
                         <div class="form-group style-input">
                             <label>Selesai</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">

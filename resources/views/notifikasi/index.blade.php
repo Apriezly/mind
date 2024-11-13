@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div>
-                        <p class="mb-4 judul">Pengingat - Atur Pengingat</p>
+                        <p class="mb-4 judul">Notifikasi</p>
                     </div>
                   <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
