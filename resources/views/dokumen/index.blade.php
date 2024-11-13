@@ -58,12 +58,13 @@
                         </tr>                          
                     </thead>
                     <tbody class="isi-tabel">
+                    @foreach($dokumen as $key => $data)
                         <tr>
-                        <td>Ujian Mapel Produktif</td>
-                                <td>STS</td>
-                                <td>15-10-2024 09:00</td>
-                                <td>15-10-2024 09:00</td>
-                                <td>
+                            <td>{{$data->kegiatan}}</td>
+                            <td>{{$data->deskripsi}}</td>
+                            <td>{{$data->created_at}}</td>
+                            <td>{{$data->updated_at}}</td>
+                            <td>
                                         <form onsubmit="return confirm('Apakah Anda Yakin?');" action="" method="POST">
                                             <a href="{{ url('/lihatdata') }}" class="btn btn-sm button-show">
                                                 <img src="{{asset('/element/show.svg')}}" alt="show">
@@ -77,9 +78,9 @@
                                                 <img src="{{asset('/element/delete.svg')}}" alt="delete">
                                             </button>
                                         </form>
-                                </td>
-                                    
+                                </td>   
                         </tr>
+                        @endforeach
                     <tbody>
                     </table>
 

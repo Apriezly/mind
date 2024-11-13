@@ -42,27 +42,30 @@
                             <label>Selesai</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">
                         </div>
-                        <legend class="col-form-label col-sm-2 pt-0 style-input">
-                                <div class="col-sm-10">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="gridRadios1">
-                                        Email
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                            <label class="form-check-label" for="gridRadios2">
-                                                    Whatsapp
-                                            </label>
-                                    </div>
-                                    </fieldset> 
+                        <div class="form group style-input">
+                        <label>Kirim Via</label>
+                        <legend class="col-form-label col-sm-2 pt-0">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                    Email
+                                    </label>
                                 </div>
-                        </legend>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                        <label class="form-check-label" for="gridRadios2">
+                                                Whatsapp
+                                        </label>
+                                </div>
                             </div>
+                        </legend>
+                        </div>
+                        
+                    </div>
 
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-md button-simpan">Update</button>
+                                <button type="submit" class="btn btn-md button-simpan">Simpan</button>
                                 <input type="hidden" name="curr_url" value="">
                                 <a href="{{url('/data-sekolah')}}" class="btn btn-md button-batal">Batal</a>
                             </div>
@@ -102,7 +105,10 @@
                             <label class="font-weight-bold">Waktu</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">
                         </div>
-                       
+                        <div class="form-group">
+                            <label class="font-weight-bold">Set</label>
+                            <input type="text" class="form-control " name="name" value=""  placeholder="">
+                        </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Ulangi Setiap</label>
                             <input type="text" class="form-control " name="name" value=""  placeholder="">

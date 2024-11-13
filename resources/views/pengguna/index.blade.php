@@ -91,38 +91,15 @@
                           </tr>                          
                         </thead>
                         <tbody class="isi-tabel">
+                        @foreach($dokumen as $key => $data)
                           <tr>
-                            <td scope="row">Ujian Mapel Produktif</td>
-                            <td style="white-space: normal; word-wrap: break-word;">STS</td>
-                            <td>17-10-2024 21:00</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Sekolah</td>
+                            <td scope="row">{{$data->kegiatan}}</td>
+                            <td style="white-space: normal; word-wrap: break-word;">{{$data->deskripsi}}</td>
+                            <td>{{$data->expiration_date}}</td>
+                            <td style="white-space: normal; word-wrap: break-word;">{{$data->kategori_id}}</td>
                             <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
-                            <td scope="row"></td>
-                          </tr>    
-                          <tr>
-                            <td scope="row">Reuni Keluarga Slamet</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Tempat : Rumah Dinda</td>
-                            <td>18-10-2024 10:00</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Keluarga</td>
-                            <td style="white-space: normal; word-wrap: break-word;">2 hari lagi</td>
-                            <td scope="row"></td>
-                          </tr>
-                          <tr>
-                            <td scope="row">Bayar Kredit Montor</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Kurang 10 juta</td>
-                            <td>20-10-2024 08:00</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Pribadi</td>
-                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
-                            <td scope="row"></td>
-                          </tr>
-                          <tr>
-                            <td scope="row">Bayar Sewa Toko</td>
-                            <td style="white-space: normal; word-wrap: break-word;">200 ribu</td>
-                            <td>20-10-2024 15:00</td>
-                            <td style="white-space: normal; word-wrap: break-word;">Bisnis</td>
-                            <td style="white-space: normal; word-wrap: break-word;">4 hari lagi</td>
-                            <td scope="row"></td>
-                          </tr>
+                          </tr> 
+                          @endforeach 
                         <tbody>
                       </table>
 
