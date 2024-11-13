@@ -31,7 +31,7 @@
                             <div class="col-6">
                                 <div class="form-group style-input">
                                     <label>Waktu</label>
-                                    <input type="text" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="datetime-local" id="datetime-local" class="form-control" name="name" value=""  placeholder="">
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Kategori</label>

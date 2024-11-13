@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                    <p class="mb-4 judul">Kategori -- Sekolah</p>
+                    <p class="mb-4 judul">Kategori - Sekolah</p>
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
@@ -31,7 +31,7 @@
                             <div class="col-6">
                                 <div class="form-group style-input">
                                     <label>Waktu</label>
-                                    <input type="text" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="datetime-local" class="form-control" name="name" value=""  placeholder="">
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Kategori</label>

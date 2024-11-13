@@ -15,4 +15,49 @@
                                 <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
+                                            <div>
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                        <script>
+                                        const ctx = document.getElementById('myChart');
+                                        new Chart(ctx, {
+                                        type: 'bar',
+                                        data: {
+                                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt','Nov', 'Des',],
+                                        datasets: [{
+                                        //label: '# of Votes',
+                                        data: [200,  100, 23, 12,  194, 50, 150, 52, 85, 27, 43, 195],
+                                        backgroundColor: [
+                                        '#E06196',
+                                        '#FAE3EC',
+                                        // '#E06196',
+                                        // '#FAE3EC',
+                                        // '#E06196',
+                                        // '#FAE3EC',
+                                        // '#E06196',
+                                        // '#FAE3EC',
+                                        // '#E06196',
+                                        // '#FAE3EC',
+                                        // '#E06196',
+                                        // '#FAE3EC',
+                                        ],
+
+                                        borderWidth: 1
+                                         }]
+                                         },
+                                        options: {
+                                        scales: {
+                                        y: {
+                                        beginAtZero: true
+                                         }
+                                    }
+                                }
+                            });
+                </script>
+
+             
+
+         
+
 @endsection
