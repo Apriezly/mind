@@ -58,44 +58,32 @@
                       </tr>                        
                     </thead>
                     <tbody class="isi-tabel">
+                    @forelse ($dokumen as $data)
                         <tr>
-                          <td>Ujian Mapel Produktif</td>
+                          <td>{{ $data->kegiatan }}</td>
                           <td>1 hari lagi</td>
                           <td>2 hari sebelumnya</td>
-                          <td>Kamis (07.00)</td>
-                          <td>17-10-2024 21.00</td>
-                          <td>Email</td>
+                          <td>{{ $data->ulangi }}</td>
+                          <td>{{ $data->waktu }}</td>
+                          <td>{{ $data->tipe }}</td>
                           <td scope="row">
                             <span class="sudah-diatur">Sudah diatur</span>
                           </td>
                           <td>
                                         
-                              <a href="{{ url('/editpengingat') }}" class="btn btn-sm button-edit">
+                              <a href="{{ route('pengingat.edit', $data->id) }}" class="btn btn-sm button-edit">
                                   <img src="{{asset('/element/edit.svg')}}" alt="edit">
                               </a>
-                          </td>
-                                    
+                          </td>      
                         </tr>
-                        <tr>
-                          <td>Bayar sewa toko</td>
-                          <td>4 hari lagi</td>
-                          <td>-</td>
-                          <td>-</td>
-                          <td>20-10-2024 15.00</td>
-                          <td>-</td>
-                          <td scope="row">
-                            <span class="belum-diatur">Belum diatur</span>
-                          </td>
-                          <td>
-                                        
-                              <a href="{{ url('/editpengingat') }}" class="btn btn-sm button-edit">
-                                  <img src="{{asset('/element/edit.svg')}}" alt="edit">
-                              </a>
-                          </td>
-                                    
-                        </tr>
+                      @empty
+                        <div class="alert alert-danger">
+                            Data belum tersedia.
+                        </div>
+                      @endforelse   
                     <tbody>
                     </table>
+                    {{ $dokumen->links() }}
 
                     <div class="row mt-3">
                     <div class="col-6">

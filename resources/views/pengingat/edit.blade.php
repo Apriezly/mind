@@ -11,18 +11,24 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="" aoutocomplete="off">
-                            <input type="hidden" name="_method" value="PUT">
+                        <form action="{{ route('pengingat.update', $dokumen->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="form-group style-input">
-                                        <label>Kegiatan</label>
-                                        <input type="text" class="form-control " name="name" value=""  placeholder="">
-                                    </div>
+                                <div class="form-group style-input">
+                                    <label>Kegiatan</label>
+                                        <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  placeholder="">
+
+                                        @error('kegiatan')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                </div>
                                     <div class="form-group style-input">
                                         <label>Status</label>
-                                        <input type="text" class="form-control"  name="name" value=""  placeholder="">
+                                        <input type="text" class="form-control"  name="name" value="2 hari lagi"  placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -44,7 +50,7 @@
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Selesai</label>
-                                        <input type="text" class="form-control " name="name" value=""  placeholder="">
+                                        <input type="datetime-local" class="form-control " name="name" value=""  placeholder="">
                                     </div>
                                     <div class="form group style-input">
                                         <label>Kirim Via</label>
@@ -68,7 +74,7 @@
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-md button-simpan">Simpan</button>
                                     <input type="hidden" name="curr_url" value="">
-                                    <a href="{{url('/data-sekolah')}}" class="btn btn-md button-batal">Batal</a>
+                                    <a href="{{url('/pengingat')}}" class="btn btn-md button-batal">Batal</a>
                                 </div>
                             </div>
                         </form>

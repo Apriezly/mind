@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PenggunaController extends Controller
 {
     public function index() {
-        return view('pengguna.index');
+        $dokumen = Dokumen::latest()->paginate(5);
+
+        return view('pengguna.index', compact('dokumen'));
     }
 
     public function profil() {

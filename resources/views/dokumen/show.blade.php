@@ -17,28 +17,27 @@
                         <div class="col-8 mx-auto">
                             <div class="card-show">
                                 <div class="row">
-                                @foreach($dokumen as $key => $data)
+                                
                                     <div class="col-6">
                                         <div class="mb-3">
-                                            <span class="judul-show">{{$data->kegiatan}}</span></br>
-                                            <span class="isi-show">{{$data->deskripsi}}</span>
+                                            <span class="judul-show">{{$dokumen->kegiatan}}</span></br>
+                                            <span class="isi-show">{{$dokumen->deskripsi}}</span>
                                         </div>
                                         <div class="mb-3">
                                             <span class="judul-show">Waktu:</span></br>
-                                            <span class="isi-show">{{$data->expiration_date}}</span>
+                                            <span class="isi-show">{{$dokumen->expiration_date}}</span>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <span class="judul-show">Kategori:</span></br>
-                                            <span class="isi-show">{{$data->kategori_id}}</span>
+                                            <span class="isi-show">{{$dokumen->kategori_id}}</span>
                                         </div>
                                         <div  class="mb-3">
                                             <span class="judul-show">Lampiran:</span></br>
-                                            <span class="isi-show">{{$data->image}}</span>
+                                            <span class="isi-show">{{$dokumen->image}}</span>
                                         </div>
                                     </div>
-                                @endforeach
                                 </div>
                                 <div class="row mt-3">
                                     <button type="submit" class="btn button-lihat btn-block btn-flat">Download</button>

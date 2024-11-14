@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Dokumen extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kegiatan',
+        'deskripsi',
+        'expiration_date',
+        'kategori_id',
+        'image',
+        'set',
+        'tipe',
+        'ulangi',
+    ];
 }

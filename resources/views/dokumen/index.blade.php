@@ -12,7 +12,8 @@
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                 <div class="card-body">
                     <div class="row mb-3">
-                        <a href="{{ url('/tambahdata') }}" class="btn btn-md button-tabel">
+                        <a href="{{ route('data.create') }}" class="btn btn-md button-tabel">
+                        <!-- <a href="{{ url('/tambahdata') }}" class="btn btn-md button-tabel"> -->
                         <img src="{{asset('/element/plus.svg')}}">
                             Tambah Data
                         </a>
@@ -54,35 +55,46 @@
                             <th>Deskripsi</th>
                             <th>Created_at</th>
                             <th>Update_at</th>
+                            <!-- <th>Lampiran</th> -->
                             <th>Aksi</th>
                         </tr>                          
                     </thead>
                     <tbody class="isi-tabel">
-                    @foreach($dokumen as $key => $data)
+                    
+                     @forelse ($dokumen as $data)
                         <tr>
                             <td>{{$data->kegiatan}}</td>
                             <td>{{$data->deskripsi}}</td>
                             <td>{{$data->created_at}}</td>
                             <td>{{$data->updated_at}}</td>
+                            <!-- <td class="text-center">
+                                <img src="{{ asset('/storage/dokumen/'.$data->image) }}" class="rounded" style="width: 150px">
+                            </td> -->
                             <td>
-                                        <form onsubmit="return confirm('Apakah Anda Yakin?');" action="" method="POST">
-                                            <a href="{{ url('/lihatdata') }}" class="btn btn-sm button-show">
-                                                <img src="{{asset('/element/show.svg')}}" alt="show">
-                                            </a>
-                                            <a href="{{ url('/editdata') }}" class="btn btn-sm button-edit">
-                                                <img src="{{asset('/element/edit.svg')}}" alt="edit">
-                                            </a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm button-hapus">
-                                                <img src="{{asset('/element/delete.svg')}}" alt="delete">
-                                            </button>
-                                        </form>
-                                </td>   
+                                <form onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('data.destroy', $data->id) }}" method="POST">
+                                    <a href="{{ route('data.show', $data->id) }}" class="btn btn-sm button-show">
+                                        <img src="{{asset('/element/show.svg')}}" alt="show">
+                                    </a>
+                                    <a href="{{ route('data.edit', $data->id) }}" class="btn btn-sm button-edit">
+                                        <img src="{{asset('/element/edit.svg')}}" alt="edit">
+                                    </a>
+
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-sm button-hapus">
+                                        <img src="{{asset('/element/delete.svg')}}" alt="delete">
+                                    </button>
+                                </form>
+                            </td>   
                         </tr>
-                        @endforeach
-                    <tbody>
-                    </table>
+                    @empty
+                        <div class="alert alert-danger">
+                            Data belum tersedia.
+                        </div>
+                    @endforelse
+                <tbody>
+            </table>
+            {{ $dokumen->links() }}
 
                     <div class="row mt-3">
                     <div class="col-6">

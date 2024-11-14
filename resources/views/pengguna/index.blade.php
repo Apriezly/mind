@@ -14,7 +14,7 @@
             <div class="col-sm-3 my-2">
                 <div class="kategori1 h-100 py-2">
                     <div class="card-body"> 
-                      <a href="{{ url('/data-sekolah') }}">halo</a>
+                      <a href="{{ url('/data') }}">halo</a>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                           </tr>                          
                         </thead>
                         <tbody class="isi-tabel">
-                        @foreach($dokumen as $key => $data)
+                        @forelse ($dokumen as $data)
                           <tr>
                             <td scope="row">{{$data->kegiatan}}</td>
                             <td style="white-space: normal; word-wrap: break-word;">{{$data->deskripsi}}</td>
@@ -99,9 +99,14 @@
                             <td style="white-space: normal; word-wrap: break-word;">{{$data->kategori_id}}</td>
                             <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
                           </tr> 
-                          @endforeach 
+                        @empty
+                          <div class="alert alert-danger">
+                              Data belum tersedia.
+                          </div>
+                        @endforelse 
                         <tbody>
                       </table>
+                      {{ $dokumen->links() }}
 
                       <div class="row mt-3">
                         <div class="col-6">

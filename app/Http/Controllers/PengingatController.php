@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
 class PengingatController extends Controller
 {
     /**
@@ -11,7 +13,9 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        return view('pengingat.index');
+        $dokumen = Dokumen::latest()->paginate(5);
+
+        return view('pengingat.index', compact('dokumen'));
     }
 
     /**
@@ -41,17 +45,34 @@ class PengingatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(string $id): View
     {
-        return view('pengingat.edit');
+        $dokumen = Dokumen::findOrFail($id);
+        return view('pengingat.edit', compact('dokumen'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        $this->validate($request, [
+            // 'set'               => 'required',
+            'ulangi'            => 'required',
+            'waktu'             => 'required',
+            'tipe'              => 'required',
+        ]);
+
+        $dokumen = Dokumen::findOrFail($id);
+
+        $dokumen->update([
+            // 'set'               => $request->set,
+            'ulangi'            => $request->ulangi,
+            'waktu'             => $request->waktu,
+            'tipe'              => $request->tipe
+        ]);
+
+        return redirect()->route('pengingat.index')->with(['success' => 'Pengingat berhasil diatur!']);
     }
 
     /**

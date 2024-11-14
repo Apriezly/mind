@@ -14,33 +14,54 @@
                         <div class="row">
                             <p class="mb-4 judul-form-input">Tambah Data</p>
                         </div>
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="" aoutocomplete="off">
-                            <input type="hidden" name="_method" value="PUT">
+                        <form action="{{ route('data.store') }}" method="POST" enctype="multipart/form-data">
+
+                            @csrf
+
                             <div class="row">
                             <div class="col-6">
                                 <div class="form-group style-input">
                                     <label>Kegiatan</label>
-                                    <input type="text" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value=""  placeholder="">
+
+                                    @error('kegiatan')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Deskripsi</label>
-                                    <textarea name="judul kategori" id class="form-control "  style="height:118px" name="name" value=""  placeholder="">
-                                    </textarea>
+                                    <textarea id class="form-control  @error('deskripsi') is-invalid @enderror"  style="height:118px" name="deskripsi" value=""  placeholder=""></textarea>
+                                    @error('deskripsi')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group style-input">
                                     <label>Waktu</label>
-                                    <input type="datetime-local" id="datetime-local" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="datetime-local" id="datetime-local" class="form-control  @error('expiration_date') is-invalid @enderror" name="expiration_date" value=""  placeholder="">
+                                    @error('expiration_date')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Kategori</label>
-                                    <input type="text" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="text" class="form-control @error('kategori_id') is-invalid @enderror" name="kategori_id" name="kategori_id" value=""  placeholder="">
+                                    @error('kategori_id')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Lampiran (Opsional)</label>
-                                    <input type="file" id="file" class="form-control" name="name" value=""  placeholder="">
+                                    <input type="file" id="file" class="form-control" name="image" value=""  placeholder="">
                                 </div>
                             </div>
 
@@ -55,5 +76,9 @@
         </div>
     </div>
 </div>
+
+<!-- <script>
+    CKEDITOR.replace( 'content' );
+</script> -->
 
 @endsection
