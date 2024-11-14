@@ -17,6 +17,10 @@
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row">
                             <div class="col-6">
+                            <div class="form-group style-input">
+                                <label>Foto Profil</label>
+                                <input type="file" id="file" class="form-control " >
+                            </div>
                                 <div class="form-group style-input">
                                     <label>Nama</label>
                                     <input type="text" class="form-control" name="name" value=""  placeholder="">
@@ -53,5 +57,5 @@
     </div>
 </div>
 
-@endsection
 
+@endsection
