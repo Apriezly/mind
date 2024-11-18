@@ -15,8 +15,8 @@ class ProfilController extends Controller
      * Display a listing of the resource.
      */
     public function index() {
-        $user = User::findOrFail($id);
-        return view('pengguna.profil', compact('user'));
+        // $user = User::findOrFail($id);
+        return view('pengguna.profil');
        
     }
 
