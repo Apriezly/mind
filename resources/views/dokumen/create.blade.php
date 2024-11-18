@@ -52,12 +52,14 @@
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Kategori</label>
-                                    <input type="text" class="form-control @error('kategori_id') is-invalid @enderror" name="kategori_id" name="kategori_id" value=""  placeholder="">
-                                    @error('kategori_id')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    <select class="form-control" name="kategori_id">
+                                        <option value="">-- Kategori --</option>
+                                        @foreach ($kategori as $kategoriID => $judul)
+                                        <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID)>
+                                            {{ $judul }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Lampiran (Opsional)</label>
@@ -68,7 +70,7 @@
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Simpan</button>
                                 <input type="hidden" name="curr_url" value="">
-                                <a href="{{url('/data-sekolah')}}" class="btn btn-md button-batal">Batal</a>
+                                <a href="{{ route('data.index') }}" class="btn btn-md button-batal">Batal</a>
                             </div>
                         </form>
                 </div>

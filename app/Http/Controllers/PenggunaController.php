@@ -11,11 +11,7 @@ class PenggunaController extends Controller
 {
     public function index() {
         $dokumen = Dokumen::latest()->paginate(5);
-
         return view('pengguna.index', compact('dokumen'));
     }
 
-    public function profil() {
-        return view('pengguna.profil');
-    }
 }

@@ -26,12 +26,12 @@
       
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{Auth::user()->image;}}">
+        <img src="">
         <span>&ensp;{{Auth::user()->name}}</span>
         </a>
 
         <div class="mr-3 dropdown-menu dropdown-menu-right shadow animated --grow-in" aria-labelledby="userDropdown"> 
-          <a class="dropdown-item" href="{{ url('/profil') }}">
+          <a class="dropdown-item" href="{{ route('profil.index') }}">
           <img src="{{ asset('/element/setting.svg') }}">
             <span>&ensp;Pengaturan Profil</span>
           </a>

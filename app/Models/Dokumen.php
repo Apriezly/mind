@@ -9,6 +9,8 @@ class Dokumen extends Model
 {
     use HasFactory;
 
+
+    protected $table ="dokumen";
     protected $fillable = [
         'kegiatan',
         'deskripsi',
@@ -19,4 +21,16 @@ class Dokumen extends Model
         'tipe',
         'ulangi',
     ];
+
+    public function kategori(){
+        return $this->belongsTo(Kategori::class);
+    }
+
+    public function pengingat(){
+        return $this->belongsTo(Pengingat::class);
+    }
+
+    // public function user(){
+    //     return $this->hasMany(User::class);
+    // }
 }

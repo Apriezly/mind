@@ -69,7 +69,7 @@
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>
                                 <input type="hidden" name="curr_url" value="">
-                                <a href="{{url('/data-sekolah')}}" class="btn btn-md button-batal">Batal</a>
+                                <a href="{{ route('data.index') }}" class="btn btn-md button-batal">Batal</a>
                             </div>
                         </form>
                 </div>

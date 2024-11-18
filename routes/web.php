@@ -44,18 +44,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/beranda', [PenggunaController::class, 'index']);
     Route::resource('/data', \App\Http\Controllers\DokumenController::class);
     Route::resource('/pengingat', \App\Http\Controllers\PengingatController::class);
+    Route::resource('/kategori', \App\Http\Controllers\KategoriController::class);
+    Route::resource('/profil', \App\Http\Controllers\ProfilController::class);
     Route::get('/kalender', [KalenderController::class, 'index']);
     Route::get('/laporan', [LaporanController::class, 'index']);
     Route::get('/bantuan', [BantuanController::class, 'index']);
     Route::get('/notifikasi', [NotifikasiController::class, 'index']);
     Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);
-    Route::get('/profil', [PenggunaController::class, 'profil']);
 });
-
-
-
-Route::get('/tambahkategori', [KategoriController::class, 'create'])->name('create');
-Route::get('/editkategori', [KategoriController::class, 'edit'])->name('edit');
 
 
 //  jika user belum login

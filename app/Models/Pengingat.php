@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Pengingat extends Model
 {
     use HasFactory;
+    protected $table ="pengingat";
+    protected $fillable = [
+        'document_id',
+        'set_id',
+        'set_custom'
+    ];
+
+    public function dokumen(){
+        return $this->belongsTo(Dokumen::class);
+    }
+
+    public function set(){
+        return $this->belongsTo(Set::class);
+    }
 }

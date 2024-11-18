@@ -11,8 +11,8 @@
       <nav class="pt-5">
         <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{ url('/beranda') }}" class="nav-link {{ in_array(Request::segment(1), ['beranda', 'data-sekolah', 'tambahkategori', 'editkategori', 'tambahdata', 'editdata']) ? 'active-link' : 'nonactive-link'}}">
-            <img src="{{ in_array(Request::segment(1), ['beranda', 'data-sekolah', 'tambahkategori', 'editkategori', 'tambahdata', 'editdata'])? asset('/element/beranda-active.svg') : asset('/element/beranda.svg')}}">
+            <a href="{{ url('/beranda') }}" class="nav-link {{ in_array(Request::segment(1), ['beranda', 'data', 'kategori']) ? 'active-link' : 'nonactive-link'}}">
+            <img src="{{ in_array(Request::segment(1), ['beranda', 'data', 'kategori'])? asset('/element/beranda-active.svg') : asset('/element/beranda.svg')}}">
               <span>&emsp;Beranda</span>
             </a>
           </li>

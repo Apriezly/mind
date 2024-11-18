@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokumens', function (Blueprint $table) {
+        Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori_id')->nullable();
+            $table->integer('kategori_id')->nullable();
             $table->string('kegiatan');
             $table->string('deskripsi');
             $table->time('waktu')->nullable(); //untuk yang di pengingat (waktu mengingatkannya)
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dokumens');
+        Schema::dropIfExists('dokumen');
     }
 };

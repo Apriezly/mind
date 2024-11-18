@@ -18,7 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table="users";
+    protected $table ="user";
+    protected $primaryKey = "id";
     
     protected $fillable = [
         'name',
@@ -50,8 +51,11 @@ class User extends Authenticatable
         'nomor_verified_at' => 'datetime',
     ];
 
-    //inverse one to many ke tabel role
-    // public function role() {
-    //     return $this->belongsTo(Role::class, 'role_id');
+    // public function dokumen(){
+    //     return $this->hasMany(Dokumen::class);
+    // }
+
+    // public function kategori(){
+    //     return $this->hasMany(Kategori::class);
     // }
 }

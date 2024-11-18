@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Kategori;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,16 +18,16 @@ class DokumenController extends Controller
     public function index(): View
     {
         $dokumen = Dokumen::latest()->paginate(5);
-
         return view('dokumen.index', compact('dokumen'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): Response
     {
-        return view('dokumen.create');
+        $kategori = Kategori::orderBy('judul', 'asc')->get()->pluck('judul', 'id');
+        return response(view('dokumen.create', ['kategori' => $kategori]));
     }
 
     /**

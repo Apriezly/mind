@@ -38,13 +38,18 @@
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select id="i_set" class="form-control" name="name" value=""  placeholder="">
-                                            <option value="0" selected></option>
+                                        <select class="form-control" name="id">
+                                            <option value="">-- Set --</option>
+                                            @foreach ($set as $setID => $nama)
+                                            <option value="{{ $setID }}" @selected(old('id') == $setID)>
+                                                {{ $nama }}
+                                            </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Ulangi Setiap</label>
-                                        <select id="i_set" class="form-control " name="name" value=""  placeholder="">
+                                        <select class="form-control" name="name" value=""  placeholder="">
                                             <option value="0" selected></option>
                                         </select>
                                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Set;
+use App\Models\Pengingat;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,6 +49,7 @@ class PengingatController extends Controller
      */
     public function edit(string $id): View
     {
+        $set = Set::orderBy('nama', 'asc')->get()->pluck('nama', 'id');
         $dokumen = Dokumen::findOrFail($id);
         return view('pengingat.edit', compact('dokumen'));
     }

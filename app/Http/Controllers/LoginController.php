@@ -53,7 +53,7 @@ class LoginController extends Controller
     public function register_proses(Request $request){
         $request->validate([
             'name'      => 'required',
-            'email'     => 'required|email|unique:users,email',
+            'email'     => 'required|email|unique:user,email',
             'nomor'     => 'required|numeric|min:11',
             'password'  => 'required|min:6',
             'ulangi_password' => 'required_with:password|same:password|min:6'
@@ -79,4 +79,5 @@ class LoginController extends Controller
             return redirect()->intended('/register')->with('failed', 'Ups! Ada yang salah nih kayaknya 0-0');
         }
     }
+
 }

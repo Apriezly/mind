@@ -10,20 +10,21 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="" aoutocomplete="off">
-                        <input type="hidden" name="_method" value="PUT">
+                        <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
+                        
+                        @csrf
+                        
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group style-input">
                                     <label>Icon</label>
-                                    <input type="file" id="file" class="form-control " name="name" value=""  placeholder="No file choosen">
+                                    <input type="file" id="file" class="form-control " name="image" value=""  placeholder="No file choosen">
                                 </div>
                             </div>
                             <div class="col-sm-12 style-input">
                                 <div class="form-group">
                                     <label>Judul Kategori</label>
-                                    <input type="text" class="form-control " name="name" value=""  placeholder="">
+                                    <input type="text" class="form-control " name="judul" value=""  placeholder="">
                                 </div>
                             </div>
 
