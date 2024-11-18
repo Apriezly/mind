@@ -63,14 +63,14 @@
                     
                      @forelse ($dokumen as $data)
                         <tr>
-                            <td>{{$data->kegiatan}}</td>
-                            <td>{{$data->deskripsi}}</td>
-                            <td>{{$data->created_at}}</td>
-                            <td>{{$data->updated_at}}</td>
+                            <td class="col-2">{{$data->kegiatan}}</td>
+                            <td class="col-4">{{$data->deskripsi}}</td>
+                            <td class="col-2">{{$data->created_at}}</td>
+                            <td class="col-2">{{$data->updated_at}}</td>
                             <!-- <td class="text-center">
                                 <img src="{{ asset('/storage/dokumen/'.$data->image) }}" class="rounded" style="width: 150px">
                             </td> -->
-                            <td>
+                            <td class="col-2">
                                 <form onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('data.destroy', $data->id) }}" method="POST">
                                     <a href="{{ route('data.show', $data->id) }}" class="btn btn-sm button-show">
                                         <img src="{{asset('/element/show.svg')}}" alt="show">
@@ -94,7 +94,7 @@
                     @endforelse
                 <tbody>
             </table>
-            {{ $dokumen->links() }}
+            
 
                     <div class="row mt-3">
                     <div class="col-6">

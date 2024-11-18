@@ -17,7 +17,7 @@ class DokumenController extends Controller
      */
     public function index(): View
     {
-        $dokumen = Dokumen::latest()->paginate(5);
+        $dokumen = Dokumen::all();
         return view('dokumen.index', compact('dokumen'));
     }
 
@@ -51,7 +51,8 @@ class DokumenController extends Controller
             'deskripsi'         => $request->deskripsi,
             'expiration_date'   => $request->expiration_date,
             'kategori_id'       => $request->kategori_id,
-            'image'             => $image->hashName()
+            'image'             => $image->hashName(),
+            'imageasli'         => $request->file('image')->getClientOriginalName(),
         ]);
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
@@ -74,7 +75,8 @@ class DokumenController extends Controller
     public function edit(string $id): View
     {
         $dokumen = Dokumen::findOrFail($id);
-        return view('dokumen.edit', compact('dokumen'));
+        $kategori = Kategori::orderBy('judul', 'asc')->get()->pluck('judul', 'id');
+        return view('dokumen.edit', compact('dokumen', 'kategori'));
     }
 
     /**
@@ -104,7 +106,8 @@ class DokumenController extends Controller
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
-                'image'             => $image->hashName()
+                'image'             => $image->hashName(),
+                'imageasli'         => $request->file('image')->getClientOriginalName(),
             ]);
        
         } else {

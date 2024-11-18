@@ -53,7 +53,14 @@
                                 </div>
                                 <div class="form-group style-input">
                                     <label>Kategori</label>
-                                    <input type="text" class="form-control @error('kategori_id') is-invalid @enderror" name="kategori_id" name="kategori_id" value="{{ old('kategori_id', $dokumen->kategori_id) }}"  placeholder="">
+                                    <select class="form-control" name="kategori_id">
+                                        <option value="">-- Kategori --</option>
+                                        @foreach ($kategori as $kategoriID => $judul)
+                                        <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID)>
+                                            {{ $judul }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                     @error('kategori_id')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}

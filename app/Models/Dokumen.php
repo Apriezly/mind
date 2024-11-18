@@ -20,6 +20,7 @@ class Dokumen extends Model
         'set',
         'tipe',
         'ulangi',
+        'imageasli',
     ];
 
     public function kategori(){

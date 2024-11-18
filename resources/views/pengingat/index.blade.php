@@ -83,7 +83,7 @@
                       @endforelse   
                     <tbody>
                     </table>
-                    {{ $dokumen->links() }}
+                    
 
                     <div class="row mt-3">
                     <div class="col-6">

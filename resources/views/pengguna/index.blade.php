@@ -15,7 +15,6 @@
                       <div class="row mb-3">
                         <div class="col-6">
                           <form action="" method="get" id="sort-form">
-                            <input type="hidden" name="search" value>
                             <div class="form-inline float-left">
                                 <label for="entries" class="mr-2 show se-mind se-mind-color">Show :</label>
                                   <select id="entries" name="entries" class="form-control bg-oren se-mind">
@@ -57,11 +56,13 @@
                         <tbody class="isi-tabel">
                         @forelse ($dokumen as $data)
                           <tr>
-                            <td scope="row">{{$data->kegiatan}}</td>
-                            <td style="white-space: normal; word-wrap: break-word;">{{$data->deskripsi}}</td>
-                            <td>{{$data->expiration_date}}</td>
-                            <td style="white-space: normal; word-wrap: break-word;">{{$data->kategori_id}}</td>
-                            <td style="white-space: normal; word-wrap: break-word;">1 hari lagi</td>
+                            <td scope="row" class="col-2">{{$data->kegiatan}}</td>
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-4">{{$data->deskripsi}}</td>
+                            <td class="col-2">{{$data->expiration_date}}</td>
+                            
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ $data->kategori_id }}</td>
+                            
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">1 hari lagi</td>
                           </tr> 
                         @empty
                           <div class="alert alert-danger">
@@ -70,12 +71,11 @@
                         @endforelse 
                         <tbody>
                       </table>
-                      {{ $dokumen->links() }}
 
                       <div class="row mt-3">
                         <div class="col-6">
                           <div class="form-inline float-left">
-                            <p class="se-mind">1- 10 dari <span class="banyak-data">46 data</span></p>
+                            <p class="se-mind">1 - 10 dari <span class="banyak-data">46 data</span></p>
                           </div>
                         </div>
 

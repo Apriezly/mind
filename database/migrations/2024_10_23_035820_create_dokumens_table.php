@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('waktu')->nullable(); //untuk yang di pengingat (waktu mengingatkannya)
             $table->timestamp('expiration_date'); //tanggal berakhirnya dokumen
             $table->string('image')->nullable();
+            $table->string('imageasli')->nullable();
             $table->string('tipe')->nullable(); //ini yang di pengingat, email dan WA
             $table->string('ulangi')->nullable(); //ini nanti yang diulangi per hari/minggu/lainnya
             $table->timestamps();

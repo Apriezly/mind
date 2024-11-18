@@ -15,7 +15,7 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        $dokumen = Dokumen::latest()->paginate(5);
+        $dokumen = Dokumen::all();
 
         return view('pengingat.index', compact('dokumen'));
     }
