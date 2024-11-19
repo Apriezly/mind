@@ -12,11 +12,14 @@ class PenggunaController extends Controller
 {
     public function index() {
 
-        // $dokumen = Dokumen::latest()->paginate(5);
-        // $kategori = Kategori::orderBy('judul', 'asc')->get()->pluck('judul', 'id');
-        $dokumen = Dokumen::all();
-        // $kategori = Kategori::all();
+        // $dokumen = Dokumen::table('dokumen')
+        //             ->join('kategori', 'kategori_id.column', '=', 'judul.column')
+        //             ->select('kategori_id.column', 'judul.column')
+        //             ->get();
+        $dokumen = Dokumen::with('kategori')->paginate();
         return view('pengguna.index', compact('dokumen'));
+        
+
     }
 
 }

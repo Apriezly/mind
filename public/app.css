@@ -428,3 +428,14 @@ small{
     font-size: 18px;
     font-weight: 400;
 }
+
+.password-icon{
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.password-wrapper{
+    position: relative;
+}

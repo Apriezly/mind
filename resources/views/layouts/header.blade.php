@@ -26,7 +26,7 @@
       
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="" class="">
+        <img src="">
         <span>&ensp;{{Auth::user()->name}}</span>
         </a>
 

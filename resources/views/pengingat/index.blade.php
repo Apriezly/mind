@@ -47,24 +47,35 @@
                     <table class="table table-borderless table-striped" id="dataTable">
                     <thead class="judul-tabel"> 
                       <tr>
-                        <th>Kegiatan</th>
-                        <th>Status</th>
-                        <th>Set</th>
-                        <th>Ulangi Setiap</th>
-                        <th>Selesai</th>
-                        <th>Kirim Via</th>
-                        <th>Atur Pengingat</th>
-                        <th>Aksi</th>
+                        <th class="col-1">Kegiatan</th>
+                        <th class="col-1">Status</th>
+                        <th class="col-1">Waktu</th>
+                        <th class="col-1">Set</th>
+                        <th class="col-2">Ulangi Setiap</th>
+                        <th class="col-1">Selesai</th>
+                        <th class="col-2">Kirim Via</th>
+                        <th class="col-2">Status</th>
+                        <th class="col-1">Aksi</th>
                       </tr>                        
                     </thead>
                     <tbody class="isi-tabel">
                     @forelse ($dokumen as $data)
                         <tr>
                           <td>{{ $data->kegiatan }}</td>
-                          <td>1 hari lagi</td>
-                          <td>2 hari sebelumnya</td>
-                          <td>{{ $data->ulangi }}</td>
+                          <td>
+                            
+                            <?php
+                                $sekarang = new DateTime();
+                                $akhir = new DateTime($data->expiration_date);
+                                $diff = $sekarang->diff($akhir);
+                                echo $diff->days ." hari lagi";
+                            ?>
+
+                          </td>
                           <td>{{ $data->waktu }}</td>
+                          <td> 2 hari sebelumnya</td>
+                          <td>{{ $data->ulangi }}</td>
+                          <td>{{ $data->expiration_date }}</td>
                           <td>{{ $data->tipe }}</td>
                           <td scope="row">
                             <span class="sudah-diatur">Sudah diatur</span>

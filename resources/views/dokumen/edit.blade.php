@@ -54,7 +54,7 @@
                                 <div class="form-group style-input">
                                     <label>Kategori</label>
                                     <select class="form-control" name="kategori_id">
-                                        <option value="">-- Kategori --</option>
+                                        
                                         @foreach ($kategori as $kategoriID => $judul)
                                         <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID)>
                                             {{ $judul }}

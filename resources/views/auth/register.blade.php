@@ -64,11 +64,15 @@
         </div>
       
         <div class="row">
-          <div class="col-12">
-            <div class="checkbox icheck">
-              <small style="color:#FFA363">
-                <input type="checkbox" class="sm-checkbox">  i agree to the terms and conditions
-              </small>
+          <div class="form-group col-12">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input sm-checkbox" id="invalidCheck" required>  
+                <small class="form-check-label" for="invalidCheck" style="color:#FFA363">
+                  I agree to the terms and conditions
+                </small>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
             </div>
           </div>
         </div>

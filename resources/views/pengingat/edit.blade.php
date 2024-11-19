@@ -18,7 +18,7 @@
                                 <div class="col-6">
                                 <div class="form-group style-input">
                                     <label>Kegiatan</label>
-                                        <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  placeholder="">
+                                        <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  id="disabledInput" placeholder="" disabled>
 
                                         @error('kegiatan')
                                         <div class="alert alert-danger mt-2">
@@ -28,18 +28,23 @@
                                 </div>
                                     <div class="form-group style-input">
                                         <label>Status</label>
-                                        <input type="text" class="form-control"  name="name" value="2 hari lagi"  placeholder="">
+                                        <input type="text" class="form-control" placeholder="" name="status" id="disabledInput" value="<?php
+                                            $sekarang = new DateTime();
+                                            $akhir = new DateTime($dokumen->expiration_date);
+                                            $diff = $sekarang->diff($akhir);
+                                            echo $diff->days ." hari lagi";
+                                        ?>" disabled>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Waktu</label>
-                                        <input type="datetime-local" id="datetime-local" class="form-control " name="name" value=""  placeholder="">
+                                        <input type="time" id="time" class="form-control " name="name" value=""  placeholder="">
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Set</label>
                                         <select class="form-control" name="id">
-                                            <option value="">-- Set --</option>
+                                            <option value="">-- Pilih  --</option>
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}" @selected(old('id') == $setID)>
                                                 {{ $nama }}
@@ -55,7 +60,7 @@
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Selesai</label>
-                                        <input type="datetime-local" class="form-control " name="name" value=""  placeholder="">
+                                        <input type="datetime-local" class="form-control" name="waktu" value="{{ old('expiration_date', $dokumen->expiration_date) }}"  placeholder="">
                                     </div>
                                     <div class="form group style-input">
                                         <label>Kirim Via</label>
@@ -92,4 +97,19 @@
 
 
 @endsection
+
+<!-- contoh hitung jarak tanggal
+
+$awal = date_create("1995-11-09");
+$akhir = datecreate();
+$diff = date_diff($awal, $akhir);
+
+echo "Usiaku adalah ";
+echo $diff->y." Tahun ";
+echo $diff->m." Bulan ";
+echo $diff->d." Hari ";
+echo $diff->h." Jam ";
+echo $diff->i." Menit ";
+echo $diff->s." Detik ";
+echo "Total hari : ".$diff->days; -->
 

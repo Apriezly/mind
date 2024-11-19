@@ -49,9 +49,9 @@ class PengingatController extends Controller
      */
     public function edit(string $id): View
     {
-        $set = Set::orderBy('nama', 'asc')->get()->pluck('nama', 'id');
+        $set = Set::get()->pluck('nama', 'id');
         $dokumen = Dokumen::findOrFail($id);
-        return view('pengingat.edit', compact('dokumen'));
+        return view('pengingat.edit', compact('dokumen', 'set'));
     }
 
     /**
@@ -59,23 +59,7 @@ class PengingatController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
-            // 'set'               => 'required',
-            'ulangi'            => 'required',
-            'waktu'             => 'required',
-            'tipe'              => 'required',
-        ]);
-
-        $dokumen = Dokumen::findOrFail($id);
-
-        $dokumen->update([
-            // 'set'               => $request->set,
-            'ulangi'            => $request->ulangi,
-            'waktu'             => $request->waktu,
-            'tipe'              => $request->tipe
-        ]);
-
-        return redirect()->route('pengingat.index')->with(['success' => 'Pengingat berhasil diatur!']);
+        
     }
 
     /**

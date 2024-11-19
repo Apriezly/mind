@@ -17,39 +17,43 @@
                         @csrf
                         @method('PUT')
 
-                            <div class="row">
-                            <div class="col-6">
-                            <div class="form-group style-input">
-                                <label>Foto Profil</label>
-                                <input type="file" id="file" class="form-control" name="image" >
-                            </div>
-                                <div class="form-group style-input">
-                                    <label>Nama</label>
-                                    <input type="text" class="form-control" name="name" value=""  placeholder="">
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="form-group style-input">
+                                        <label>Foto Profil</label>
+                                        <input type="file" id="file" class="form-control" name="image" >
+                                    </div>
+                                    <div class="form-group style-input">
+                                        <label>Nama</label>
+                                        <input type="text" class="form-control" name="name" value="{{ old('name', Auth::user()->name) }}"  placeholder="">
+                                    </div>
+                                    <div class="form-group style-input">
+                                        <label>Email Aktif</label>
+                                        <input type="email" class="form-control" name="email" value="{{ old('email', Auth::user()->email) }}"  placeholder="">
+                                    </div>
+                                    <div class="form-group style-input">
+                                        <label>Nomor WhatsApp Aktif</label>
+                                        <input type="tel" class="form-control" name="nomor" value="{{ old('nomor', Auth::user()->nomor) }}"  placeholder="">
+                                    </div>
                                 </div>
-                                <div class="form-group style-input">
-                                    <label>Email Aktif</label>
-                                    <input type="email" class="form-control" name="email" value=""  placeholder="">
-                                </div>
-                                <div class="form-group style-input">
-                                    <label>Nomor WhatsApp Aktif</label>
-                                    <input type="tel" class="form-control" name="nomor" value=""  placeholder="">
+                                <div class="col-6">
+                                    <div class="form-group style-input">
+                                        <label>Password Lama</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" id="passLama" class="form-control" name="password" value="{{ old('ulangi_password', Auth::user()->ulangi_password) }}"  placeholder="">
+                                            <i id="eyeIconLama" class="fa fa-eye password-icon" onclick="showPass()"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group style-input">
+                                        <label>Password Baru</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" id="passBaru" class="form-control" name="password_baru" value=""  placeholder="">
+                                            <i id="eyeIconBaru" class="fa fa-eye password-icon" onclick="showPassbaru()"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                           <div class="col-6">
-                                <label>Password Lama</label> 
-                                <div class="input-group mb-3">
-                                <input type="password" value="12345678" id="myInput" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                        </div>
-                            <label>Password Baru</label>
-                                <div class="input-group mb-3">
-                                <input type="password" value="12345678" id="myInput" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                            </div>
-                        </div>
-                       
-
+                        
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>
                                 <input type="hidden" name="curr_url" value="">

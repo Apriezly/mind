@@ -60,9 +60,14 @@
                             <td style="white-space: normal; word-wrap: break-word;" class="col-4">{{$data->deskripsi}}</td>
                             <td class="col-2">{{$data->expiration_date}}</td>
                             
-                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ $data->kategori_id }}</td>
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ $data->kategori->judul }}</td>
                             
-                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">1 hari lagi</td>
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-2"><?php
+                                $sekarang = new DateTime();
+                                $akhir = new DateTime($data->expiration_date);
+                                $diff = $sekarang->diff($akhir);
+                                echo $diff->days ." hari lagi";
+                            ?></td>
                           </tr> 
                         @empty
                           <div class="alert alert-danger">
