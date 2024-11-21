@@ -11,6 +11,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title>Mind</title>
 
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="{{ asset('/lte/plugins/fullcalendar/fullcalendar.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('/lte/plugins/fullcalendar/fullcalendar.print.css')}}" media="print">
+  <!-- Data tabel -->
   <link rel="stylesheet" href="{{ asset('/dataTable/datatables.min.css') }}">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('/lte/plugins/font-awesome/css/font-awesome.min.css') }}">
@@ -19,12 +25,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('/app.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <!-- Pesan yg di login -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <!-- bootstrap -->
-   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
+
+
   <!-- icon site -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -50,6 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         @yield('content')
+        
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -60,20 +68,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{{ asset('/lte/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('/lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Slimscroll -->
+<script src="{{ asset('/lte/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{ asset('/lte/plugins/fastclick/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('/lte/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('/lte/dist/js/demo.js')}}"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="{{ asset('/lte/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
+<!-- script buatan sendiri -->
 <script src="{{ asset('/script.js') }}"></script>
 <script src="{{ asset('/lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script> -->
-<!-- jQuery -->
-<script src="{{ asset('/lte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('/lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('/lte/dist/js/adminlte.min.js') }}"></script>
 <!-- @yield('script') -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
         //message with toastr
         @if(session()->has('success'))
@@ -86,6 +105,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             
         @endif
 </script>
+
+
 </body>
 </html>
 
