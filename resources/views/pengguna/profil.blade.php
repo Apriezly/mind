@@ -12,10 +12,11 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('profil.update', Auth::user()) }}" method="POST" enctype="multipart/form-data">
 
                         @csrf
                         @method('PUT')
+                        
 
                             <div class="row mb-3">
                                 <div class="col-6">
@@ -53,10 +54,12 @@
                                     </div>
                                 </div>
                             </div>
-                        
+                            @if($errors->any())
+                                {!! implode('', $errors->all('<div>:message</div>')) !!}
+                            @endif
+
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>
-                                <input type="hidden" name="curr_url" value="">
                                 <a href="{{ route('profil.index') }}" class="btn btn-md button-batal">Batal</a>
                             </div>
                         </form>

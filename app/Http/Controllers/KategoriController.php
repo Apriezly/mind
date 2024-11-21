@@ -35,7 +35,7 @@ class KategoriController extends Controller
     {
         $this->validate($request, [
             'judul'             => 'required',
-            'image'             => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'image'             => 'required|image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
         $image = $request->file('image');
@@ -73,7 +73,7 @@ class KategoriController extends Controller
     {
         $this->validate($request, [
             'judul'          => 'required',
-            'image'          => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'image'          => 'required|image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
         $kategori = Kategori::findOrFail($id);
@@ -83,7 +83,7 @@ class KategoriController extends Controller
             $image = $request->file('image');
             $image->storeAs('public/kategori', $image->hashName());
             
-            Storage::delete('public/kategori/'.$kategori->image);
+            Storage::disk('local')->delete('public/kategori/'. $kategori->image);
 
             $kategori->update([
                 'judul'          => $request->kegiatan,

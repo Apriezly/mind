@@ -8,6 +8,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+// use Laravolt\Avatar\Facade as Avatar;
+// use Intervention\Image\ImageManager;
+// use Intervention\Image\Drivers\Gd\Driver;
 
 class ProfilController extends Controller
 {
@@ -58,13 +61,11 @@ class ProfilController extends Controller
     public function update(Request $request, $id): RedirectResponse
     {
         $this->validate($request, [
-            'image'           => 'image|mimes:jpeg,jpg,png|max:2048',
+            'image'           => 'image|mimes:jpeg,jpg,png|max:10240',
             'name'            => 'required',
-            'email'           => 'required|email|unique:user,email',
+            'email'           => 'required|email',
             'nomor'           => 'required|numeric|min:11',
-            'password'        => 'required|min:6',
-            'ulangi_password' => 'required_with:password|same:password|min:6'
-            
+            'password_baru'        => 'required|min:6',
         ]);
 
         $user = User::findOrFail($id);
@@ -72,31 +73,46 @@ class ProfilController extends Controller
         if ($request->hasFile('image')){
 
             $image = $request->file('image');
-            $image->storeAs('public/profil', $image->hashName());
+            $image->storeAs('public/user', $image->hashName());
+
+            // $imgManager = new ImageManager(new Driver());
             
-            Storage::delete('public/profil/'.$profil->image);
+            // $thumbImage = $imgManager->read('public/user/'.$image);
+
+            // $thumbImage->cover(100, 100);
+
+            // $thumbImage->save(public_path('public/user/thumnails/'.$image));
+
+            // Storage::delete('public/user/'.$user->image);
+            // Storage::delete('public/user/thumnails/'.$user->image);
+
+            Storage::disk('local')->delete('public/user/'.$user->image);
 
             $user->update([
                 'image'      => $image->hashName(),
                 'name'       => $request->name,
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
-                'password'   => bcrypt($request->password),
-                'ulangi_password'    => $request->ulangi_password
+                'password'   => bcrypt($request->password_baru),
+                'ulangi_password'    => $request->password_baru
             ]);
+
+            // Avatar::create($request->name)->save(storage_path(path: 'app/public/avatar-' . $user->id . '.png'));
        
         } else {
             $user->update([
                 'name'       => $request->name,
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
-                'password'   => bcrypt($request->password),
-                'ulangi_password'    => $request->ulangi_password
+                'password'   => bcrypt($request->password_baru),
+                'ulangi_password'    => $request->password_baru
             ]);
         }
 
-        return redirect()->route('pengguna.index')->with(['success' => 'Profil berhasil diubah!']);
+        return redirect()->intended('/beranda')->with(['success' => 'Profil berhasil diubah!']);
+       
     }
+    
 
     /**
      * Remove the specified resource from storage.

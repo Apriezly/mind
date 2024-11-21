@@ -43,7 +43,7 @@
                       </div>
 
                       
-                      <table class="table table-borderless table-striped" id="example2">
+                      <table class="table table-borderless table-striped" id="table">
                         <thead class="judul-tabel"> 
                           <tr>
                               <th>Kegiatan</th>

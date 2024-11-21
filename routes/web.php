@@ -15,6 +15,7 @@ use App\Http\Controllers\SendEmail;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\ProfilController;
 
 
 /*

@@ -40,7 +40,7 @@ class DokumenController extends Controller
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
             'kategori_id'       => 'required',
-            'image'             => 'image|mimes:jpeg,jpg,png|max:2048',
+            'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
         $image = $request->file('image');
@@ -89,7 +89,7 @@ class DokumenController extends Controller
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
             'kategori_id'       => 'required',
-            'image'             => 'image|mimes:jpeg,jpg,png|max:2048',
+            'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
         $dokumen = Dokumen::findOrFail($id);
@@ -99,7 +99,7 @@ class DokumenController extends Controller
             $image = $request->file('image');
             $image->storeAs('public/dokumen', $image->hashName());
             
-            Storage::delete('public/dokumen/'.$dokumen->image);
+            Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
             $dokumen->update([
                 'kegiatan'          => $request->kegiatan,
@@ -129,7 +129,7 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($id);
 
-        Storage::delete('public/dokumen/'. $dokumen->image);
+        Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
         $dokumen->delete();
 
