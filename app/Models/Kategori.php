@@ -11,7 +11,7 @@ class Kategori extends Model
 
     protected $table ="kategori";
     protected $fillable = [
-        // 'user_id',
+        'user_id',
         'image',
         'judul'
     ];
@@ -19,5 +19,9 @@ class Kategori extends Model
 
     public function dokumen(){
         return $this->hasMany(Dokumen::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

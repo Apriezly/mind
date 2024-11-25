@@ -7,6 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class KategoriController extends Controller
@@ -16,8 +18,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Dokumen::latest()->paginate(5);
-        return view('kategori.index', compact('kategori'));
+       
     }
 
     /**
@@ -33,20 +34,48 @@ class KategoriController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        // $kategori = Kategori::count();
+        // $kategori = Kategori::select("SELECT count(*) FROM kategori WHERE user_id = Auth::user()->id");
+        // $kategori = Kategori::select("SELECT * FROM kategori");
+        // $kategori = Kategori::all();
+
+        // $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->count();
+
+        $ktg = Kategori::where('user_id', '=', Auth::user()->id)->get();
+        $kategori = $ktg->count();
+
         $this->validate($request, [
             'judul'             => 'required',
-            'image'             => 'required|image|mimes:jpeg,jpg,png|max:10240',
+            'image'             => 'image|mimes:jpeg,jpg,png,svg|max:10240',
         ]);
 
-        $image = $request->file('image');
-        $image->storeAs('public/kategori', $image->hashName());
+        if ($kategori < 8){
 
-        Kategori::create([
-                'judul'          => $request->judul,
-                'image'          => $image->hashName()
-        ]);
+            if ($request->hasFile('image')){
 
-        return redirect()->intended('/beranda')->with(['success' => 'Kategori berhasil dibuat!']);
+                $image = $request->file('image');
+                $image->storeAs('public/kategori', $image->hashName());
+                
+                Storage::disk('local')->delete('public/kategori/'. $kategori->image);
+    
+                Kategori::create([
+                    'user_id'        => Auth::user()->id,
+                    'judul'          => $request->judul,
+                    'image'          => $image->hashName()
+                ]);
+           
+            } else {
+                Kategori::create([
+                    'user_id'        => Auth::user()->id,
+                    'judul'          => $request->judul,
+                ]);
+            }
+            return redirect()->intended('/beranda')->with(['success' => 'Kategori berhasil dibuat!']);
+
+        }else{
+            return redirect()->back()->with('failed', 'error');   
+        }
     }
 
     /**
@@ -73,7 +102,7 @@ class KategoriController extends Controller
     {
         $this->validate($request, [
             'judul'          => 'required',
-            'image'          => 'required|image|mimes:jpeg,jpg,png|max:10240',
+            'image'          => 'image|mimes:jpeg,jpg,png,svg|max:10240',
         ]);
 
         $kategori = Kategori::findOrFail($id);
@@ -86,24 +115,33 @@ class KategoriController extends Controller
             Storage::disk('local')->delete('public/kategori/'. $kategori->image);
 
             $kategori->update([
-                'judul'          => $request->kegiatan,
+                'user_id'        => Auth::user()->id,
+                'judul'          => $request->judul,
                 'image'          => $image->hashName()
             ]);
        
         } else {
             $kategori->update([
-                'judul'          => $request->kegiatan,
+                'user_id'        => Auth::user()->id,
+                'judul'          => $request->judul,
             ]);
         }
 
-        return redirect()->route('kategori.index')->with(['success' => 'Kategori berhasil diubah!']);
+        return redirect()->intended('/beranda')->with(['success' => 'Kategori berhasil diubah!']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    
+    public function destroy($id): RedirectResponse
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+
+        Storage::disk('local')->delete('public/kategori/'. $kategori->image);
+
+        $kategori->delete();
+
+        return redirect()->intended('/beranda')->with(['success' => 'Data berhasil dihapus!']);
     }
 }

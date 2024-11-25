@@ -4,7 +4,7 @@
     @include('kategori/index')
 
     <div class="container">
-        <div class="container-fluid mb-5">
+        <div class="container-fluid mb-5 mt-5">
             <div class="row">
                 <div class="col-12">
                   <div>
@@ -60,7 +60,7 @@
                             <td style="white-space: normal; word-wrap: break-word;" class="col-4">{{$data->deskripsi}}</td>
                             <td class="col-2">{{$data->expiration_date}}</td>
                             
-                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ $data->kategori->judul }}</td>
+                            <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ ($data->kategori != null) ? $data->kategori->judul : '' }}</td>
                             
                             <td style="white-space: normal; word-wrap: break-word;" class="col-2"><?php
                                 $sekarang = new DateTime();

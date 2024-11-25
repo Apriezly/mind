@@ -66,13 +66,10 @@
         <div class="row">
           <div class="form-group col-12">
             <div class="form-check">
-                <input type="checkbox" class="form-check-input sm-checkbox" id="invalidCheck" required>  
+                <input type="checkbox" class="form-check-input sm-checkbox">  
                 <small class="form-check-label" for="invalidCheck" style="color:#FFA363">
                   I agree to the terms and conditions
                 </small>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
             </div>
           </div>
         </div>

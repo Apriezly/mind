@@ -12,6 +12,7 @@ class Dokumen extends Model
 
     protected $table ="dokumen";
     protected $fillable = [
+        'user_id',
         'kegiatan',
         'deskripsi',
         'expiration_date',
@@ -31,7 +32,7 @@ class Dokumen extends Model
         return $this->belongsTo(Pengingat::class);
     }
 
-    // public function user(){
-    //     return $this->hasMany(User::class);
-    // }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

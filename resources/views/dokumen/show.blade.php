@@ -34,7 +34,7 @@
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <span class="judul-show">Kategori:</span></br>
-                                            <span class="isi-show">{{$dokumen->kategori_id}}</span>
+                                            <span class="isi-show">{{ ($dokumen->kategori != null) ? $dokumen->kategori->judul : '' }}</span>
                                         </div>
                                     </div>
                                     <div class="col-6">

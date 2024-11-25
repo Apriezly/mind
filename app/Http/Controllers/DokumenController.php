@@ -8,6 +8,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class DokumenController extends Controller
@@ -17,7 +19,7 @@ class DokumenController extends Controller
      */
     public function index(): View
     {
-        $dokumen = Dokumen::all();
+        $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->get();
         return view('dokumen.index', compact('dokumen'));
     }
 
@@ -26,7 +28,7 @@ class DokumenController extends Controller
      */
     public function create(): Response
     {
-        $kategori = Kategori::orderBy('judul', 'asc')->get()->pluck('judul', 'id');
+        $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
         return response(view('dokumen.create', ['kategori' => $kategori]));
     }
 
@@ -47,6 +49,7 @@ class DokumenController extends Controller
         $image->storeAs('public/dokumen', $image->hashName());
 
         Dokumen::create([
+            'user_id'           => Auth::user()->id,
             'kegiatan'          => $request->kegiatan,
             'deskripsi'         => $request->deskripsi,
             'expiration_date'   => $request->expiration_date,
@@ -75,7 +78,7 @@ class DokumenController extends Controller
     public function edit(string $id): View
     {
         $dokumen = Dokumen::findOrFail($id);
-        $kategori = Kategori::orderBy('judul', 'asc')->get()->pluck('judul', 'id');
+        $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
         return view('dokumen.edit', compact('dokumen', 'kategori'));
     }
 
@@ -102,6 +105,7 @@ class DokumenController extends Controller
             Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
             $dokumen->update([
+                'user_id'           => Auth::user()->id,
                 'kegiatan'          => $request->kegiatan,
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
@@ -112,6 +116,7 @@ class DokumenController extends Controller
        
         } else {
             $dokumen->update([
+                'user_id'           => Auth::user()->id,
                 'kegiatan'          => $request->kegiatan,
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,

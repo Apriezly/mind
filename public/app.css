@@ -163,15 +163,36 @@ input.sm-checkbox {
 } */
 
 .kategori1{
-    background:#FFA363 !important;
+    background-color:#FFA363 !important;
     border-radius: 16px;
 }
 
 .kategori2{
-    background:#19A177 !important;
+    background-color:#19A177 !important;
     border-radius: 16px;
 }
 
+.tambah-ktg{
+    color: #999999;
+    background-color: white !important;
+    border-radius: 16px;
+    border-color: #999999;
+    border: solid;
+}    
+
+/* div.kategori:nth-child(odd) {
+    background:#FFA363 !important;
+    border-radius: 16px;
+}
+
+div.kategori:nth-child(even) {
+    background:#19A177 !important;
+    border-radius: 16px;
+} */
+ 
+/* #kategori{
+    background:#FFA363 !important, #19A177 !important;
+} */
 
 .active-link {
     background-color: #D1F4F0 !important;
@@ -446,3 +467,70 @@ small{
     object-fit: cover;
     box-shadow: 0px 0px 20px rgba(2, 67, 47, 0.25);
 }
+
+/* Dropdown Button */
+.dropbtn {
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    font-size: 12px !important;
+    display: none;
+    position: absolute;
+    background-color: white;
+    width:70px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: #404040 !important;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: white;
+    border-radius: 4px;
+}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 4px;
+}
+  
+  .text-kategori{
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .icon-kategori{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
+
+  .hapus-kategori{
+    border: none !important;
+    background-color: white;
+    color: #404040;
+
+  }

@@ -22,4 +22,8 @@ class Pengingat extends Model
     public function set(){
         return $this->belongsTo(Set::class);
     }
+
+    // public function user(){
+    //     return $this->belongsTo(User::class);
+    // }
 }

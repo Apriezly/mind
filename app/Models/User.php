@@ -55,7 +55,17 @@ class User extends Authenticatable
     //     return $this->hasMany(Dokumen::class);
     // }
 
-    // public function kategori(){
-    //     return $this->hasMany(Kategori::class);
+    public function kategori(){
+        return $this->hasMany(Kategori::class);
+    }
+
+    // public function pengingat(){
+    //     return $this->hasMany(Pengingat::class);
     // }
+
+    public function dokumen(){
+        return $this->hasMany(Dokumen::class);
+    }
+
+
 }
