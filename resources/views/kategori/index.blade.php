@@ -50,7 +50,16 @@
                         </a>
                         <div class="mt-2" style="font-size:14px; font-weight:500;">
                             <span href="{{ route('kategori.create') }}">Tambah Kategori Baru</span></br>
-                            <span>4 tersisa</span>
+                            <span><?php
+                                
+                                $kategori = $data->count();
+                                $max = 8;
+
+                                $total = $max - $kategori;
+
+                                echo $total ." tersisa";
+
+                            ?></span>
                         </div>
                     </div>
                 </div>
