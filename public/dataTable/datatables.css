@@ -754,7 +754,7 @@ html.dark .dt-container .dt-length select {
   background-color: var(--dt-html-background);
 }
 html.dark .dt-container .dt-paging .dt-paging-button.current, html.dark .dt-container .dt-paging .dt-paging-button.current:hover {
-  border: 1px solid rgb(89, 91, 94);
+  border: 1px solid rgba(89, 91, 94, 0.445);
   background: rgba(255, 255, 255, 0.15);
 }
 html.dark .dt-container .dt-paging .dt-paging-button.disabled, html.dark .dt-container .dt-paging .dt-paging-button.disabled:hover, html.dark .dt-container .dt-paging .dt-paging-button.disabled:active {

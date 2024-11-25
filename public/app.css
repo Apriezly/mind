@@ -340,7 +340,7 @@ small{
     padding: 10px 20px 10px 40px;
   } */
 
-  .search-mind{
+  /* .search-mind{
     font-weight: 400;
     font-size: 12px;
     color: #999999;
@@ -350,6 +350,18 @@ small{
     background-position: 10px 6px; 
     background-repeat: no-repeat;
     padding: 6px 12px 6px 40px;
+  } */
+
+.dt-search{
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: #999999 !important;
+    border-radius: 10px !important;
+    background-color: white !important;
+    background-image: url('/element/search.svg') !important;
+    background-position: 10px 6px !important; 
+    background-repeat: no-repeat !important;
+    padding: 6px 12px 6px 40px !important;
   }
 
   /* .main-header{

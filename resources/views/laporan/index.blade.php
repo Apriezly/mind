@@ -45,15 +45,21 @@
                                 </div>
                             </div>
                         </form>
-
                         <div class="dropdown">
-                            <button class="btn button-simpan dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Download</button>
-                                <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <div class="btn-group">
+                            <button class="btn button-simpan dropdown-toggle" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Download <span class="caret"></span>
+                                    <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Data 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Data 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Data 3</a></li>
                                 </ul>
                         </div>
+                            </button>
+  
+                        
+                              
+               
     
    
                            
