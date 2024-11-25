@@ -5,7 +5,21 @@
         <a class="nav-link" data-widget="pushmenu" data-auto-collapse-size="768" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a style="font-size:14px" class="nav-link">Selamat pagi, {{Auth::user()->name}}!</a>
+        <a style="font-size:14px" class="nav-link"><?php 
+
+          $time = Date('H');
+
+          if ($time >= 1 && $time < 5)
+            echo "Selamat Dini Hari, ". Auth::user()->name."!";
+          else if ($time >= 5 && $time < 11)
+            echo "Selamat Pagi, ". Auth::user()->name."!";
+          else if ($time >= 11 && $time < 14)
+            echo "Selamat Siang, ". Auth::user()->name."!";
+          else if ($time >= 14 && $time < 18)
+            echo "Selamat Sore, ". Auth::user()->name."!";
+          else
+            echo "Selamat Malam, ". Auth::user()->name."!";
+        ?></a>
       </li>
     </ul>
 
