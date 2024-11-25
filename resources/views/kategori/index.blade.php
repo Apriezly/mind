@@ -41,7 +41,7 @@
         
 
         @endforeach
-        <div class="col-sm-3 my-2" id="tambah-ktg">
+        <div class="col-sm-3 my-2 {{count($kategori) == 8 ? 'd-none' : ''}}" id="tambah-ktg">
             <div class="tambah-ktg" style="height:125px;">
                 <div class="card-body"> 
                     <div class="text-center">

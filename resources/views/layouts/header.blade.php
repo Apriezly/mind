@@ -7,11 +7,12 @@
       <li class="nav-item">
         <a style="font-size:14px" class="nav-link"><?php 
 
-          $time = Date('H');
+          $time = date('H');
+          
 
-          if ($time >= 1 && $time < 5)
+          if ($time >= 01 && $time < 05)
             echo "Selamat Dini Hari, ". Auth::user()->name."!";
-          else if ($time >= 5 && $time < 11)
+          else if ($time >= 05 && $time < 11)
             echo "Selamat Pagi, ". Auth::user()->name."!";
           else if ($time >= 11 && $time < 14)
             echo "Selamat Siang, ". Auth::user()->name."!";
