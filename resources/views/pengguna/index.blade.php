@@ -20,7 +20,7 @@
                                   <select id="entries" name="entries" class="form-control bg-oren se-mind">
                                     <option value="10" selected> 10</option>
                                     <option value="25"> 25</option>
-                                    <option value="50"> 50</option>
+                                    <option value="46"> 46</option>
                                     <option value="100"> 100</option>
                                   </select>
                                 <label for="entries" class="ml-2 se-mind se-mind-color">entries</label>
@@ -32,20 +32,19 @@
                             <input type="hidden" name="entries" value>
                               <div class="form-inline float-right">
                                 <div class="input-group">
-                                  <input type="text" name="search" class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
+                                  <input type="text" id="MyTable" onkeyup="myFunction()" name="search" button class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search"  value="" >
                                 </div>
                                 <div class="ml-3">
                                   <img src="{{ asset('/element/filter.svg') }}" alt="filter icon">
                                 </div>
                               </div>
                           </form>
-                        </div>
+                         </div>
                       </div>
 
-                      
-                      <table class="table table-borderless table-striped" id="dataTable">
+                      <table class="table table-borderless table-striped" id="table">
                         <thead class="judul-tabel"> 
-                          <tr>
+                          <tr class="header">
                               <th>Kegiatan</th>
                               <th>Deskripsi</th>
                               <th>Waktu</th>
@@ -68,7 +67,7 @@
                                 $diff = $sekarang->diff($akhir);
                                 echo $diff->days ." hari lagi";
                             ?></td>
-                          </tr> 
+                          </tr>  
                         @empty
                           <div class="alert alert-danger">
                               Data belum tersedia.
@@ -83,18 +82,20 @@
                             <p class="se-mind">1 - 10 dari <span class="banyak-data">46 data</span></p>
                           </div>
                         </div>
+                        
 
-                        <div class="col-6">
+                        
+                          <div class="col-6">
                           <div class="form-inline float-right">
                             <ul class="pagination justify-content-end se-mind">
                               <li class="page-item disabled">
-                                <span class="page-link">Previous</span>
+                              <span class="page-link">Previous</span>
                               </li>
                               <li class="page-item active">
                                 <a class="page-link" href="">1</a>
                               </li>
                               <li class="page-item">
-                                <a class="page-link" href="">2</a>
+                                <a class="page-link" href="" >2</a>
                               </li>
                               <li class="page-item">
                                 <a class="page-link" href="">3</a>
@@ -111,6 +112,13 @@
                             </ul>
                           </div>
                         </div>
+
+                        
+                       
+                        
+    
+   
+ 
 
                            
                       </div>

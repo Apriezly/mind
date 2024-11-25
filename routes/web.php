@@ -18,6 +18,7 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\ProfilController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/bantuan', [BantuanController::class, 'index']);
     Route::get('/notifikasi', [NotifikasiController::class, 'index']);
     Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);
+    Route::get('/pengguna', [PenggunaController::class, 'search'])->name('dokumen.search');
 });
 
 
@@ -81,6 +83,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::get('/test', [LayoutsController::class, 'index']);
 Route::get('/send-email', [SendEmail::class, 'index']);
+
 
 
 

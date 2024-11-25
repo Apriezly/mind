@@ -86,8 +86,7 @@
                     <li><a class="text-primary" href="#"><i class="fa fa-square"></i></a></li>
                     <li><a class="text-warning" href="#"><i class="fa fa-square"></i></a></li>
                     <li><a class="text-success" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-danger" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                    
                   </ul>
                 </div>
                 <!-- /btn-group -->
@@ -104,7 +103,7 @@
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-md-8">
+          <div class="col-md-9">
             <div class="card card-primary">
               <div class="card-body p-0">
                 <!-- THE CALENDAR -->
@@ -316,3 +315,5 @@
 </script>
 </body>
 </html>
+</form>
+                       

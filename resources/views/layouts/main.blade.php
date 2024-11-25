@@ -13,7 +13,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Data tabel -->
-  <link rel="stylesheet" href="{{ asset('/dataTable/datatables.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('/dataTable/datatables.min.css') }}"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+  
+
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('/lte/plugins/font-awesome/css/font-awesome.min.css') }}">
   <!-- Theme style -->
@@ -71,7 +75,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/lte/dist/js/adminlte.min.js')}}"></script>
 <!-- script buatan sendiri -->
 <script src="{{ asset('/script.js') }}"></script>
-<script src="{{ asset('/lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<!-- <script src="{{ asset('/lte/plugins/datatables/jquery.dataTables.min.js')}}"></script> -->
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -88,7 +93,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             
         @endif
 </script>
-
 
 </body>
 </html>
