@@ -52,7 +52,7 @@
                             <span href="{{ route('kategori.create') }}">Tambah Kategori Baru</span></br>
                             <span><?php
                                 
-                                $kategori = $data->count();
+                                $kategori = $kategori->count();
                                 $max = 8;
 
                                 $total = $max - $kategori;
