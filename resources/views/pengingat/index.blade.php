@@ -48,13 +48,13 @@
                     <thead class="judul-tabel"> 
                       <tr>
                         <th class="col-1">Kegiatan</th>
-                        <th class="col-1">Status</th>
+                        <th class="col-2">Status</th>
                         <th class="col-1">Waktu</th>
                         <th class="col-1">Set</th>
                         <th class="col-2">Ulangi Setiap</th>
                         <th class="col-1">Selesai</th>
-                        <th class="col-2">Kirim Via</th>
-                        <th class="col-2">Status</th>
+                        <th class="col-1">Kirim Via</th>
+                        <th class="col-2">Info</th>
                         <th class="col-1">Aksi</th>
                       </tr>                        
                     </thead>
@@ -63,14 +63,46 @@
                         <tr>
                           <td>{{ $data->kegiatan }}</td>
                           <td>
-                            
                             <?php
                                 $sekarang = new DateTime();
                                 $akhir = new DateTime($data->expiration_date);
                                 $diff = $sekarang->diff($akhir);
-                                echo $diff->days ." hari lagi";
+
+                                if($diff->days > 3)
+                                  echo $diff->days ." hari lagi";
+                                else if($diff->days > 0 && $diff->days < 3)
+                                  echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
+                                else if($diff->days == 0 && $diff->h > 00)
+                                  echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
+                                else if($diff->days == 0 && $diff->h == 00 && $diff->i > 00)
+                                  echo "<span style='color: #F56E6B'>$diff->m menit lagi</span>";
+                                else if($diff->days == 0 && $diff->h == 00 && $diff->i == 00 && $diff->s > 00)
+                                  echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
+                                else if($diff->days == 0 && $diff->h == 00 && $diff->i == 00 && $diff->s == 0)
+                                  echo "";
                             ?>
 
+                            <script>
+                                const countdownDate = new Date($data->expiration_date).getTime();
+
+                                const x = setInterval(function() {
+
+                                  const now = new Date().getTime();
+
+                                  const distance = countdownDate - now;
+
+                                  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                  // document.getElementById("days").innerHTML = days;
+                                  // document.getElementById("hours").innerHTML = hours;
+                                  // document.getElementById("minutes").innerHTML = minutes;
+                                  // document.getElementById("seconds").innerHTML = seconds;
+
+                                }, 1000);                                  
+                            </script>
                           </td>
                           <td>{{ $data->waktu }}</td>
                           <td> 2 hari sebelumnya</td>

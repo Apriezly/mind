@@ -8,6 +8,8 @@ use App\Models\Pengingat;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class PengingatController extends Controller
 {
     /**
@@ -15,8 +17,7 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        $dokumen = Dokumen::all();
-
+        $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
         return view('pengingat.index', compact('dokumen'));
     }
 

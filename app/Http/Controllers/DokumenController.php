@@ -19,7 +19,7 @@ class DokumenController extends Controller
      */
     public function index(): View
     {
-        $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->get();
+        $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
         return view('dokumen.index', compact('dokumen'));
     }
 
