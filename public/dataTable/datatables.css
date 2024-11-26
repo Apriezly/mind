@@ -585,7 +585,7 @@ div.dt-container div.dt-layout-table > div {
   display: block !important;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px){
   div.dt-container div.dt-layout-start > *:not(:last-child) {
     margin-right: 0;
   }
@@ -634,8 +634,8 @@ div.dt-container .dt-paging .dt-paging-button {
 }
 div.dt-container .dt-paging .dt-paging-button.current, div.dt-container .dt-paging .dt-paging-button.current:hover {
   color: inherit !important;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(230, 230, 230, 0.05);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230, 230, 230, 0.05)), color-stop(100%, rgba(0, 0, 0, 0.05))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, rgba(230, 230, 230, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%); /* Chrome10+,Safari5.1+ */
   background: -moz-linear-gradient(top, rgba(230, 230, 230, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%); /* FF3.6+ */
@@ -659,7 +659,7 @@ div.dt-container .dt-paging .dt-paging-button:hover {
   background: -moz-linear-gradient(top, #585858 0%, #111 100%); /* FF3.6+ */
   background: -ms-linear-gradient(top, #585858 0%, #111 100%); /* IE10+ */
   background: -o-linear-gradient(top, #585858 0%, #111 100%); /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #585858 0%, #111 100%); /* W3C */
+  background: linear-gradient(to bottom, #585858 0%, #111 100%);/* W3C */
 }
 div.dt-container .dt-paging .dt-paging-button:active {
   outline: none;
@@ -751,7 +751,7 @@ html.dark .dt-container.dt-empty-footer table.dataTable {
 html.dark .dt-container .dt-search input,
 html.dark .dt-container .dt-length select {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: var(--dt-html-background);
+  background-color: var(--dt-html-background); 
 }
 html.dark .dt-container .dt-paging .dt-paging-button.current, html.dark .dt-container .dt-paging .dt-paging-button.current:hover {
   border: 1px solid rgba(89, 91, 94, 0.445);

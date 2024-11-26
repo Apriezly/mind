@@ -10,9 +10,9 @@
                   <div>
                     <p class="mb-4 judul-utama">Daftar Kadarluarsa</p>
                   </div>
-                  <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
-                    <div class="card-body">
-                      <div class="row mb-3">
+                 <!-- <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
+                    <div class="card-body"> -->
+                      <!--<div class="row mb-3">
                         <div class="col-6">
                           <form action="" method="get" id="sort-form">
                             <div class="form-inline float-left">
@@ -26,13 +26,13 @@
                                 <label for="entries" class="ml-2 se-mind se-mind-color">entries</label>
                             </div>
                           </form>
-                        </div>
-                        <div class="col-6">
+                        </div> -->
+                       <!-- <div class="col-6">
                           <form action="" method="get">
                             <input type="hidden" name="entries" value>
                               <div class="form-inline float-right">
-                                <div class="input-group">
-                                  <input type="text" id="MyTable" onkeyup="myFunction()" name="search" button class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search"  value="" >
+                                <div class="input-group"> -->
+                                 <!-- <input type="text" id="MyTable" onkeyup="myFunction()" > <!--name="search" button class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search"  value="" > -->
                                 </div>
                                 <div class="ml-3">
                                   <img src="{{ asset('/element/filter.svg') }}" alt="filter icon">
@@ -41,8 +41,7 @@
                           </form>
                          </div>
                       </div>
-
-                      <table class="table table-borderless table-striped" id="table">
+                      <table class="table table-borderless table-striped" id="table" style="width:100%">
                         <thead class="judul-tabel"> 
                           <tr class="header">
                               <th>Kegiatan</th>
@@ -76,7 +75,7 @@
                         <tbody>
                       </table>
 
-                      <div class="row mt-3">
+                     <!-- <div class="row mt-3">
                         <div class="col-6">
                           <div class="form-inline float-left">
                             <p class="se-mind">1 - 10 dari <span class="banyak-data">46 data</span></p>
@@ -111,12 +110,13 @@
                               </li>
                             </ul>
                           </div>
-                        </div>
+                        </div> -->
 
                         
                        
                         
-    
+                       
+        
    
  
 
@@ -124,7 +124,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+</div>
             </div>
         </div>
     </div>                                                     
