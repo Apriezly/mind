@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('document_id');
             $table->integer('set_id');
-            $table->timestamp('set_custom');
+            $table->timestamp('set_custom')->nullable();
             $table->timestamps();
         });
     }

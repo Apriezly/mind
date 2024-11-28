@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('imageasli')->nullable();
             $table->string('tipe')->nullable(); //ini yang di pengingat, email dan WA
-            $table->string('ulangi')->nullable(); //ini nanti yang diulangi per hari/minggu/lainnya
+            // $table->string('ulangi')->nullable(); //ini nanti yang diulangi per hari/minggu/lainnya
             $table->timestamps();
         });
     }

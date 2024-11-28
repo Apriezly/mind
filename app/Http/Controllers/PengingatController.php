@@ -60,7 +60,39 @@ class PengingatController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
+        $this->validate($request, [
+            'waktu'             => 'required',
+            'set'               => 'required',
+            // 'ulangi'            => 'required',
+            'tipe'              => 'required',
+        ]);
+
+        $dokumen = Dokumen::findOrFail($id);
+
+        $dokumen->update([
+            'waktu'             => $request->waktu,
+            // 'ulangi'            => $request->ulangi,
+            'tipe'              => $request->tipe,
+        ]);
         
+        if ($request->has($pengingat('id'))){
+            $pengingat = Pengingat::findOrFail($id);
+
+            $pengingat->update([
+                'document_id'       => $request->dokumen('id'),
+                'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
+            ]);
+        }else{
+            Pengingat::create([
+                'document_id'       => $request->dokumen('id'),
+                'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
+    
+            ]);  
+        }
+
+        return redirect()->route('pengingat.index')->with(['success' => 'Pengingat berhasil diatur']);
     }
 
     /**
@@ -68,6 +100,10 @@ class PengingatController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pengingat = Dokumen::findOrFail($id);
+
+        $pengingat->delete();
+
+        return redirect()->route('pengingat.index')->with(['success' => 'Data berhasil dihapus!']);
     }
 }

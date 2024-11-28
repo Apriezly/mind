@@ -32,7 +32,7 @@ function showPassbaru() {
       "paging": true,
       "lengthChange": true,
       "searching": true,
-      "ordering": true,
+      "ordering": false,
       "info": true,
       "autoWidth": false
     });
@@ -60,7 +60,7 @@ function showPassbaru() {
     }
   }
 
-const countdownDate = new Date("DES 30, 2024 00:00:00").getTime();
+const countdownDate = new Date("FEB 17, 2025 00:00:00").getTime();
 
 const x = setInterval(function() {
 
@@ -80,4 +80,3 @@ const x = setInterval(function() {
 
 }, 1000);
 
-document.write(seconds);

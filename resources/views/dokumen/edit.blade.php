@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group style-input">
-                                    <label>Waktu</label>
+                                    <label>Tanggal Pelaksanaan</label>
                                     <input type="datetime-local" id="datetime-local" class="form-control  @error('expiration_date') is-invalid @enderror" name="expiration_date" value="{{ old('expiration_date', $dokumen->expiration_date) }}"  placeholder="">
                                     @error('expiration_date')
                                     <div class="alert alert-danger mt-2">

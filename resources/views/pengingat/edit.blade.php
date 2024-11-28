@@ -1,6 +1,7 @@
 @extends('layouts/main')
 
 
+
 @section('content')
 <div class="container">
     <div class="container-fluid mb-5">
@@ -16,16 +17,16 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-6">
-                                <div class="form-group style-input">
-                                    <label>Kegiatan</label>
-                                        <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  id="disabledInput" placeholder="" disabled>
+                                    <div class="form-group style-input">
+                                        <label>Kegiatan</label>
+                                            <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  id="disabledInput" placeholder="" disabled>
 
-                                        @error('kegiatan')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                </div>
+                                            @error('kegiatan')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                    </div>
                                     <div class="form-group style-input">
                                         <label>Status</label>
                                         <input type="text" class="form-control" placeholder="" name="status" id="disabledInput" value="<?php
@@ -35,37 +36,36 @@
                                             echo $diff->days ." hari lagi";
                                         ?>" disabled>
                                     </div>
+                                    
+                                    <div class="form-group style-input">
+                                        <label>Selesai</label>
+                                        <input type="datetime-local" class="form-control" name="selesai" value="{{ old('expiration_date', $dokumen->expiration_date) }}"  placeholder="" id="disabledInput" disabled>
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Waktu</label>
-                                        <input type="time" id="time" class="form-control " name="name" value=""  placeholder="">
+                                        <input type="time" id="time" class="form-control " name="waktu" value=""  placeholder="" style="height:35px">
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select class="form-control" name="id">
-                                            <option value="">-- Pilih  --</option>
+                                        <select class="form-control" placeholder="-- Pilih --" id="set" multiple>
                                             @foreach ($set as $setID => $nama)
-                                            <option value="{{ $setID }}" @selected(old('id') == $setID)>
+                                            <option name="set" value="{{ $setID }}" @selected(old('id') == $setID)>
                                                 {{ $nama }}
                                             </option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group style-input">
+                                    <!-- <div class="form-group style-input">
                                         <label>Ulangi Setiap</label>
-                                        <select class="form-control" name="name" value=""  placeholder="">
+                                        <select class="form-control" name="ulangi" value=""  placeholder="">
                                             <option value="0" selected></option>
                                         </select>
-                                    </div>
-                                    <div class="form-group style-input">
-                                        <label>Selesai</label>
-                                        <input type="datetime-local" class="form-control" name="waktu" value="{{ old('expiration_date', $dokumen->expiration_date) }}"  placeholder="">
-                                    </div>
+                                    </div> -->
                                     <div class="form group style-input">
                                         <label>Kirim Via</label>
-                                        <legend class="col-form-label col-sm-2 pt-0">
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-10" name="tipe">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                                                     <label class="form-check-label" for="gridRadios1">Email</label>
@@ -75,12 +75,11 @@
                                                     <label class="form-check-label" for="gridRadios2">Whatsapp</label>
                                                 </div>
                                             </div>
-                                        </legend>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="row">
+                            <div class="row mt-2">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-md button-simpan">Simpan</button>
                                     <input type="hidden" name="curr_url" value="">

@@ -20,7 +20,7 @@ class Dokumen extends Model
         'image',
         'set',
         'tipe',
-        'ulangi',
+        // 'ulangi',
         'imageasli',
     ];
 
