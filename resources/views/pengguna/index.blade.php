@@ -33,14 +33,14 @@
                               <div class="form-inline float-right">
                                 <div class="input-group"> -->
                                  <!-- <input type="text" id="MyTable" onkeyup="myFunction()" > <!--name="search" button class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search"  value="" > -->
-                                </div>
+                                <!--</div>
                                 <div class="ml-3">
                                   <img src="{{ asset('/element/filter.svg') }}" alt="filter icon">
                                 </div>
                               </div>
                           </form>
                          </div>
-                      </div>
+                      </div> -->
                       <table class="table table-borderless table-striped" id="table" style="width:100%">
                         <thead class="judul-tabel"> 
                           <tr class="header">
@@ -124,10 +124,16 @@
                       </div>
                     </div>
                   </div>
-</div>
+              </div>
             </div>
         </div>
-    </div>                                                     
+    </div> 
+    
+    
+                      
+        
+        
+
 @endsection
 
                                    
