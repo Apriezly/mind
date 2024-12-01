@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Models\Relasi;
 use App\Models\Set;
 use App\Models\Pengingat;
 use Illuminate\View\View;
@@ -62,35 +63,40 @@ class PengingatController extends Controller
     {
         $this->validate($request, [
             'waktu'             => 'required',
-            'set'               => 'required',
-            // 'ulangi'            => 'required',
-            'tipe'              => 'required',
+            // 'set'               => 'required',
+            // 'tipe'              => 'required',
         ]);
 
         $dokumen = Dokumen::findOrFail($id);
 
         $dokumen->update([
             'waktu'             => $request->waktu,
-            // 'ulangi'            => $request->ulangi,
-            'tipe'              => $request->tipe,
+            // 'tipe'              => $request->tipe,
+        ]);
+
+        Pengingat::create([
+            'document_id'       => $request->dokumen()->id,
         ]);
         
-        if ($request->has($pengingat('id'))){
-            $pengingat = Pengingat::findOrFail($id);
-
-            $pengingat->update([
-                'document_id'       => $request->dokumen('id'),
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
-            ]);
-        }else{
-            Pengingat::create([
-                'document_id'       => $request->dokumen('id'),
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
+        // if ($request->has($pengingat('id'))){
+        //     $pengingat->update([
+        //         'document_id'       => $request->dokumen('id'),
+        //         // 'set'               => $request->set,
+        //     ]);
+        // }else{
+        //     Pengingat::create([
+        //         'document_id'       => $request->dokumen('id'),
+        //         // 'set'               => $request->set,
     
-            ]);  
-        }
+        //     ]);  
+        // }
+
+        Relasi::create([
+            'document_id'   => $request->dokumen('id'),
+            'set_id'        => $request->set,
+        ]);
+        
+        dd();exit;
 
         return redirect()->route('pengingat.index')->with(['success' => 'Pengingat berhasil diatur']);
     }

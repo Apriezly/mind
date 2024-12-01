@@ -54,14 +54,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div>
-        <div id="days"></div>
-        <div id="hours"></div>
-        <div id="minutes"></div>
-        <div id="seconds"></div>
-    </div>
+    </div>      
 
     
 @endsection

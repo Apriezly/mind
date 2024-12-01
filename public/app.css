@@ -250,6 +250,12 @@ small{
     color: #404040;
 }
 
+.selectpicker{
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    color: #404040 !important;
+}
+
 .button-simpan{
     background-color: #19A177;
     color: white;
@@ -373,7 +379,7 @@ small{
     padding: 6px 12px 6px 40px;
   } */
 
-.dt-search{
+.search-{
     font-weight: 400 !important;
     font-size: 12px !important;
     color: #999999 !important;
@@ -547,3 +553,6 @@ small{
 
   }
 
+  /* input{
+    text-transform: capitalize;
+  } */
