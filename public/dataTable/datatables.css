@@ -771,6 +771,7 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
 /*
  * Overrides for RTL support
  */
+
 *[dir=rtl] table.dataTable thead th,
 *[dir=rtl] table.dataTable thead td,
 *[dir=rtl] table.dataTable tfoot th,

@@ -13,8 +13,9 @@
                         <div class="row">
                             <p class="mb-4 judul-form-input">Cara Menambah Data</p>
 
- 
-                              
+                          
+                            <!doctype html>
+                            
                       
                               
 
