@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Dokumen extends Model
 {
@@ -28,8 +29,8 @@ class Dokumen extends Model
         return $this->belongsTo(Kategori::class);
     }
 
-    public function pengingat(){
-        return $this->belongsTo(Pengingat::class);
+    public function pengingat() : BelongsToMany{
+        return $this->belongsToMany(Pengingat::class);
     }
 
     public function user(){

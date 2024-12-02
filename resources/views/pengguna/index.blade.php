@@ -66,7 +66,20 @@
                                 $sekarang = new DateTime();
                                 $akhir = new DateTime($data->expiration_date);
                                 $diff = $sekarang->diff($akhir);
-                                echo $diff->days ." hari lagi";
+
+                                if(strtotime(strval($data->expiration_date)) < strtotime("now"))
+                                  echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
+                                else
+                                  if($diff->days > 3)
+                                    echo $diff->days ." hari lagi";
+                                  else if($diff->days > 0 && $diff->days < 3)
+                                    echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
+                                  else if($diff->days == 0 && $diff->h > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
+                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->i menit lagi</span>";
+                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
                             ?></td>
                           </tr>  
                         @empty

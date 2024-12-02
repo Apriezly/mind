@@ -83,10 +83,10 @@
 
                           </td>
                           <td>{{ $data->expiration_date }}</td>
-                          <td>{{ $data->waktu }}</td>
-                          <td>2 hari sebelumnya</td>
+                          <td>{{ ($data->waktu != null) ? $data->waktu : '' }}</td>
+                          <td></td>
                           <!-- <td>{{ $data->ulangi }}</td> -->
-                          <td>{{ $data->tipe }}</td>
+                          <td>{{ ($data->tipe != null) ? $data->tipe : '' }}</td>
                           <td scope="row">
                             <?php
                               if($data->waktu != null && $data->tipe != null){

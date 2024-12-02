@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                    <p class="mb-4 judul">Pengingat - Atur Pengingat</p>
+                    <a href="{{ route('pengingat.index') }}" class="mb-4 judul">Pengingat - Atur Pengingat</a>
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
@@ -45,14 +45,14 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Waktu</label>
-                                        <input type="time" id="time" class="form-control " name="waktu" value=""  placeholder="" style="height:35px">
+                                        <input type="time" id="time" class="form-control" name="waktu" placeholder="" style="height:35px">
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Set</label>
                                         <!-- <select class="form-control" multiple title="-- Pilih --" data-size="5" data-dropup-auto="false" id="set"> -->
-                                        <select class="form-control" multiple id="set">
+                                        <select class="form-control" multiple id="set" name="set[]">
                                             @foreach ($set as $setID => $nama)
-                                            <option name="set" value="{{ $setID }}" @selected(old('id') == $setID)>
+                                            <option value="{{ $setID }}" @selected(old('id') == $setID)>
                                                 {{ $nama }}
                                             </option>
                                             @endforeach
@@ -60,14 +60,14 @@
                                     </div>
                                     <div class="form group style-input">
                                         <label>Kirim Via</label>
-                                            <div class="col-sm-10" name="tipe">
+                                            <div class="col-sm-10">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Email" checked>
-                                                    <label class="form-check-label" for="gridRadios1">Email</label>
+                                                    <input class="form-check-input" type="radio" name="tipe" value="Email">
+                                                    <label class="form-check-label">Email</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                                    <label class="form-check-label" for="gridRadios2">Whatsapp</label>
+                                                    <input class="form-check-input" type="radio" name="tipe" value="WhatsApp">
+                                                    <label class="form-check-label">WhatsApp</label>
                                                 </div>
                                             </div>
                                     </div>

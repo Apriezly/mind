@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Pengingat extends Model
 {
@@ -15,11 +16,11 @@ class Pengingat extends Model
         'set_custom'
     ];
 
-    public function dokumen(){
-        return $this->belongsTo(Dokumen::class);
+    public function dokumen() : BelongsToMany{
+        return $this->belongsToMany(Dokumen::class);
     }
 
-    public function set(){
+    public function set(){ 
         return $this->belongsTo(Set::class);
     }
 
