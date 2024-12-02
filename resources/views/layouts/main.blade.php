@@ -13,11 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Data tabel -->
-  <!-- <link rel="stylesheet" href="{{ asset('/dataTable/datatables.min.css') }}"> -->
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
-  
-
-
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('/lte/plugins/font-awesome/css/font-awesome.min.css') }}">
   <!-- Theme style -->
@@ -29,6 +25,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- <link rel="stylesheet" href="{{ asset('multiple/dist/virtual-select.min.css')}}"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+   <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
+
+
 
   <!-- icon site -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
@@ -76,9 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/lte/dist/js/adminlte.min.js')}}"></script>
 <!-- script buatan sendiri -->
 <script src="{{ asset('/script.js') }}"></script>
-<!-- <script src="{{ asset('/lte/plugins/datatables/jquery.dataTables.min.js')}}"></script> -->
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-<script src="{{ asset('plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <!-- <script src="{{ asset('multiple/dist/virtual-select.min.js')}}"></script> -->
@@ -87,10 +85,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             ele: '#multipleSelect'
         });
 </script> -->
-<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script>
-    new MultiSelectTag('set')
-</script>
+    $('select').selectpicker();
+</script> -->
 <script>
         //message with toastr
         @if(session()->has('success'))

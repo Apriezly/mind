@@ -45,18 +45,31 @@ class DokumenController extends Controller
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
-        $image = $request->file('image');
-        $image->storeAs('public/dokumen', $image->hashName());
+        if ($request->hasFile('image')){
 
-        Dokumen::create([
-            'user_id'           => Auth::user()->id,
-            'kegiatan'          => $request->kegiatan,
-            'deskripsi'         => $request->deskripsi,
-            'expiration_date'   => $request->expiration_date,
-            'kategori_id'       => $request->kategori_id,
-            'image'             => $image->hashName(),
-            'imageasli'         => $request->file('image')->getClientOriginalName(),
-        ]);
+            $image = $request->file('image');
+            $image->storeAs('public/dokumen', $image->hashName());
+
+            Dokumen::create([
+                'user_id'           => Auth::user()->id,
+                'kegiatan'          => $request->kegiatan,
+                'deskripsi'         => $request->deskripsi,
+                'expiration_date'   => $request->expiration_date,
+                'kategori_id'       => $request->kategori_id,
+                'image'             => $image->hashName(),  
+                'imageasli'         => $request->file('image')->getClientOriginalName(),
+            ]);
+       
+        } else {
+            Dokumen::create([
+                'user_id'           => Auth::user()->id,
+                'kegiatan'          => $request->kegiatan,
+                'deskripsi'         => $request->deskripsi,
+                'expiration_date'   => $request->expiration_date,
+                'kategori_id'       => $request->kategori_id,
+            ]);
+        }
+        
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
     }

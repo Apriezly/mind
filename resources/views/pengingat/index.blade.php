@@ -8,11 +8,12 @@
             <div class="col-12">
                 <div>
                 <p class="mb-4 judul">Pengingat</p>
+
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                 <div class="card-body">
                     
-                <div class="row mb-3">
+                <div class="row mb-3">  
                         <div class="col-6">
                           <form action="" method="get" id="sort-form">
                             <input type="hidden" name="search" value>
@@ -29,17 +30,14 @@
                           </form>
                         </div>
                         <div class="col-6">
-                          <form action="" method="get">
-                            <input type="hidden" name="entries" value>
                               <div class="form-inline float-right">
-                                <div class="input-group">
-                                  <input type="text" name="search" class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off" value>
-                                </div>
+                                  <div class="input-group">
+                                    <input type="text" name="search" id="input-search" class="form-control search-mind border-1 small hover:border-primary" placeholder="Cari data...">
+                                  </div>
                                 <div class="ml-3">
                                   <img src="{{ asset('/element/filter.svg') }}" alt="filter icon">
                                 </div>
                               </div>
-                          </form>
                         </div>
                       </div>
 
@@ -47,15 +45,15 @@
                     <table class="table table-borderless table-striped" id="dataTable">
                     <thead class="judul-tabel"> 
                       <tr>
-                        <th class="col-1">Kegiatan</th>
-                        <th class="col-2">Status</th>
-                        <th class="col-1">Waktu</th>
-                        <th class="col-1">Set</th>
-                        <th class="col-2">Ulangi Setiap</th>
-                        <th class="col-1">Selesai</th>
-                        <th class="col-1">Kirim Via</th>
-                        <th class="col-2">Info</th>
-                        <th class="col-1">Aksi</th>
+                        <th>Kegiatan</th>
+                        <th>Status</th>
+                        <th>Selesai</th>
+                        <th>Waktu</th>
+                        <th>Set</th>
+                        <!-- <th class="col-2">Ulangi Setiap</th> -->
+                        <th>Kirim Via</th>
+                        <th>Info</th>
+                        <th>Aksi</th>
                       </tr>                        
                     </thead>
                     <tbody class="isi-tabel">
@@ -68,49 +66,35 @@
                                 $akhir = new DateTime($data->expiration_date);
                                 $diff = $sekarang->diff($akhir);
 
-                                if($diff->days > 3)
-                                  echo $diff->days ." hari lagi";
-                                else if($diff->days > 0 && $diff->days < 3)
-                                  echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
-                                else if($diff->days == 0 && $diff->h > 00)
-                                  echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
-                                else if($diff->days == 0 && $diff->h == 00 && $diff->i > 00)
-                                  echo "<span style='color: #F56E6B'>$diff->m menit lagi</span>";
-                                else if($diff->days == 0 && $diff->h == 00 && $diff->i == 00 && $diff->s > 00)
-                                  echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
-                                else if($diff->days == 0 && $diff->h == 00 && $diff->i == 00 && $diff->s == 0)
-                                  echo "";
+                                if(strtotime(strval($data->expiration_date)) < strtotime("now"))
+                                  echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
+                                else
+                                  if($diff->days > 3)
+                                    echo $diff->days ." hari lagi";
+                                  else if($diff->days > 0 && $diff->days < 3)
+                                    echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
+                                  else if($diff->days == 0 && $diff->h > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
+                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->i menit lagi</span>";
+                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
+                                    echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
                             ?>
 
-                            <!-- <script>
-                                const countdownDate = new Date($data->expiration_date).getTime();
-
-                                const x = setInterval(function() {
-
-                                  const now = new Date().getTime();
-
-                                  const distance = countdownDate - now;
-
-                                  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                                  document.getElementById("days").innerHTML = days;
-                                  document.getElementById("hours").innerHTML = hours;
-                                  document.getElementById("minutes").innerHTML = minutes;
-                                  document.getElementById("seconds").innerHTML = seconds;
-
-                                }, 1000);                                  
-                            </script> -->
                           </td>
-                          <td>{{ $data->waktu }}</td>
-                          <td> 2 hari sebelumnya</td>
-                          <td>{{ $data->ulangi }}</td>
                           <td>{{ $data->expiration_date }}</td>
+                          <td>{{ $data->waktu }}</td>
+                          <td>2 hari sebelumnya</td>
+                          <!-- <td>{{ $data->ulangi }}</td> -->
                           <td>{{ $data->tipe }}</td>
                           <td scope="row">
-                            <span class="sudah-diatur">Sudah diatur</span>
+                            <?php
+                              if($data->waktu != null && $data->tipe != null){
+                                echo "<span class='sudah-diatur'>Sudah Diatur</span>";
+                              }else{
+                                echo "<span class='belum-diatur'>Belum Diatur</span>";
+                              }
+                            ?>
                           </td>
                           <td>
                                         
@@ -171,5 +155,44 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  $(document).ready( function(){
+    // $(document).on(keyup, function(e){
+    //   e.preventDefault();
+    //   let search_string = $(#search).val();
+    //   // console.log();
+      
+    // })
+
+    let table = new DataTable('#dataTable');
+
+    $('#input-search').on('keyup', function () {
+      table.search(this.value).draw();
+    });
+
+    // var isi = document.getElementById("dataTable");
+
+    // $('#input-search').on('keyup', function(){
+    //   var value = $(this).val();
+    //   console.log('Value:', value)
+    // //   var data = searchTable(value, isi)
+
+    // })
+
+    // function searchTable(value, data){
+    //   var filteredData = []
+
+    //   for (var i = 0; i  < data.length; i++){
+    //     value = value.toLowerCase()
+    //     var name = data[i].name.toLowerCase()
+
+    //     if (name.includes(value)){
+    //       filteredData.push(data[i])
+    //     }
+    //   }
+    // }
+  })
+</script>
 
 @endsection

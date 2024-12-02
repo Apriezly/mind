@@ -41,7 +41,7 @@
       
       <li class="nav-item dropdown no-arrow"> 
         <a class="nav-link mr-5" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{ asset('/storage/user/'.Auth::user()->image) }}" class="profil-image img-circle">
+        <img src="{{ Auth::user()->image != null ? asset('/storage/user/'.Auth::user()->image) : asset('/element/user-mind.svg')}}" class="profil-image img-circle">
         <!-- <img src="{{ asset('avatar-' . auth()->id() . '.png' )}}" width="40" alt=""> -->
         <span style="font-size:14px; cursor:pointer;">&ensp;{{Auth::user()->name}}</span>
         </a>

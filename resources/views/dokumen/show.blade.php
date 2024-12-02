@@ -47,13 +47,13 @@
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{$dokumen->imageasli}}</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{ $dokumen->imageasli != null ? $dokumen->imageasli : ''}}</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="{{ asset('/storage/dokumen/'.$dokumen->image) }}" class="w-100 rounded">
+                                                    <img src="{{ (asset('/storage/dokumen/' != null)) ? asset('/storage/dokumen/'.$dokumen->image) : '' }}" class="w-100 rounded">
                                                 </div>
                                                 </div>
                                             </div>

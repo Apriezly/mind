@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengingat', function (Blueprint $table) {
+        Schema::create('relasi', function (Blueprint $table) {
             $table->id();
             $table->integer('document_id');
-            $table->string('set');
-            $table->timestamp('set_custom')->nullable();
+            $table->integer('set_id');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengingat');
+        Schema::dropIfExists('relasis');
     }
 };

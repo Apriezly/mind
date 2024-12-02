@@ -60,23 +60,23 @@ function showPassbaru() {
     }
   }
 
-const countdownDate = new Date("FEB 17, 2025 00:00:00").getTime();
 
-const x = setInterval(function() {
+// const countdownDate = new Date("FEB 17, 2025 00:00:00").getTime();
 
-  const now = new Date().getTime();
+// const x = setInterval(function() {
 
-  const distance = countdownDate - now;
+//   const now = new Date().getTime();
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//   const distance = countdownDate - now;
 
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
+//   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-}, 1000);
+// }, 1000);
+
+// $("#atur").click( function(){
+//   $("#sudah").text("Sudah Diatur").addClass("sudah-diatur").removeClass("belum-diatur");
+// })
 

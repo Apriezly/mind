@@ -11,7 +11,7 @@ class Pengingat extends Model
     protected $table ="pengingat";
     protected $fillable = [
         'document_id',
-        'set_id',
+        'set',
         'set_custom'
     ];
 
