@@ -165,20 +165,20 @@
       
     // })
 
-    let table = new DataTable('#dataTable');
+    // let table = new DataTable('#dataTable');
 
-    $('#input-search').on('keyup', function () {
-      table.search(this.value).draw();
-    });
+    // $('#input-search').on('keyup', function () {
+    //   table.search(this.value).draw();
+    // });
 
     // var isi = document.getElementById("dataTable");
 
-    // $('#input-search').on('keyup', function(){
-    //   var value = $(this).val();
-    //   console.log('Value:', value)
+    $('#input-search').on('keyup', function(){
+      var value = $(this).val();
+      console.log('Value:', value)
     // //   var data = searchTable(value, isi)
 
-    // })
+    })
 
     // function searchTable(value, data){
     //   var filteredData = []
