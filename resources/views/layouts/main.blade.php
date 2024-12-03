@@ -64,9 +64,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
 
-   @include('layouts/footer')
+  @include('layouts/footer')
+  <!-- /.content-wrapper -->
 </div>
 </div>
 <!-- ./wrapper -->

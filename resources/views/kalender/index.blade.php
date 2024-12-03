@@ -122,6 +122,8 @@
   </div>
   <!-- /.content-wrapper -->
 
+  @include('layouts.footer')
+
 
 <!-- jQuery -->
 <script src="{{ asset('/lte/plugins/jquery/jquery.min.js')}}"></script>

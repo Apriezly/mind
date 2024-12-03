@@ -20,7 +20,7 @@
                                 <form onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('kategori.destroy', $data->id) }}" method="POST">
                                     @csrf 
                                     @method('delete')
-                                    <button type="submit" class="hapus-kategori">
+                                    <button class="hapus-kategori">
                                         <a>Hapus</a>
                                     </button>
                                 </form>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mt-3 text-center">
                         <a href="{{ route('data.index')}}">
-                        <img src="{{ asset('/storage/kategori/'.$data->image) }}" class="icon-kategori">
+                        <img src="{{ ($data->image != null) ? asset('/storage/kategori/'.$data->image) : asset('/element/tiger.svg') }}" class="icon-kategori">
                         <div class="mt-2 text-kategori">
                             <span>{{$data->judul}}</span>
                         </div>

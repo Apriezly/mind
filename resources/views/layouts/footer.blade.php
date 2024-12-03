@@ -1,8 +1,7 @@
 <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-    <strong>Copyright &copy; 2024 <a href="https://adminlte.io">Mind</a>.</strong> All rights reserved.
+
+    <div class="float-right" style="color:#404040; font-size: 12px; font-weight: 400;">
+        <p>Copyright @2024 <span style="font-weight: 600; color: #19A177;">Mind</span>. All Right Reserved</p>
     </div>
-    <!-- Default to the left -->
-   
+
 </footer>

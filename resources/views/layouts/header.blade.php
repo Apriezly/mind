@@ -51,7 +51,7 @@
           <img src="{{ asset('/element/setting.svg') }}">
             <span style="font-size:12px; cursor:pointer;">&ensp;Pengaturan Profil</span>
           </a>
-        <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ url('/logout') }}"> 
           <img src="{{ asset('/element/keluar.svg') }}">
             <span style="font-size:12px; cursor:pointer;">&ensp;Keluar</span>
