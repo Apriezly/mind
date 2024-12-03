@@ -60,8 +60,7 @@ function showPassbaru() {
     }
   }
 
-
-// const countdownDate = new Date("FEB 17, 2025 00:00:00").getTime();
+// const countdownDate = new Date("DES 30, 2024 00:00:00").getTime();
 
 // const x = setInterval(function() {
 
@@ -74,9 +73,11 @@ function showPassbaru() {
 //   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 //   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+//   document.getElementById("days").innerHTML = days;
+//   document.getElementById("hours").innerHTML = hours;
+//   document.getElementById("minutes").innerHTML = minutes;
+//   document.getElementById("seconds").innerHTML = seconds;
+
 // }, 1000);
 
-// $("#atur").click( function(){
-//   $("#sudah").text("Sudah Diatur").addClass("sudah-diatur").removeClass("belum-diatur");
-// })
-
+// document.write(seconds);

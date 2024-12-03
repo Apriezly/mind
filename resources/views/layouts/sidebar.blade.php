@@ -42,10 +42,10 @@
           </li>
         </ul>
       </nav>
-      <!--<div style="position:absolute; bottom:0; left:30px; color:#d1f4f0" class="text-center">
+      <!-- <div style="position:absolute; bottom:0; left:30px; color:#d1f4f0" class="text-center">
        <p>Copyright @2024<br><strong>Mind.</strong> All Right Reserved.</p>
-       <p></p>-->
-      </div>
+       <p></p>
+      </div> -->
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
