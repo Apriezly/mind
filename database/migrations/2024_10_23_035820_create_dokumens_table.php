@@ -17,12 +17,11 @@ return new class extends Migration
             $table->integer('kategori_id')->nullable();
             $table->string('kegiatan');
             $table->string('deskripsi');
-            $table->time('waktu')->nullable(); //untuk yang di pengingat (waktu mengingatkannya)
-            $table->timestamp('expiration_date'); //tanggal berakhirnya dokumen
+            $table->time('waktu')->nullable(); 
+            $table->timestamp('expiration_date'); 
             $table->string('image')->nullable();
             $table->string('imageasli')->nullable();
-            $table->string('tipe')->nullable(); //ini yang di pengingat, email dan WA
-            // $table->string('ulangi')->nullable(); //ini nanti yang diulangi per hari/minggu/lainnya
+            $table->string('tipe')->nullable(); 
             $table->timestamps();
         });
     }

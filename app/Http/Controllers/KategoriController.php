@@ -56,8 +56,6 @@ class KategoriController extends Controller
 
                 $image = $request->file('image');
                 $image->storeAs('public/kategori', $image->hashName());
-                
-                Storage::disk('local')->delete('public/kategori/'. $kategori->image);
     
                 Kategori::create([
                     'user_id'        => Auth::user()->id,

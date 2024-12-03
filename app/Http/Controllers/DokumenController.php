@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dokumen;
 use App\Models\Kategori;
 use Illuminate\View\View;
+use App\Models\Set;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -28,8 +29,9 @@ class DokumenController extends Controller
      */
     public function create(): Response
     {
+        $set = Set::get()->pluck('nama', 'id');
         $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
-        return response(view('dokumen.create', ['kategori' => $kategori]));
+        return response(view('dokumen.create', ['kategori' => $kategori, 'set' => $set]));
     }
 
     /**

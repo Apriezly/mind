@@ -96,8 +96,7 @@
                               }
                             ?>
                           </td>
-                          <td>
-                                        
+                          <td>  
                               <a href="{{ route('pengingat.edit', $data->id) }}" class="btn btn-sm button-edit">
                                   <img src="{{asset('/element/edit.svg')}}" alt="edit">
                               </a>
