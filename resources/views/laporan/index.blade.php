@@ -38,6 +38,8 @@
                                                             beginAtZero: true
                                                         }
                                                     }
+                                                
+    
                                                 }
                                             });
                                         </script>
@@ -45,22 +47,23 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="dropdown">
+                        <!--<div class="btn-group">
+                        <button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download</button>
+                        <div class="dropdown">-->
                         <div class="btn-group">
-                            <button class="btn button-simpan dropdown-toggle" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Download <span class="caret"></span>
-                                    <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Data 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Data 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Data 3</a></li>
-                                </ul>
+                            <button class="btn button-simpan" class="btn btn-default" >
+                                    Download <!--span class="caret"></span>-->
+                                   
                         </div>
                             </button>
+                           <!--data-toggle="button" aria-haspopup="true" aria-expanded="false">-->
 
+
+   
+                   
                            
 
-  
-                        
+                    
                               
                
     
