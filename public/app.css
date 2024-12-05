@@ -560,4 +560,36 @@ small{
   a:hover{
     color: #404040;
   }
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
 
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+}
+
+
+
+
+  
+  /* Warna baris */
+  table.dataTable tbody tr:nth-child(odd) {
+    background-color: #E0F3ED; /* Biru muda */
+  }
+  
+  table.dataTable tbody tr:nth-child(even) {
+    background-color: #FFFFFF; /* Putih */
+  }
+  
+ 
