@@ -18,8 +18,17 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
-        return view('pengingat.index', compact('dokumen'));
+        // $dokumen = Dokumen::join('pengingat', 'dokumen.id', '=', 'pengingat.document_id')
+        // ->join('set', 'pengingat.set_id', '=', 'set.id')
+        // ->where('user_id', '=',  Auth::user()->id)
+        // ->orderBy('expiration_date', 'asc')->get();
+        // $pengingat = Pengingat::get();
+        // $set = Set::get();
+        // return view('pengingat.index', compact('dokumen', 'pengingat', 'set'));
+
+        $dokumen = Dokumen::with('pengingat')->where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
+        $pengingat = Pengingat::get();
+        return view('pengingat.index', compact('dokumen', 'pengingat'));
     }
 
     /**
@@ -51,9 +60,7 @@ class PengingatController extends Controller
      */
     public function edit(string $id): View
     {
-        $set = Set::get()->pluck('nama', 'id');
-        $dokumen = Dokumen::findOrFail($id);
-        return view('pengingat.edit', compact('dokumen', 'set'));
+       
     }
 
     /**
@@ -61,50 +68,7 @@ class PengingatController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
-            'waktu'             => 'required',
-            // 'set'               => 'required', 'array',
-            'tipe'              => 'required', 
-        ]);
-
-        $dokumen = Dokumen::findOrFail($id);
-
-        // if ($dokumen->has('waktu', 'tipe')){
-
-            $dokumen->update([
-                'waktu'     => $request->waktu,
-                'tipe'      => $request->tipe,
-            ]);
-
-            // Pengingat::create([
-            //     'set'       => $request->set,
-            // ]);
-
-            // $document->pengingat()->sync('set');
-
-            // Relasi::create([
-            //     'document_id' => $request->dokumen->id,
-            //     'pengingat_id' => $request->pengingat->id,
-            // ]);
-
-        // } else {
-        //     Dokumen::create([
-        //         'waktu'     => $request->waktu,
-        //         'tipe'      => $request->tipe,
-        //     ]);
-
-        //     Pengingat::create([
-        //         'set'       => $dokumen->pengingat()->sync('set'),
-        //     ]);
-
-        //     Relasi::update([
-        //         'document_id' => $request->dokumen->id,
-        //         'pengingat_id' => $request->pengingat->id,
-        //     ]);
-        // }
-
-
-        return redirect()->route('pengingat.index')->with(['success' => 'Pengingat berhasil diatur']);
+        
     }
 
     /**
@@ -112,10 +76,6 @@ class PengingatController extends Controller
      */
     public function destroy(string $id)
     {
-        $pengingat = Dokumen::findOrFail($id);
-
-        $pengingat->delete();
-
-        return redirect()->route('pengingat.index')->with(['success' => 'Data berhasil dihapus!']);
+        
     }
 }

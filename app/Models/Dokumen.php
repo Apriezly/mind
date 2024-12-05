@@ -19,9 +19,7 @@ class Dokumen extends Model
         'expiration_date',
         'kategori_id',
         'image',
-        'set',
         'tipe',
-        // 'ulangi',
         'imageasli',
     ];
 
@@ -29,8 +27,12 @@ class Dokumen extends Model
         return $this->belongsTo(Kategori::class);
     }
 
-    public function pengingat() : BelongsToMany{
-        return $this->belongsToMany(Pengingat::class);
+    public function set(){
+        return $this->belongsTo(Set::class);
+    }
+
+    public function pengingat(){
+        return $this->belongsTo(Pengingat::class);
     }
 
     public function user(){

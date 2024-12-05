@@ -48,9 +48,7 @@
                         <th>Kegiatan</th>
                         <th>Status</th>
                         <th>Selesai</th>
-                        <th>Waktu</th>
                         <th>Set</th>
-                        <!-- <th class="col-2">Ulangi Setiap</th> -->
                         <th>Kirim Via</th>
                         <th>Info</th>
                         <th>Aksi</th>
@@ -83,13 +81,11 @@
 
                           </td>
                           <td>{{ $data->expiration_date }}</td>
-                          <td>{{ ($data->waktu != null) ? $data->waktu : '' }}</td>
-                          <td></td>
-                          <!-- <td>{{ $data->ulangi }}</td> -->
+                          <td>{{ ($data->pengingat != null) ? $data->set->name : '' }}</td>
                           <td>{{ ($data->tipe != null) ? $data->tipe : '' }}</td>
                           <td scope="row">
                             <?php
-                              if($data->waktu != null && $data->tipe != null){
+                              if($data->tipe != null){
                                 echo "<span class='sudah-diatur'>Sudah Diatur</span>";
                               }else{
                                 echo "<span class='belum-diatur'>Belum Diatur</span>";
@@ -97,7 +93,7 @@
                             ?>
                           </td>
                           <td>  
-                              <a href="{{ route('pengingat.edit', $data->id) }}" class="btn btn-sm button-edit">
+                              <a href="{{ route('data.edit', $data->id) }}" class="btn btn-sm button-edit">
                                   <img src="{{asset('/element/edit.svg')}}" alt="edit">
                               </a>
                           </td>      

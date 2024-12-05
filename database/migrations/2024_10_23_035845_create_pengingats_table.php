@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pengingat', function (Blueprint $table) {
             $table->id();
             $table->integer('document_id')->nullable();
+            $table->integer('set_id')->nullable();
             $table->string('set')->nullable();
             $table->timestamp('set_custom')->nullable();
             $table->timestamps();

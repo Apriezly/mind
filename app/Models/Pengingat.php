@@ -12,12 +12,12 @@ class Pengingat extends Model
     protected $table ="pengingat";
     protected $fillable = [
         'document_id',
-        'set',
+        'set_id',
         'set_custom'
     ];
 
-    public function dokumen() : BelongsToMany{
-        return $this->belongsToMany(Dokumen::class);
+    public function dokumen(){
+        return $this->belongsTo(Dokumen::class);
     }
 
     public function set(){ 

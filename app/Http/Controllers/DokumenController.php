@@ -6,6 +6,7 @@ use App\Models\Dokumen;
 use App\Models\Kategori;
 use Illuminate\View\View;
 use App\Models\Set;
+use App\Models\Pengingat;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class DokumenController extends Controller
      * Show the form for creating a new resource.
      */
     public function create(): Response
-    {
+    {   
         $set = Set::get()->pluck('nama', 'id');
         $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
         return response(view('dokumen.create', ['kategori' => $kategori, 'set' => $set]));
@@ -43,7 +44,6 @@ class DokumenController extends Controller
             'kegiatan'          => 'required',
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
-            'kategori_id'       => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
@@ -52,7 +52,7 @@ class DokumenController extends Controller
             $image = $request->file('image');
             $image->storeAs('public/dokumen', $image->hashName());
 
-            Dokumen::create([
+            $dokumen = Dokumen::create([
                 'user_id'           => Auth::user()->id,
                 'kegiatan'          => $request->kegiatan,
                 'deskripsi'         => $request->deskripsi,
@@ -60,18 +60,29 @@ class DokumenController extends Controller
                 'kategori_id'       => $request->kategori_id,
                 'image'             => $image->hashName(),  
                 'imageasli'         => $request->file('image')->getClientOriginalName(),
+                'tipe'              => $request->tipe,
+            ]);
+
+            Pengingat::create([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
             ]);
        
         } else {
-            Dokumen::create([
+            $dokumen = Dokumen::create([
                 'user_id'           => Auth::user()->id,
                 'kegiatan'          => $request->kegiatan,
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
+                'tipe'              => $request->tipe,
+            ]);
+
+            Pengingat::create([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
             ]);
         }
-        
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
     }
@@ -94,7 +105,9 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($id);
         $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
-        return view('dokumen.edit', compact('dokumen', 'kategori'));
+        $set = Set::get()->pluck('nama', 'id');
+        $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
+        return view('dokumen.edit', compact('dokumen', 'kategori', 'set', 'pengingat'));
     }
 
     /**
@@ -106,11 +119,11 @@ class DokumenController extends Controller
             'kegiatan'          => 'required',
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
-            'kategori_id'       => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
         ]);
 
         $dokumen = Dokumen::findOrFail($id);
+        $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
 
         if ($request->hasFile('image')){
 
@@ -125,8 +138,14 @@ class DokumenController extends Controller
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
-                'image'             => $image->hashName(),
+                'image'             => $image->hashName(),  
                 'imageasli'         => $request->file('image')->getClientOriginalName(),
+                'tipe'              => $request->tipe,
+            ]);
+
+            $pengingat->update([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
             ]);
        
         } else {
@@ -135,7 +154,13 @@ class DokumenController extends Controller
                 'kegiatan'          => $request->kegiatan,
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
-                'kategori_id'       => $request->kategori_id
+                'kategori_id'       => $request->kategori_id,
+                'tipe'              => $request->tipe,
+            ]);
+
+            $pengingat->update([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
             ]);
         }
 
@@ -148,10 +173,13 @@ class DokumenController extends Controller
     public function destroy($id): RedirectResponse
     {
         $dokumen = Dokumen::findOrFail($id);
+        $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
 
         Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
         $dokumen->delete();
+
+        $pengingat->delete();
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil dihapus!']);
     }

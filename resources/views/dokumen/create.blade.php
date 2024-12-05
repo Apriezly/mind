@@ -51,7 +51,7 @@
                                     <div class="form-group style-input">
                                         <label>Kategori</label>
                                         <select class="form-control" name="kategori_id">
-                                            <option value="">-- Kategori --</option>
+                                            <option value="">-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
                                             <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID)>
                                                 {{ $judul }}
@@ -66,9 +66,43 @@
                                 </div>
                             </div>
 
+                            <div class="row mt-2">
+                                <p class="mb-4 judul-form-input">Atur Pengingat</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group style-input">
+                                        <label>Set</label>
+                                        <select class="form-control" name="set">
+                                            <option value="">-- Pilih salah satu --</option>
+                                            @foreach ($set as $setID => $nama)
+                                            <option value="{{ $setID }}" @selected(old('id') == $setID)>
+                                                {{ $nama }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div> 
+                                </div>
+                                <div class="col-6">
+                                    <div class="form group style-input">
+                                        <label>Kirim Via</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="tipe" value="Email">
+                                                <label class="form-check-label">Email</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="tipe" value="WhatsApp">
+                                                <label class="form-check-label">WhatsApp</label>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+
                             
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mt-2">
                                 <button type="submit" class="btn btn-md button-simpan">Simpan</button>
                                 <input type="hidden" name="curr_url" value="">
                                 <a href="{{ route('data.index') }}" class="btn btn-md button-batal">Batal</a>

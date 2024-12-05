@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('kategori_id')->nullable();
             $table->string('kegiatan');
             $table->string('deskripsi');
-            $table->time('waktu')->nullable(); 
             $table->timestamp('expiration_date'); 
             $table->string('image')->nullable();
             $table->string('imageasli')->nullable();

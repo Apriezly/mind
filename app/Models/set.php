@@ -16,4 +16,9 @@ class set extends Model
     public function pengingat(){
         return $this->hasMany(Pengingat::class);
     }
+
+    public function dokumen(){
+        return $this->hasMany(Dokumen::class);
+    }
+    
 }

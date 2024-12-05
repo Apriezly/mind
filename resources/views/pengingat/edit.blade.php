@@ -44,10 +44,6 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group style-input">
-                                        <label>Waktu</label>
-                                        <input type="time" id="time" class="form-control" name="waktu" placeholder="" style="height:35px">
-                                    </div>
-                                    <div class="form-group style-input">
                                         <label>Set</label>
                                         <!-- <select class="form-control" multiple title="-- Pilih --" data-size="5" data-dropup-auto="false" id="set"> -->
                                         <select class="form-control" multiple id="set" name="set[]">
