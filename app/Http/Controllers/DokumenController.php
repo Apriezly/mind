@@ -66,6 +66,7 @@ class DokumenController extends Controller
             Pengingat::create([
                 'document_id'       => $dokumen->id,
                 'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
             ]);
        
         } else {
@@ -81,6 +82,7 @@ class DokumenController extends Controller
             Pengingat::create([
                 'document_id'       => $dokumen->id,
                 'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
             ]);
         }
 
@@ -146,6 +148,7 @@ class DokumenController extends Controller
             $pengingat->update([
                 'document_id'       => $dokumen->id,
                 'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
             ]);
        
         } else {
@@ -161,6 +164,7 @@ class DokumenController extends Controller
             $pengingat->update([
                 'document_id'       => $dokumen->id,
                 'set_id'            => $request->set,
+                'set_custom'        => $request->set_custom,
             ]);
         }
 

@@ -53,7 +53,7 @@
                                         <select class="form-control" name="kategori_id">
                                             <option value="">-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
-                                            <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID)>
+                                            <option value="{{ $kategoriID }}">
                                                 {{ $judul }}
                                             </option>
                                             @endforeach
@@ -73,14 +73,15 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select class="form-control" name="set">
+                                        <select class="form-control" name="set" id="set">
                                             <option value="">-- Pilih salah satu --</option>
                                             @foreach ($set as $setID => $nama)
-                                            <option value="{{ $setID }}" @selected(old('id') == $setID)>
+                                            <option value="{{ $setID }}">
                                                 {{ $nama }}
                                             </option>
                                             @endforeach
                                         </select>
+                                        <div id="inputCustom"></div>
                                     </div> 
                                 </div>
                                 <div class="col-6">

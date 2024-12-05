@@ -76,7 +76,7 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select class="form-control" name="set">
+                                        <select class="form-control" name="set" id="set">
                                             <option value="">-- Pilih Set --</option>
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}" @selected(old('$pengingat->set_id == $set->id') == $setID)>
@@ -84,6 +84,7 @@
                                             </option>
                                             @endforeach
                                         </select>
+                                        <div id="inputCustom"></div>
                                     </div> 
                                 </div>
                                 <div class="col-6">

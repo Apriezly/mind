@@ -83,3 +83,25 @@ function showPassbaru() {
 // }, 1000);
 
 // document.write(seconds);
+
+
+const set = document.getElementById('set');
+const inputCustom = document.getElementById('inputCustom');
+
+set.addEventListener('change',() =>{
+  const pilihan = set.value;
+  const custom = document.createElement('input');
+
+  switch(pilihan){
+    case '7':
+      custom.type = 'datetime-local';
+      custom.classList.add('form-control'); // Menambah class
+      custom.setAttribute('name', 'set_custom'); // Menambah name
+      break;
+    default:
+      custom.style.display = 'none';
+  }
+
+  inputCustom.innerHTML = ''; // Menghapus input sebelumnya
+  inputCustom.appendChild(custom); // Menambah element ke dalam elemennt (input ke dalam div)
+});
