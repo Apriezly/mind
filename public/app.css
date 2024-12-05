@@ -560,27 +560,6 @@ small{
   a:hover{
     color: #404040;
   }
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f9f9f9;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-table {
-  width: 100%;
-}
-
-
-
 
   
   /* Warna baris */
@@ -592,4 +571,32 @@ table {
     background-color: #FFFFFF; /* Putih */
   }
   
- 
+ /* Warna untuk tombol paginasi yang aktif */
+ .dataTables_wrapper .paginate_button.current {
+    background-color: green; /* Warna latar belakang tombol aktif */
+    color: white; /* Warna teks tombol aktif */
+    border: 1px solid green; /* Border tombol aktif */
+  }
+
+   /* Hover pada tombol aktif */
+   .dataTables_wrapper .paginate_button.current:hover {
+    background-color: darkgreen; /* Warna tombol aktif saat dihover */
+  }
+
+  /* Hilangkan outline dan efek klik */
+  .dataTables_wrapper .paginate_button:focus,
+  .dataTables_wrapper .paginate_button:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .dataTables_wrapper .paginate_button.current {
+    background-color: #1CAF82 !important;
+    color: white !important;
+    border: 1px solid green !important;
+  }
+
+  .dataTables_wrapper .paginate_button:hover {
+    background-color: lightgreen !important;
+    color: white !important;
+  }

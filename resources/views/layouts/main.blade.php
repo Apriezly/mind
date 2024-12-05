@@ -24,11 +24,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Pesan yg di login -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- <link rel="stylesheet" href="{{ asset('multiple/dist/virtual-select.min.css')}}"> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css"> -->
    <!-- Latest compiled and minified CSS -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
-
-
 
   <!-- icon site -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
@@ -67,7 +65,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   @include('layouts/footer')
   <!-- /.content-wrapper -->
-</div>
 </div>
 <!-- ./wrapper -->
 
