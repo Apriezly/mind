@@ -13,12 +13,13 @@
                         <div class="row">
                             <p class="mb-4 judul-form-input">Cara Menambah Data</p>
 
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataTable with Bootstrap 4</title>
+    
 
     <!-- Memuat Bootstrap 4 CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">

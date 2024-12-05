@@ -42,7 +42,7 @@
                          </div>
                       </div> -->
   
-                      <div id="table_wrapper" class="dt-container dt-empty-footer">
+                      <!-- <div id="table_wrapper" class="dt-container dt-empty-footer">
                       <table class="table table-borderless table-striped" id="table" style="width:100%">
                         <thead class="judul-tabel"> 
                           <tr class="header">
@@ -63,23 +63,23 @@
                             <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ ($data->kategori != null) ? $data->kategori->judul : '' }}</td>
                             
                             <td style="white-space: normal; word-wrap: break-word;" class="col-2"><?php
-                                $sekarang = new DateTime();
-                                $akhir = new DateTime($data->expiration_date);
-                                $diff = $sekarang->diff($akhir);
+                                //$sekarang = new DateTime();
+                                //$akhir = new DateTime($data->expiration_date);
+                                //$diff = $sekarang->diff($akhir);
 
-                                if(strtotime(strval($data->expiration_date)) < strtotime("now"))
-                                  echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
-                                else
-                                  if($diff->days > 3)
-                                    echo $diff->days ." hari lagi";
-                                  else if($diff->days > 0 && $diff->days < 3)
-                                    echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
-                                  else if($diff->days == 0 && $diff->h > 0)
-                                    echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
-                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i > 0)
-                                    echo "<span style='color: #F56E6B'>$diff->i menit lagi</span>";
-                                  else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
-                                    echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
+                                //if(strtotime(strval($data->expiration_date)) < strtotime("now"))
+                                  //echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
+                                //else
+                                  //if($diff->days > 3)
+                                    //echo $diff->days ." hari lagi";
+                                  //else if($diff->days > 0 && $diff->days < 3)
+                                    //echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
+                                  //else if($diff->days == 0 && $diff->h > 0)
+                                    //echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
+                                  //else if($diff->days == 0 && $diff->h == 0 && $diff->i > 0)
+                                    //echo "<span style='color: #F56E6B'>$diff->i menit lagi</span>";
+                                  //else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
+                                    //echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
                             ?></td>
                           </tr>  
                         @empty
@@ -88,7 +88,7 @@
                           </div>
                         @endforelse 
                         <tbody>
-                      </table>
+                      </table> -->
 
                      <!-- <div class="row mt-3">
                         <div class="col-6">
@@ -127,23 +127,23 @@
                           </div>
                         </div> -->
 
-                       
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-    </div> 
-    
-    
-    <title>DataTable Custom Color</title>
+<title>DataTable Custom Color</title>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <style>
 
-    /* Warna untuk tombol paginasi yang aktif */
+
+  /* CSS untuk DataTable */
+    table.dataTable thead th {
+    border-bottom: none !important; /* Menghapus garis bawah */
+    box-shadow: none !important; /* Menghapus efek bayangan */
+    }
+  /* Menghapus border di bagian bawah tabel */
+    table.dataTable {
+    border-bottom: none !important;
+    }
+   /* Warna untuk tombol paginasi yang aktif */
     .dataTables_wrapper .paginate_button.current {
       background-color: green; /* Warna latar belakang tombol aktif */
       color: white; /* Warna teks tombol aktif */
@@ -172,277 +172,80 @@
       background-color: lightgreen !important;
       color: white !important;
     }
+    /* Tambahkan ikon di dalam search box */
+    .dataTables_filter {
+      position: relative; /* Untuk positioning ikon */
+    }
+    .dataTables_filter input {
+      padding-left: 30px; /* Spasi untuk ikon */
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      height: 30px;
+    }
+
+    .dataTables_filter::before {
+      content: "\1F50D"; /* Unicode untuk ikon pencarian (🔍) */
+      position: absolute;
+      left: 10px; /* Posisi ikon di dalam input */
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #aaa; /* Warna ikon */
+    }
+
   </style>
 </head>
 <body>
+
 <div class="container mt-5">
-    <table id="example" class="display">
-    <thead>
-        <tr>
+    <table id="example"  class="dt-container dt-empty-footer">
+    <thead class="judul-tabel"> 
+    <tr>
         <th>Kegiatan</th>
         <th>Deskripsi</th>
         <th>Waktu</th>
         <th>Kategori</th>
         <th>Status</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-         <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-           
-        </tr>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-      <!-- Tambahkan data lainnya -->
-    </tbody>
-  </table>
+        </thead>
+        <tbody class="isi-tabel">
+            @forelse ($dokumen as $data)
+            <tr>
+                <td scope="row" class="col-2">{{$data->kegiatan}}</td>
+                <td style="white-space: normal; word-wrap: break-word;" class="col-4">{{$data->deskripsi}}</td>
+                <td class="col-2">{{$data->expiration_date}}</td>
+                <td style="white-space: normal; word-wrap: break-word;" class="col-2">{{ ($data->kategori != null) ? $data->kategori->judul : '' }}</td>
+                <td style="white-space: normal; word-wrap: break-word;" class="col-2"><?php
+                      $sekarang = new DateTime();
+                      $akhir = new DateTime($data->expiration_date);
+                      $diff = $sekarang->diff($akhir);
+                      if(strtotime(strval($data->expiration_date)) < strtotime("now"))
+                      echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
+                          else
+                          if($diff->days > 3)
+                          echo $diff->days ." hari lagi";
+                          else if($diff->days > 0 && $diff->days < 3)
+                          echo "<span style='color: #F56E6B'>$diff->days hari lagi</span>";
+                          else if($diff->days == 0 && $diff->h > 0)
+                          echo "<span style='color: #F56E6B'>$diff->h jam lagi</span>";
+                          else if($diff->days == 0 && $diff->h == 0 && $diff->i > 0)
+                          echo "<span style='color: #F56E6B'>$diff->i menit lagi</span>";
+                          else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
+                          echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
+                          ?></td>
+                        </tr>  
+                        @empty
+                          <div class="alert alert-danger">
+                              Data belum tersedia.
+                          </div>
+                        @endforelse 
+                        <tbody>
+                      </table>
+  
 
   
 
-    <!-- <div class="container mt-5">
-    <table id="example" class="display" style="width:100%">
-    <thead>
-        <tr>
-        <th>Kegiatan</th>
-        <th>Deskripsi</th>
-        <th>Waktu</th>
-        <th>Kategori</th>
-        <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
+   
         
     </div>
     
@@ -459,7 +262,7 @@
         //     });
         // });
 
-        $('#example').DataTable({
+    $('#example').DataTable({
     "paging": true,
     "ordering": true,
     "searching": true,
@@ -468,11 +271,32 @@
     "order": [[1, 'asc']],  // Mengurutkan berdasarkan kolom kedua (Usia)
 });
 
+    
+    
+// Force hapus teks "Search" jika masih muncul
+$('.dataTables_filter label').contents().filter(function () {
+return this.nodeType === 3;
+}).remove();
+    
+                                  </script>
+                                </div>
+                            </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div> 
+  </head>
+<body>
+  
+
+  
+  
 
 
- </script>
-</body>
-</html>
+    
+    
+
                       
                         
 
