@@ -81,7 +81,7 @@
 
                           </td>
                           <td>{{ $data->expiration_date }}</td>
-                          <td>ini bagaimana menampilkannya T-T</td>
+                          <td></td>
                           <td>{{ ($data->tipe != null) ? $data->tipe : '' }}</td>
                           <td scope="row">
                             <?php

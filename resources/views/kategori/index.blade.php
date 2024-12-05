@@ -29,7 +29,15 @@
                     </div>
                     <div class="mt-3 text-center">
                         <a href="{{ route('data.index')}}">
-                        <img src="{{ ($data->image != null) ? asset('/storage/kategori/'.$data->image) : asset('/element/tiger.svg') }}" class="icon-kategori">
+                        <?php
+                        if($data->image != null)
+                            echo '<img src="/asset/storage/kategori/' . $data->image . '">';
+                        else
+                            if($data->id % 2 == 0)
+                                echo '<img src="/element/cat.svg">';
+                            else
+                                echo '<img src="/element/tiger.svg">';
+                        ?>
                         <div class="mt-2 text-kategori">
                             <span>{{$data->judul}}</span>
                         </div>
