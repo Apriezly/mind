@@ -183,15 +183,7 @@
       height: 30px;
     }
 
-    .dataTables_filter::before {
-      content: "\1F50D"; /* Unicode untuk ikon pencarian (🔍) */
-      position: absolute;
-      left: 10px; /* Posisi ikon di dalam input */
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: #aaa; /* Warna ikon */
-    }
+    
 
   </style>
 </head>
