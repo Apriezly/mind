@@ -105,3 +105,4 @@ set.addEventListener('change',() =>{
   inputCustom.innerHTML = ''; // Menghapus input sebelumnya
   inputCustom.appendChild(custom); // Menambah element ke dalam elemennt (input ke dalam div)
 });
+

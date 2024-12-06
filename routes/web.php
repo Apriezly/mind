@@ -10,6 +10,7 @@ use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\PengingatController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\BantuanController;
+// use App\Http\Controllers\PrintController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\SendEmail;
 use App\Http\Controllers\LoginController;
@@ -45,6 +46,7 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/beranda', [PenggunaController::class, 'index']);
     Route::resource('/data', \App\Http\Controllers\DokumenController::class);
+    // Route::get('/show-download', [PrintController::class, 'print_show']);
     Route::resource('/pengingat', \App\Http\Controllers\PengingatController::class);
     Route::resource('/kategori', \App\Http\Controllers\KategoriController::class);
     Route::resource('/profil', \App\Http\Controllers\ProfilController::class);

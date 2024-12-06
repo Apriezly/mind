@@ -6,6 +6,7 @@ use App\Models\Dokumen;
 use App\Models\Kategori;
 use Illuminate\View\View;
 use App\Models\Set;
+use App\Models\Relasi;
 use App\Models\Pengingat;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -68,6 +69,11 @@ class DokumenController extends Controller
                 'set_id'            => $request->set,
                 'set_custom'        => $request->set_custom,
             ]);
+
+            Relasi::create([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
+            ]);
        
         } else {
             $dokumen = Dokumen::create([
@@ -83,6 +89,11 @@ class DokumenController extends Controller
                 'document_id'       => $dokumen->id,
                 'set_id'            => $request->set,
                 'set_custom'        => $request->set_custom,
+            ]);
+
+            Relasi::create([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
             ]);
         }
 
@@ -126,6 +137,7 @@ class DokumenController extends Controller
 
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
+        $relasi = Relasi::get();
 
         if ($request->hasFile('image')){
 
@@ -150,6 +162,11 @@ class DokumenController extends Controller
                 'set_id'            => $request->set,
                 'set_custom'        => $request->set_custom,
             ]);
+
+            $relasi->update([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
+            ]);
        
         } else {
             $dokumen->update([
@@ -166,6 +183,11 @@ class DokumenController extends Controller
                 'set_id'            => $request->set,
                 'set_custom'        => $request->set_custom,
             ]);
+
+            $relasi->update([
+                'document_id'       => $dokumen->id,
+                'set_id'            => $request->set,
+            ]);
         }
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil diubah!']);
@@ -178,12 +200,15 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
+        $relasi = Relasi::where('document_id', '=', $dokumen->id);
 
         Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
         $dokumen->delete();
 
         $pengingat->delete();
+
+        $relasi->delete();
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil dihapus!']);
     }
