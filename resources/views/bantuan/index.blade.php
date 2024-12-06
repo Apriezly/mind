@@ -13,12 +13,7 @@
                         <div class="row">
                             <p class="mb-4 judul-form-input">Cara Menambah Data</p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataTable with Bootstrap 4</title>
+
     
 
     <!-- Memuat Bootstrap 4 CSS -->
@@ -42,7 +37,7 @@
 
     <!-- Tabel yang akan diubah menjadi DataTable -->
     <div class="container mt-5">
-    <table id="example" class="display" style="width:100%">
+    <table id="example" class="dt-container dt-empty-footer" style="width:100%">
     <thead>
         <tr>
         <th>Kegiatan</th>
@@ -318,6 +313,11 @@
     "order": [[1, 'asc']],  // Mengurutkan berdasarkan kolom kedua (Usia)
 });
 
+// Force hapus teks "Search" jika masih muncul
+$('.dataTables_filter label').contents().filter(function () {
+return this.nodeType === 3;
+}).remove();
+    
  </script>
 </body>
 </html>

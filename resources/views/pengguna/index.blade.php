@@ -127,69 +127,14 @@
                           </div>
                         </div> -->
 
-<title>DataTable Custom Color</title>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-  <style>
-
-
-  /* CSS untuk DataTable */
-    table.dataTable thead th {
-    border-bottom: none !important; /* Menghapus garis bawah */
-    box-shadow: none !important; /* Menghapus efek bayangan */
-    }
-  /* Menghapus border di bagian bawah tabel */
-    table.dataTable {
-    border-bottom: none !important;
-    }
-   /* Warna untuk tombol paginasi yang aktif */
-    .dataTables_wrapper .paginate_button.current {
-      background-color: green; /* Warna latar belakang tombol aktif */
-      color: white; /* Warna teks tombol aktif */
-      border: 1px solid green; /* Border tombol aktif */
-    }
-
-     /* Hover pada tombol aktif */
-     .dataTables_wrapper .paginate_button.current:hover {
-      background-color: darkgreen; /* Warna tombol aktif saat dihover */
-    }
-
-    /* Hilangkan outline dan efek klik */
-    .dataTables_wrapper .paginate_button:focus,
-    .dataTables_wrapper .paginate_button:active {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-
-    .dataTables_wrapper .paginate_button.current {
-      background-color: #1CAF82 !important;
-      color: white !important;
-      border: 1px solid green !important;
-    }
-
-    .dataTables_wrapper .paginate_button:hover {
-      background-color: lightgreen !important;
-      color: white !important;
-    }
-    /* Tambahkan ikon di dalam search box */
-    .dataTables_filter {
-      position: relative; /* Untuk positioning ikon */
-    }
-    .dataTables_filter input {
-      padding-left: 30px; /* Spasi untuk ikon */
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      height: 30px;
-    }
-
-    
-
-  </style>
-</head>
-<body>
-
-<div class="container mt-5">
+  <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
+  <div class="card-body"> 
+  <div class="row mb-12">
+  <div class="col-12">
     <table id="example"  class="dt-container dt-empty-footer">
     <thead class="judul-tabel"> 
     <tr>
@@ -233,17 +178,9 @@
                         @endforelse 
                         <tbody>
                       </table>
-  
-
-  
-
-   
-        
-    </div>
-    
-
+                    </div>
     <!-- Inisialisasi DataTable dengan JavaScript -->
-    <script>
+<script>
         // $(document).ready(function() {
         //     $('#example').DataTable({
         //         "paging": true,          // Mengaktifkan pagination
@@ -262,24 +199,21 @@
     "lengthChange": true,
     "order": [[1, 'asc']],  // Mengurutkan berdasarkan kolom kedua (Usia)
 });
-
-    
-    
 // Force hapus teks "Search" jika masih muncul
 $('.dataTables_filter label').contents().filter(function () {
 return this.nodeType === 3;
 }).remove();
     
-                                  </script>
-                                </div>
-                            </div>
+                                    </script>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
                   </div>
-            </div>
-        </div>
-    </div> 
-  </head>
-<body>
+              </div>
+          </div> 
+      </head>
+  <body>
   
 
   

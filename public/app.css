@@ -573,14 +573,14 @@ small{
   
  /* Warna untuk tombol paginasi yang aktif */
  .dataTables_wrapper .paginate_button.current {
-    background-color: green; /* Warna latar belakang tombol aktif */
+    background-color: #1CAF82; /* Warna latar belakang tombol aktif */
     color: white; /* Warna teks tombol aktif */
-    border: 1px solid green; /* Border tombol aktif */
+    border: 1px solid #1CAF82; /* Border tombol aktif */
   }
 
    /* Hover pada tombol aktif */
    .dataTables_wrapper .paginate_button.current:hover {
-    background-color: darkgreen; /* Warna tombol aktif saat dihover */
+    background-color: #1CAF82; /* Warna tombol aktif saat dihover */
   }
 
   /* Hilangkan outline dan efek klik */
@@ -593,10 +593,97 @@ small{
   .dataTables_wrapper .paginate_button.current {
     background-color: #1CAF82 !important;
     color: white !important;
-    border: 1px solid green !important;
+    border: 1px solid #1CAF82 !important;
   }
 
   .dataTables_wrapper .paginate_button:hover {
     background-color: lightgreen !important;
     color: white !important;
   }
+
+  /* CSS untuk DataTable */
+  table.dataTable thead th {
+    border-bottom: none !important; /* Menghapus garis bawah */
+    box-shadow: none !important; /* Menghapus efek bayangan */
+    }
+  /* Menghapus border di bagian bawah tabel */
+    table.dataTable {
+    border-bottom: none !important;
+    }
+   /* Warna untuk tombol paginasi yang aktif */
+    .dataTables_wrapper .paginate_button.current {
+      background-color: #1CAF82; /* Warna latar belakang tombol aktif */
+      color: white; /* Warna teks tombol aktif */
+      border: 1px solid #1CAF82; /* Border tombol aktif */
+    }
+
+     /* Hover pada tombol aktif */
+     .dataTables_wrapper .paginate_button.current:hover {
+      background-color: #1CAF82; /* Warna tombol aktif saat dihover */
+    }
+
+    /* Hilangkan outline dan efek klik */
+    .dataTables_wrapper .paginate_button:focus,
+    .dataTables_wrapper .paginate_button:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .dataTables_wrapper .paginate_button.current {
+      background-color: #1CAF82 !important;
+      color: white !important;
+      border: 1px solid #1CAF82 !important;
+    }
+
+    .dataTables_wrapper .paginate_button:hover {
+      background-color: lightgreen !important;
+      color: white !important;
+    }
+    
+    .dataTables_filter input {
+      padding-left: 30px; /* Spasi untuk ikon */
+      border-radius: 5px;
+      border: 1px solid #D1F4F0;
+      height: 30px;
+    }
+    /* Mengecilkan ukuran tombol Previous */
+    .dataTables_wrapper .paginate_button.previous {
+      font-size: 12px; /* Ukuran teks */
+      padding: 4px 8px; /* Jarak di dalam tombol */
+      background-color: #FFFFFF; /* Warna latar belakang */
+      border: 1px solid #ccc; /* Border tombol */
+      border-radius: 4px; /* Membuat sudut melengkung */
+    }
+    /* Efek hover pada tombol Previous */
+    .dataTables_wrapper .paginate_button.previous:hover {
+      background-color: #ddd; /* Warna saat hover */
+      border-color: #1CAF82; /* Warna border saat hover */
+    }
+    /* Menyesuaikan ukuran tombol angka pada pagination */
+    .dataTables_wrapper .paginate_button {
+      font-size: 12px; /* Ukuran teks */
+      padding: 4px 8px; /* Jarak di dalam tombol */
+      background-color: #1CAF82; /* Warna latar belakang tombol */
+      border: 1px solid #ccc; /* Warna border tombol */
+      margin: 2px; /* Memberikan jarak antar tombol */
+      
+    }
+
+    /* Efek hover pada tombol angka */
+    .dataTables_wrapper .paginate_button:hover {
+      background-color: #1CAF82; /* Warna latar belakang saat hover */
+      border-color: #1CAF82; /* Warna border saat hover */
+    }
+
+    /* Tombol angka aktif (halaman saat ini) */
+    .dataTables_wrapper .paginate_button.current {
+      background-color: #1CAF82; /* Warna tombol aktif */
+      color: white; /* Warna teks tombol aktif */
+     
+    }
+
+    /* Hover pada tombol aktif (opsional) */
+    .dataTables_wrapper .paginate_button.current:hover {
+      background-color: #1CAF82; /* Warna hover untuk tombol aktif */
+      border-color: #1CAF82;
+    }
