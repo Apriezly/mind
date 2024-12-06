@@ -55,23 +55,22 @@
                                                 <div class="modal-body">
                                                     <img src="{{ (asset('/storage/dokumen/' != null)) ? asset('/storage/dokumen/'.$dokumen->image) : '' }}" class="w-100 rounded">
                                                 </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row mt-3">
-                                    <button type="submit" class="btn button-lihat btn-block btn-flat">Download</button>
-                                </div>
-                            </div>       
-                        </div>
-                        
+                            <div class="row mt-3">
+                                <button class="btn button-lihat btn-block btn-flat" onclick="window.print()">Download</button>
+                            </div>
+                        </div>       
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+
 
 @endsection

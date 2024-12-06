@@ -28,6 +28,12 @@ class PengingatController extends Controller
 
         $dokumen = Dokumen::with('pengingat')->where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
         $pengingat = Pengingat::get();
+        // $set = Set::get();
+        // foreach ($dokumen as $data){
+        //     $relasi = Relasi::get();
+        //     $relasi->document_id = $data->id;
+        //     $relasi->set_id = $set->id;
+        // }
         return view('pengingat.index', compact('dokumen', 'pengingat'));
     }
 
