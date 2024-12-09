@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="{{ asset('/lte/plugins/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/lte/dist/css/adminlte.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/app.css') }}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset('/lte/plugins/iCheck/square/blue.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('/lte/plugins/iCheck/square/blue.css') }}"> -->
   <!-- icon site -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/element/iconbg.png') }}">
   
@@ -37,9 +38,22 @@
 <script src="{{ asset('/lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/lte/dist/js/adminlte.min.js') }}"></script>
-<!-- iCheck -->
-<script src="{{ asset('/lte/plugins/iCheck/icheck.min.js') }}"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+        @if(session()->has('success'))
+        
+            toastr.success('{{ session('success') }}', 'BERHASIL!'); 
+
+        @elseif(session()->has('error'))
+
+            toastr.error('{{ session('error') }}', 'GAGAL!'); 
+            
+        @endif
+</script>
+<!-- iCheck -->
+<!-- <script src="{{ asset('/lte/plugins/iCheck/icheck.min.js') }}"></script> -->
+<!-- <script>
   $(function () {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
@@ -47,9 +61,9 @@
       increaseArea : '100%' // optional
     })
   })
-</script>
+</script> -->
 <!-- sweet alert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @if($message = Session::get('success'))
         <script>
@@ -61,6 +75,6 @@
         <script>
             Swal.fire('{{ $message}}');
         </script>
-    @endif
+    @endif -->
 </body>
 </html>

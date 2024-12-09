@@ -63,7 +63,7 @@
           </p>
         </div>
       
-        <div class="row">
+        <!-- <div class="row">
           <div class="form-group col-12">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input sm-checkbox">  
@@ -72,7 +72,7 @@
                 </small>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="row mt-4">
           <div class="col-6">

@@ -13,4 +13,5 @@ class Relasi extends Model
         'document_id',
         'set_id'
     ];
+    
 }

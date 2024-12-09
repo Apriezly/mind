@@ -21,7 +21,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('/app.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- Pesan yg di login -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- <link rel="stylesheet" href="{{ asset('multiple/dist/virtual-select.min.css')}}"> -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css"> -->
@@ -91,7 +90,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $('select').selectpicker();
 </script> -->
 <script>
-        //message with toastr
         @if(session()->has('success'))
         
             toastr.success('{{ session('success') }}', 'BERHASIL!'); 

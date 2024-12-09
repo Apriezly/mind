@@ -137,7 +137,7 @@ class DokumenController extends Controller
 
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
-        $relasi = Relasi::get();
+        $relasi = Relasi::where('document_id', '=', $dokumen->id);
 
         if ($request->hasFile('image')){
 

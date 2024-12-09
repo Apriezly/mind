@@ -33,16 +33,16 @@
         </div>
         
         <div class="row">
-          <div class="col-6">
-            <div class="checkbox icheck">
+          <!-- <div class="col-6">
+            <div class="checkbox">
               <small style="color:#FFA363">
                 <input type="checkbox" class="sm-checkbox">   Ingat sandi
               </small>
             </div>
-          </div>
-          <div class="col-6" style="text-align: right;">
+          </div> -->
+          <div class="col-6">
             <small class="mb-1">
-              <a style="color:#FFA363" href="#"><u>Lupa kata sandi?</u></a>
+              <a style="color:#FFA363" href="#" onclick="return confirm('Sandi =  Auth::user()->ulangi_password');"><u>Lupa kata sandi?</u></a>
             </small>
           </div>
         </div>
