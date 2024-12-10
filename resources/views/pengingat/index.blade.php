@@ -107,7 +107,7 @@
 
     // Force hapus teks "Search" jika masih muncul
     $('.dataTables_filter label').contents().filter(function () {
-    return this.nodeType === 3;
+      return this.nodeType === 3;
     }).remove();
     
   </script>
