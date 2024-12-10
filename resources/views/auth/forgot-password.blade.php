@@ -6,7 +6,7 @@
     
       <p style="text-align: left; font-size: 12px; font-weight: 400 !important; color:#404040;">Lupa kata sandi? Tenang, kamu hanya perlu memasukkan email saja dan <span style="color:#19A177;font-weight:700">Mind</span> akan mengirimkan link reset password untuk membuat password barumu.</p>
 
-      <form action="{{ route('password.email') }}" method="post">
+      <form action="{{ route('kirim_email') }}" method="post">
         @csrf
 
         <div class="form-group has-feedback">

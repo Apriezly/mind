@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-6">
             <small class="mb-1">
-              <a style="color:#FFA363" href="{{ url('/forgot-password')}}"><u>Lupa kata sandi?</u></a>
+              <a style="color:#FFA363" href="{{ url('/lupa-sandi')}}"><u>Lupa kata sandi?</u></a>
             </small>
           </div>
         </div>

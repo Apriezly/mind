@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bcrypt;
-// use Illuminate\Http\RedirectResponse;
-// use Illuminate\Support\Facades\Storage;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Password;
+
 
 class LoginController extends Controller
 {
@@ -80,11 +81,11 @@ class LoginController extends Controller
         }
     }
 
-    public function forgot_pass(){
+    public function lupa_sandi(){
         return view('auth.forgot-password');
     }
 
-    public function reset_proses(Request $request){
+    public function kirim_email(Request $request){
         $request->validate(['email' => 'required|email']);
 
         $status = Password::sendResetLink( //untuk mengirim link ke email
@@ -95,5 +96,5 @@ class LoginController extends Controller
                 ? back()->with(['status' => __($status)])
                 : back()->withErrors(['email' => __($status)]);
     }
-
+    
 }

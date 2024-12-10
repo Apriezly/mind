@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LayoutsController;
@@ -43,25 +41,26 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
-// Route::get('/forgot-password', [LoginController::class, 'forgot_pass'])->name('forgot_pass');
-// Route::post('/reset', [LoginController::class, 'reset_proses'])->name('reset_prosses');
+Route::get('/lupa-sandi', [LoginController::class, 'lupa_sandi'])->name('lupa_sandi');
+Route::post('/kirim-email', [LoginController::class, 'kirim_email'])->name('kirim_email');
 
-Route::get('forgot-password', function() {
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.request');
 
-Route::post('forgot-password', function(Request $request){
-    $request->validate(['email' => 'required|email']);
+// Route::get('/forgot-password', function() {
+//     return view('auth.forgot-password');
+// })->middleware('guest')->name('password.request');
 
-    $status = Password::sendResetLink( //untuk mengirim link ke email
-        $request->only('email')
-    );
+// Route::post('/kirim-email', function(Request $request){
+//     $request->validate(['email' => 'required|email']);
 
-    return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+//     $status = Password::sendResetLink( //untuk mengirim link ke email
+//         $request->only('email')
+//     );
 
-})->middleware('guest')->name('password.email');
+//     return $status === Password::RESET_LINK_SENT
+//             ? back()->with(['status' => __($status)])
+//             : back()->withErrors(['email' => __($status)]);
+
+// })->middleware('guest')->name('kirim_email');
 
 Route::get('/reset-password/{token}', function ($token) {
     return view('auth.reset-password', ['token' => $token]);
