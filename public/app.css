@@ -573,16 +573,16 @@ small{
   }
   
  /* Warna untuk tombol paginasi yang aktif */
- .dataTables_wrapper .paginate_button.current {
+ /*.dataTables_wrapper .paginate_button.current {
     background-color: #1CAF82; /* Warna latar belakang tombol aktif */
-    color: white; /* Warna teks tombol aktif */
-    border: 1px solid #1CAF82; /* Border tombol aktif */
-  }
+   /* color: white; /* Warna teks tombol aktif */
+   /* border: 1px solid #1CAF82; /* Border tombol aktif */
+  /*}
 
    /* Hover pada tombol aktif */
-   .dataTables_wrapper .paginate_button.current:hover {
+   /*.dataTables_wrapper .paginate_button.current:hover {
     background-color: #1CAF82; /* Warna tombol aktif saat dihover */
-  }
+ /* }
 
   /* Hilangkan outline dan efek klik */
   .dataTables_wrapper .paginate_button:focus,
@@ -629,17 +629,6 @@ small{
       outline: none !important;
       box-shadow: none !important;
     }
-
-    .dataTables_wrapper .paginate_button.current {
-      background-color: #1CAF82 !important;
-      color: white !important;
-      border: 1px solid #1CAF82 !important;
-    }
-
-    .dataTables_wrapper .paginate_button:hover {
-      background-color: lightgreen !important;
-      color: white !important;
-    }
     
     .dataTables_filter input {
       padding-left: 30px; /* Spasi untuk ikon */
@@ -651,40 +640,84 @@ small{
     .dataTables_wrapper .paginate_button.previous {
       font-size: 12px; /* Ukuran teks */
       padding: 4px 8px; /* Jarak di dalam tombol */
-      background-color: #FFFFFF; /* Warna latar belakang */
+      background-color: none!important; /* Warna latar belakang */
       border: 1px solid #ccc; /* Border tombol */
       border-radius: 4px; /* Membuat sudut melengkung */
     }
     /* Efek hover pada tombol Previous */
     .dataTables_wrapper .paginate_button.previous:hover {
-      background-color: #ddd; /* Warna saat hover */
+      background-color: none!important; /* Warna saat hover */
       border-color: #1CAF82; /* Warna border saat hover */
     }
+    
     /* Menyesuaikan ukuran tombol angka pada pagination */
     .dataTables_wrapper .paginate_button {
       font-size: 12px; /* Ukuran teks */
       padding: 4px 8px; /* Jarak di dalam tombol */
-      background-color: #1CAF82; /* Warna latar belakang tombol */
+      /*background-color: #1CAF82; /* Warna latar belakang tombol */
       border: 1px solid #ccc; /* Warna border tombol */
       margin: 2px; /* Memberikan jarak antar tombol */
       
     }
 
-    /* Efek hover pada tombol angka */
-    .dataTables_wrapper .paginate_button:hover {
-      background-color: #1CAF82; /* Warna latar belakang saat hover */
-      border-color: #1CAF82; /* Warna border saat hover */
-    }
+    /* Gaya default untuk input pencarian */
+.dataTables_filter input {
+    border: 2px solid #D1F4F0 !important; /* Warna border default */
+    border-radius: 5px !important;       /* Opsional: sudut melengkung */
+    padding: 5px;                       /* Jarak dalam */
+    transition: border-color 0.3s ease; /* Animasi perubahan warna border */
+  }
+  /* Hover */
+  .dataTables_filter input:hover {
+    border: 2px solid #A9E7DF; /* Ubah ke warna yang sedikit lebih gelap saat hover */
+  }
+  
+  /* Fokus */
+  .dataTables_filter input:focus {
+    border: 2px solid #88DACF; /* Ubah ke warna yang lebih gelap lagi saat fokus */
+    outline: none; /* Hilangkan outline default browser */
+  }
+  /* Atur teks dalam input pencarian */
+  div.dataTables_filter input {
+    font-weight: normal; /* Hilangkan efek bold */
+    font-size: 12px;     /* Kecilkan ukuran font */
+    color: #404040;         /* Ubah warna teks (opsional) */
+  }
+  /* Atur teks "Show" di bagian kontrol DataTables */
+  div.dataTables_length label {
+    font-weight: 400 !important; /* Hilangkan efek bold */
+    font-size: 12px;     /* Kecilkan ukuran font */
+    color: #404040;         /* Ubah warna teks (opsional) */
+  }
+  /* Atur jarak antara teks "Show" dan dropdown */
+  div.dataTables_length label {
+    display: flex;          /* Pastikan teks dan dropdown ada di satu baris */
+    align-items: center;    /* Vertikal sejajar */
+    gap: 10px;              /* Jarak horizontal antara teks dan dropdown */
+  }
+  /* Atur warna dropdown */
+  div.dataTables_length select {
+    background-color: #FFA363 !important; /* Ubah warna latar belakang dropdown */
+    color: #FFFFFF;              /* Ubah warna teks */
+    border: none !important; /* Ubah warna border */
+    border-radius: 4px;        /* Opsional: Membuat sudut membulat */
+    padding: 5px;              /* Opsional: Atur jarak dalam */
+    font-size: 12px;           /* Sesuaikan ukuran font */
+  }
+  /* Mengubah warna item di dalam dropdown */
+  div.dataTables_length select option {
+    background-color: #FFFFFF; /* Ubah latar belakang item dropdown */
+    color: #404040;                /* Ubah warna teks item */
+  }
+  /* Mengubah warna teks pada bagian 'Showing' */
+  div.dataTables_info {
+        color: #1CAF82 !important; /* Mengubah warna teks 'Showing' */
+        font-weight: 400!important; /* Mengubah teks menjadi tidak tebal */
+        font-size: 12px; /* Mengubah ukuran font */
+  }
+  
+   
+  
 
-    /* Tombol angka aktif (halaman saat ini) */
-    .dataTables_wrapper .paginate_button.current {
-      background-color: #1CAF82; /* Warna tombol aktif */
-      color: white; /* Warna teks tombol aktif */
-     
-    }
 
-    /* Hover pada tombol aktif (opsional) */
-    .dataTables_wrapper .paginate_button.current:hover {
-      background-color: #1CAF82; /* Warna hover untuk tombol aktif */
-      border-color: #1CAF82;
-    }
+    

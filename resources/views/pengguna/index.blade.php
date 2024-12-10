@@ -131,68 +131,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <style>
-  /* Gaya default untuk input pencarian */
-.dataTables_filter input {
-  border: 2px solid #D1F4F0 !important; /* Warna border default */
-  border-radius: 5px !important;       /* Opsional: sudut melengkung */
-  padding: 5px;             /* Jarak dalam */
-  transition: border-color 0.3s ease; /* Animasi perubahan warna border */
-}
-/* Hover */
-.dataTables_filter input:hover {
-  border: 2px solid #A9E7DF; /* Ubah ke warna yang sedikit lebih gelap saat hover */
-}
-
-/* Fokus */
-.dataTables_filter input:focus {
-  border: 2px solid #88DACF; /* Ubah ke warna yang lebih gelap lagi saat fokus */
-  outline: none; /* Hilangkan outline default browser */
-}
-/* Atur teks dalam input pencarian */
-div.dataTables_filter input {
-  font-weight: normal; /* Hilangkan efek bold */
-  font-size: 12px;     /* Kecilkan ukuran font */
-  color: #404040;         /* Ubah warna teks (opsional) */
-}
-/* Atur teks "Show" di bagian kontrol DataTables */
-div.dataTables_length label {
-  font-weight: 400 !important; /* Hilangkan efek bold */
-  font-size: 12px;     /* Kecilkan ukuran font */
-  color: #404040;         /* Ubah warna teks (opsional) */
-}
-/* Atur jarak antara teks "Show" dan dropdown */
-div.dataTables_length label {
-  display: flex;          /* Pastikan teks dan dropdown ada di satu baris */
-  align-items: center;    /* Vertikal sejajar */
-  gap: 10px;              /* Jarak horizontal antara teks dan dropdown */
-}
-/* Atur warna dropdown */
-div.dataTables_length select {
-  background-color: #FFA363 !important; /* Ubah warna latar belakang dropdown */
-  color: #FFFFFF;              /* Ubah warna teks */
-  border: none !important; /* Ubah warna border */
-  border-radius: 4px;        /* Opsional: Membuat sudut membulat */
-  padding: 5px;              /* Opsional: Atur jarak dalam */
-  font-size: 12px;           /* Sesuaikan ukuran font */
-}
-/* Mengubah warna item di dalam dropdown */
-div.dataTables_length select option {
-  background-color: #FFFFFF; /* Ubah latar belakang item dropdown */
-  color: #404040;                /* Ubah warna teks item */
-}
-/* Mengubah warna teks pada bagian 'Showing' */
-div.dataTables_info {
-      color: #1CAF82 !important; /* Mengubah warna teks 'Showing' */
-      font-weight: 400!important; /* Mengubah teks menjadi tidak tebal */
-      font-size: 12px; /* Mengubah ukuran font */
-}
- 
-/* Agar angka halaman berwarna putih saat aktif */
-    .dataTables_paginate .paginate_button.active span {
-      color: white !important;  /* Warna teks angka aktif menjadi putih */
-}
-
-
+     
 </style>
   <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
   <div class="card-body"> 
@@ -242,25 +181,16 @@ div.dataTables_info {
                         <tbody>
                       </table>
                     </div>
-    <!-- Inisialisasi DataTable dengan JavaScript -->
+   
 <script>
-        // $(document).ready(function() {
-        //     $('#example').DataTable({
-        //         "paging": true,          // Mengaktifkan pagination
-        //         "ordering": true,        // Mengaktifkan fitur sorting
-        //         "searching": true,       // Mengaktifkan fitur pencarian
-        //         "info": true,            // Menampilkan informasi halaman
-        //         "lengthChange": false    // Menonaktifkan perubahan jumlah item per halaman
-        //     });
-        // });
 
     $('#example').DataTable({
-    "paging": true,
+    "paging":  true, // Untuk tampilan Previous, angka, dan Next
     "ordering": true,
     "searching": true,
     "info": true,
     "lengthChange": true,
-    "order": [[1, 'asc']],  // Mengurutkan berdasarkan kolom kedua (Usia)
+    "order": [[2, 'asc']],  // Mengurutkan berdasarkan kolom kedua (Usia)
     
 });
 
@@ -268,6 +198,16 @@ div.dataTables_info {
 $('.dataTables_filter label').contents().filter(function () {
 return this.nodeType === 3;
 }).remove();
+
+
+   
+        
+
+
+
+  
+    
+
     
                                     </script>
                                   </div>
@@ -280,6 +220,11 @@ return this.nodeType === 3;
       </head>
   <body>
   
+  
+    
+
+    
+    
 
   
   
