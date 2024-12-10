@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @yield('script')
-
+<!-- ssns -->
 
 <!-- <script src="{{ asset('multiple/dist/virtual-select.min.js')}}"></script> -->
 <!-- <script>
