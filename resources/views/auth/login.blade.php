@@ -33,22 +33,15 @@
         </div>
         
         <div class="row">
-          <!-- <div class="col-6">
-            <div class="checkbox">
-              <small style="color:#FFA363">
-                <input type="checkbox" class="sm-checkbox">   Ingat sandi
-              </small>
-            </div>
-          </div> -->
           <div class="col-6">
             <small class="mb-1">
-              <a style="color:#FFA363" href="#" onclick="return confirm('Sandi =  Auth::user()->ulangi_password');"><u>Lupa kata sandi?</u></a>
+              <a style="color:#FFA363" href="{{ url('/forgot-password')}}"><u>Lupa kata sandi?</u></a>
             </small>
           </div>
         </div>
+
         
-        
-        
+
         <div class="row mt-4">
           <div class="col-6">
             <button type="submit" class="btn log-green btn-block btn-flat">Masuk</button>
@@ -62,5 +55,18 @@
     </div>
     <!-- /.login-card-body -->
   </div>
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span style="font-size:12px; font-weight:400; color:#000000;">Sandi : </span>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 @endsection

@@ -41,6 +41,8 @@ class DokumenController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        dd($request);die;
         $this->validate($request, [
             'kegiatan'          => 'required',
             'deskripsi'         => 'required',
