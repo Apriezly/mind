@@ -80,4 +80,20 @@ class LoginController extends Controller
         }
     }
 
+    public function forgot_pass(){
+        return view('auth.forgot-password');
+    }
+
+    public function reset_proses(Request $request){
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink( //untuk mengirim link ke email
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+    }
+
 }

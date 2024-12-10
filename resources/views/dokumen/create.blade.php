@@ -51,7 +51,7 @@
                                     <div class="form-group style-input">
                                         <label>Kategori</label>
                                         <select class="form-control" name="kategori_id">
-                                            <option value="">-- Pilih kategori --</option>
+                                            <option style="color:#999999">-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
                                             <option value="{{ $kategoriID }}">
                                                 {{ $judul }}
@@ -73,15 +73,17 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select class="form-control" name="set" id="set">
-                                            <option value="">-- Pilih salah satu --</option>
+                                        <select  data-placeholder="-- Pilih Set --" class="form-control" name="set" id="set" multiple>
+                                            
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}">
                                                 {{ $nama }}
                                             </option>
                                             @endforeach
                                         </select>
-                                        <div id="inputCustom"></div>
+                                        <div id="inputCustom">
+                                            <input type="datetime-local" class="form-control" name="set_custom">
+                                        </div>
                                     </div> 
                                 </div>
                                 <div class="col-6">
@@ -116,4 +118,25 @@
     </div>
 </div>
 
+@endsection
+
+
+@section('script')
+<script>
+    $(document).ready(function(){
+
+        $('#inputCustom').hide();
+        $('#set').chosen({no_results_text: "Data tidak ditemukan!"}) //saat milih
+
+            $('#set').change(function(){ //ganti ini
+                var inputArrayString = $(this).val().toString(); //variabel untuk nampung nilai yang dipilih
+
+                if($(this).val().includes('7')) { //includes = ngambil nilai array
+                    $('#inputCustom').show();
+                } else {
+                    $('#inputCustom').hide();
+                }
+            })
+    })
+</script>
 @endsection

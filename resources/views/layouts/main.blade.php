@@ -70,6 +70,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{ asset('/lte/plugins/jquery/jquery.min.js')}}"></script>
+<!-- chosen -->
+<script src="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.jquery.min.js" integrity="sha256-c4gVE6fn+JRKMRvqjoDp+tlG4laudNYrXI1GncbfAYY=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.min.css" integrity="sha256-EH/CzgoJbNED+gZgymswsIOrM9XhIbdSJ6Hwro09WE4=" crossorigin="anonymous">
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('/lte/dist/js/adminlte.min.js')}}"></script>
@@ -78,6 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+@yield('script')
 <!-- <script src="{{ asset('multiple/dist/virtual-select.min.js')}}"></script> -->
 <!-- <script>
         VirtualSelect.init({

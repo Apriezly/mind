@@ -18,23 +18,14 @@ class PengingatController extends Controller
      */
     public function index()
     {
-        // $dokumen = Dokumen::join('pengingat', 'dokumen.id', '=', 'pengingat.document_id')
-        // ->join('set', 'pengingat.set_id', '=', 'set.id')
-        // ->where('user_id', '=',  Auth::user()->id)
-        // ->orderBy('expiration_date', 'asc')->get();
-        // $pengingat = Pengingat::get();
-        // $set = Set::get();
-        // return view('pengingat.index', compact('dokumen', 'pengingat', 'set'));
-
         $dokumen = Dokumen::with('pengingat')->where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
+        foreach ($dokumen as $key => $data) {
+            $data->arr_set = Pengingat::with('set')->where('document_id',  $data->id )->get()->toArray();
+        }
+        // dd($dokumen);die;
         $pengingat = Pengingat::with('set')->get();
         $set = Set::get();
         return view('pengingat.index', compact('dokumen', 'pengingat', 'set'));
-
-        // $relasi = Relasi::with('dokumen')->get();
-        // $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
-        // $set = Set::get();
-        // return view('pengingat.index', compact('dokumen', 'relasi', 'set'));
     }
 
     /**

@@ -26,18 +26,6 @@ function showPassbaru() {
     }
     }
 
-   
-  $(function () {
-    $('#table').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-
   function myFunction() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
@@ -85,24 +73,24 @@ function showPassbaru() {
 // document.write(seconds);
 
 
-const set = document.getElementById('set');
-const inputCustom = document.getElementById('inputCustom');
+// const set = document.getElementById('set');
+// const inputCustom = document.getElementById('inputCustom');
 
-set.addEventListener('change',() =>{
-  const pilihan = set.value;
-  const custom = document.createElement('input');
+// set.addEventListener('change',() =>{
+//   const pilihan = set.value;
+//   const custom = document.createElement('input');
 
-  switch(pilihan){
-    case '7':
-      custom.type = 'datetime-local';
-      custom.classList.add('form-control'); // Menambah class
-      custom.setAttribute('name', 'set_custom'); // Menambah name
-      break;
-    default:
-      custom.style.display = 'none';
-  }
+//   switch(pilihan){
+//     case '7':
+//       custom.type = 'datetime-local';
+//       custom.classList.add('form-control'); // Menambah class
+//       custom.setAttribute('name', 'set_custom'); // Menambah name
+//       break;
+//     default:
+//       custom.style.display = 'none';
+//   }
 
-  inputCustom.innerHTML = ''; // Menghapus input sebelumnya
-  inputCustom.appendChild(custom); // Menambah element ke dalam elemennt (input ke dalam div)
-});
+//   inputCustom.innerHTML = ''; // Menghapus input sebelumnya
+//   inputCustom.appendChild(custom); // Menambah element ke dalam elemennt (input ke dalam div)
+// });
 
