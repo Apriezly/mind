@@ -13,7 +13,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Data tabel -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" /> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('/lte/plugins/font-awesome/css/font-awesome.min.css') }}">
   <!-- Theme style -->
@@ -76,12 +77,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Bootstrap 4 -->
 <script src="{{ asset('/lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('/lte/dist/js/adminlte.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <!-- script buatan sendiri -->
 <script src="{{ asset('/script.js') }}"></script>
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<!-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script> -->
 <!-- yg ada di login -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @yield('script')
+
+
 <!-- <script src="{{ asset('multiple/dist/virtual-select.min.js')}}"></script> -->
 <!-- <script>
         VirtualSelect.init({
