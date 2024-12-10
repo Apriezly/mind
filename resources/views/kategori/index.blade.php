@@ -31,7 +31,7 @@
                         <a href="{{ route('data.index')}}">
                         <?php
                         if($data->image != null)
-                            echo '<img src="/asset/storage/kategori/' . $data->image . '">';
+                            echo '<img src="/storage/kategori/' . $data->image . '">';
                         else
                             if($data->id % 2 == 0)
                                 echo '<img src="/element/cat.svg">';
