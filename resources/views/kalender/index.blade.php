@@ -318,4 +318,76 @@
 </body>
 </html>
 </form>
-                       
+
+
+    <style>
+        .fc-toolbar {
+            background-color: #F1DEFF;
+            border: 1px solid #F1DEFF;
+        }
+
+        .fc-button {
+            background-color: #B26EE4;
+            color: white;
+            border: #F1DEFF;
+        }
+
+        .fc-button:hover {
+            background-color: #F1DEFF;
+        }
+
+        .fc-toolbar-title {
+            font-size: 1.5em;
+            color: #B26EE4;
+        }
+
+        .fc-daygrid-day {
+            background-color:#F1DEFF;
+        }
+
+        .fc-daygrid-day:hover {
+            background-color: #F1DEFF;
+        }
+
+        .fc-event {
+            border-radius: 8px;
+            border: #F1DEFF;
+        }
+
+       
+    .calendar {
+        background: #B26EE4; /* Warna latar belakang kalender */
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .fc-daygrid-day:hover {
+        background-color: #B26EE4; /* Warna hover untuk tanggal */
+    }
+
+    .fc-event {
+        border-radius: 10px; /* Membulatkan acara */
+        padding: 5px; /* Padding di dalam event */
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.5rem; /* Perbesar ukuran judul */
+        color: #333; /* Warna teks judul */
+    }
+
+    .fc-daygrid-day-number {
+        font-size: 1rem; /* Ukuran angka tanggal */
+    }
+
+    .fc-day-today {
+        background-color: #B26EE4; /* Latar belakang untuk hari ini */
+    }
+
+    .fc-scrollgrid {
+        border: #F1DEFF; /* Hapus garis luar default */
+    }
+
+
+    </style>
+
+    
