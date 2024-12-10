@@ -500,7 +500,7 @@ a.paginate_button.current{
 }
 
 .dataTables_wrapper.paginate_button.next:hover {
-    background-color: none!important; /* Warna saat hover */
+    background-color: none !important; /* Warna saat hover */
 }
 
 #example_next:hover{
