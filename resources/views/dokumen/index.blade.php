@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                <a href="{{ url('/beranda')}}" class="mb-4 judul">Kategori -- Sekolah</a>
+                <a href="{{ url('/beranda')}}" class="mb-4 judul">Daftar Data</a>
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">

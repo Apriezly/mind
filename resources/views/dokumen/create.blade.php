@@ -73,8 +73,8 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <select  data-placeholder="-- Pilih Set --" class="form-control" name="set" id="set" multiple>
-                                            
+                                        <input type="hidden" class="@error('set') is-invalid @enderror" id="setValue" name="set">
+                                        <select  data-placeholder="-- Pilih Set --" class="form-control" id="set" multiple>
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}">
                                                 {{ $nama }}
@@ -84,6 +84,11 @@
                                         <div id="inputCustom">
                                             <input type="datetime-local" class="form-control" name="set_custom">
                                         </div>
+                                        @error('set')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div> 
                                 </div>
                                 <div class="col-6">
@@ -122,6 +127,7 @@
 
 
 @section('script')
+
 <script>
     $(document).ready(function(){
 
@@ -130,6 +136,9 @@
 
             $('#set').change(function(){ //ganti ini
                 var inputArrayString = $(this).val().toString(); //variabel untuk nampung nilai yang dipilih
+                // console.log(inputArrayString);
+
+                $('#setValue').val(inputArrayString); //memasukkan value ke input type hidden
 
                 if($(this).val().includes('7')) { //includes = ngambil nilai array
                     $('#inputCustom').show();
@@ -138,5 +147,13 @@
                 }
             })
     })
+
+    
+    // var fruits = ["mango", "orange"];
+    // var str = fruits.toString();
+    // console.log(fruits);
+    // console.log(str);
+
+
 </script>
 @endsection

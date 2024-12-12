@@ -7,26 +7,26 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                <a href="{{ url('/beranda')}}" class="mb-4 judul">Kategori -- Sekolah</a>
+                  <a href="{{ url('/beranda')}}" class="mb-4 judul">Daftar Pengingat</a>
                 </div>
                 <div class="card border-0 shadow-sm rounded p-3" style="border-radius:16px !important; box-shadow: 0px 4px 16px 0px #00000029 !important;">
                     <div class="card-body">
                         <div class="row mb-3">
                     </div>
                         
-                <table class="table table-borderless table-striped" id="example">
-                    <thead class="judul-tabel"> 
-                        <tr>
-                        <th>Kegiatan</th>
-                        <th>Status</th>
-                        <th>Selesai</th>
-                        <th>Set</th>
-                        <th>Kirim Via</th>
-                        <th>Info</th>
-                        <th>Aksi</th>
-                      </tr>                        
-                  </thead>
-                        <tbody class="isi-tabel">
+                    <table class="table table-borderless table-striped" id="example">
+                      <thead class="judul-tabel"> 
+                          <tr>
+                          <th>Kegiatan</th>
+                          <th>Status</th>
+                          <th>Selesai</th>
+                          <th>Set</th>
+                          <th>Kirim Via</th>
+                          <th>Info</th>
+                          <th>Aksi</th>
+                        </tr>                        
+                      </thead>
+                      <tbody class="isi-tabel">
                         @forelse ($dokumen as $data)
                         <tr>
                           <td>{{ $data->kegiatan }}</td>
@@ -36,6 +36,9 @@
                                 $akhir = new DateTime($data->expiration_date);
                                 $diff = $sekarang->diff($akhir);
 
+                                // strtotime = mengubah format tanggal ke waktu
+                                // strval = onversi menjadi string
+                                
                                 if(strtotime(strval($data->expiration_date)) < strtotime("now"))
                                   echo "<span style='color: #F56E6B;font-weight:600'>Terlewat</span>";
                                 else
@@ -64,25 +67,38 @@
                               }
                             ?>
                           </td>
-                          <td>  
-                              <a href="{{ route('data.edit', $data->id) }}" class="btn btn-sm button-edit">
+                          <td>
+                            <?php
+                              if(strtotime(strval($data->expiration_date)) < strtotime("now")){?>
+                              <form onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('pengingat.destroy', $data->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-sm button-hapus">
+                                    <img src="{{asset('/element/delete.svg')}}" alt="delete">
+                                </button>
+                              </form>
+                              <?php
+                              }else{ 
+                              ?>
+                                <a href="{{ route('data.edit', $data->id) }}" class="btn btn-sm button-edit">
                                   <img src="{{asset('/element/edit.svg')}}" alt="edit">
-                              </a>
+                                </a>
+                              <?php }
+                            ?>  
                           </td>      
                         </tr>
-                      @empty
+                        @empty
                         <div class="alert alert-danger">
                             Data belum tersedia.
                         </div>
-                      @endforelse   
-                                <tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                        @endforelse   
+                      <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection

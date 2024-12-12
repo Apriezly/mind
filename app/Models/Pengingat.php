@@ -13,8 +13,12 @@ class Pengingat extends Model
     protected $fillable = [
         'document_id',
         'set_id',
-        'set_custom'
+        'set_custom',
     ];
+
+    // protected $casts = [
+    //     'set_id' => 'array',
+    // ];
 
     public function dokumen(){
         return $this->belongsTo(Dokumen::class);
