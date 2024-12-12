@@ -60,7 +60,7 @@
 
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>
-                                <a href="{{ route('profil.index') }}" class="btn btn-md button-batal">Batal</a>
+                                <a href="{{ url('/beranda') }}" class="btn btn-md button-batal">Batal</a>
                             </div>
                         </form>
                 </div>

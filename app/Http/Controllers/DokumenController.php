@@ -41,13 +41,16 @@ class DokumenController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        
+        $string = $request->set;
+        $setArray = explode(',', $string);
 
-        // dd($request);die;
         $this->validate($request, [
             'kegiatan'          => 'required',
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
+            'set_custom'        => 'before:expiration_date',
         ]);
 
         if ($request->hasFile('image')){
@@ -66,39 +69,37 @@ class DokumenController extends Controller
                 'tipe'              => $request->tipe,
             ]);
 
-            Pengingat::create([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
-            ]);
+            foreach ($setArray as $item => $value) {
+                $data2 = array(
+                    'document_id' => $dokumen->id,
+                    'set_id' => $setArray[$item],
+                    'set_custom' => $request->set_custom,
+                );
+                Pengingat::create($data2);
+            }
 
-            Relasi::create([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-            ]);
-       
         } else {
             $dokumen = Dokumen::create([
                 'user_id'           => Auth::user()->id,
-                'kegiatan'          => $request->kegiatan,
+                'kegiatan'          => $request->kegiatan,  
                 'deskripsi'         => $request->deskripsi,
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
                 'tipe'              => $request->tipe,
             ]);
 
-            Pengingat::create([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
-            ]);
+            foreach ($setArray as $item => $value) {
+                $data2 = array(
+                    'document_id' => $dokumen->id,
+                    'set_id' => $setArray[$item],
+                    'set_custom' => $request->set_custom,
+                );
+                Pengingat::create($data2);
+            }
 
-            Relasi::create([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-            ]);
+            // dd($request);die;
         }
-
+        
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
     }
 
@@ -130,16 +131,20 @@ class DokumenController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
+
+        $string = $request->set;
+        $setArray = explode(',', $string);
+        
         $this->validate($request, [
             'kegiatan'          => 'required',
             'deskripsi'         => 'required',
             'expiration_date'   => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
+            'set_custom'        => 'before:expiration_date',
         ]);
 
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
-        $relasi = Relasi::where('document_id', '=', $dokumen->id);
 
         if ($request->hasFile('image')){
 
@@ -159,16 +164,14 @@ class DokumenController extends Controller
                 'tipe'              => $request->tipe,
             ]);
 
-            $pengingat->update([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
-            ]);
-
-            $relasi->update([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-            ]);
+            foreach ($setArray as $item => $value) {
+                $data2 = array(
+                    'document_id'   => $dokumen->id,
+                    'set_id'        => $setArray[$item],
+                    'set_custom'    => $request->set_custom,
+                );
+                $pengingat->update($data2);
+            }
        
         } else {
             $dokumen->update([
@@ -180,16 +183,14 @@ class DokumenController extends Controller
                 'tipe'              => $request->tipe,
             ]);
 
-            $pengingat->update([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-                'set_custom'        => $request->set_custom,
-            ]);
-
-            $relasi->update([
-                'document_id'       => $dokumen->id,
-                'set_id'            => $request->set,
-            ]);
+            foreach ($setArray as $item => $value) {
+                $data2 = array(
+                    'document_id'   => $dokumen->id,
+                    'set_id'        => $setArray[$item],
+                    'set_custom'    => $request->set_custom,
+                );
+                $pengingat->update($data2);
+            }
         }
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil diubah!']);

@@ -11,6 +11,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 class PengingatController extends Controller
 {
     /**
@@ -18,6 +20,9 @@ class PengingatController extends Controller
      */
     public function index()
     {
+
+        //foreach = mengawali loop
+
         $dokumen = Dokumen::with('pengingat')->where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
         foreach ($dokumen as $key => $data) {
             $data->arr_set = Pengingat::with('set')->where('document_id',  $data->id )->get()->toArray();
@@ -71,8 +76,20 @@ class PengingatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id): RedirectResponse
     {
-        
+        $dokumen = Dokumen::findOrFail($id);
+        $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
+        $relasi = Relasi::where('document_id', '=', $dokumen->id);
+
+        Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
+
+        $dokumen->delete();
+
+        $pengingat->delete();
+
+        $relasi->delete();
+
+        return redirect()->route('pengingat.index')->with(['success' => 'Data berhasil dihapus!']);
     }
 }
