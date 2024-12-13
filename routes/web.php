@@ -147,7 +147,29 @@ Route::get('/send-email', function(){
 //log-viewers
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
+Route::get('send-wa', function(){
+    $response = Http::withHeaders([
+        'Authorization' => 'T3o3fYfm6r5E9bzWmkuo',
+        
+    ])->post('https://api.fonnte.com/send', [
+        'target' => '08977924013',
+        'message' => 'Haloo',
+    ]);
+});
 
+Route::get('try-wa', function(){
+    $response =
+        Http::post('https://graph.facebook.com/v15.0/12345678910/messages', [
+            'messaging_product' => 'whatsapp',
+            'recipient_type' => 'individual',
+            'to' => 'whatsapp:+628977924013',
+            'type' => 'template',
+            'template' => [
+                'name' => 'hello_world',
+                'languange' => ['code' => 'id_ID'],
+            ]
+        ]);
+});
 
 
 

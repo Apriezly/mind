@@ -57,6 +57,6 @@ class TestSendingEmail extends Mailable
 
     public function build(){
         return $this->view('emails.test-mail')
-        ->subject('okee');
+        ->subject('Pesan Pengingat');
     }
 }

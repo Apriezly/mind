@@ -582,5 +582,7 @@ div.dataTables_info {
     font-size: 12px; /* Mengubah ukuran font */
 }
   
-
-    
+.email-text{
+    color: black;
+    font-size: 12px;
+}
