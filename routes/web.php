@@ -139,6 +139,8 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::get('/test', [LayoutsController::class, 'index']);
 Route::get('/send-email', [SendEmail::class, 'index']);
+//log-viewers
+Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 
 
