@@ -73,12 +73,16 @@
 
 @section('script')
 
+
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 
   <script>
+    
+
     $('#example').DataTable({
     "paging":  true, // Untuk tampilan Previous, angka, dan Next
     "ordering": true,
@@ -93,8 +97,15 @@
     $('.dataTables_filter label').contents().filter(function () {
     return this.nodeType === 3;
     }).remove();
+   
+   
+       
+   
+
     
   </script>
+  
+
 
 @endsection
 

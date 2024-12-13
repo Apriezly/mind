@@ -507,6 +507,7 @@ a.paginate_button.current{
     color: #1CAF82 !important;
 }
 
+
 /* span a.paginate_button.current:active{
     color: white !important;
 } */
@@ -576,7 +577,7 @@ div.dataTables_length select option {
 
 /* Mengubah warna teks pada bagian 'Showing' */
 div.dataTables_info {
-    color: #404040!important; /* Mengubah warna teks 'Showing' */
+    color: #404040 !important; /* Mengubah warna teks 'Showing' */
     font-weight: 400!important; /* Mengubah teks menjadi tidak tebal */
     font-size: 12px; /* Mengubah ukuran font */
 }
