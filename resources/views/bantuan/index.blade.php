@@ -38,6 +38,8 @@
     <!-- Tabel yang akan diubah menjadi DataTable -->
     <div class="container mt-5">
     <table id="example" class="dt-container dt-empty-footer" style="width:100%">
+    
+
     <thead>
         <tr>
         <th>Kegiatan</th>

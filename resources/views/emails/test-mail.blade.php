@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,4 +8,6 @@
 <body>
     <h2>Send Email Success</h2>
 </body>
-</html>
+</html> -->
+
+Annyeong!!!

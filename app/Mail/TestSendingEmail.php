@@ -27,31 +27,36 @@ class TestSendingEmail extends Mailable
      */
 
     //pengirim
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            from: new Address('mind@gmail.com', 'mind'),
-            subject: 'Test Sending Email',
-        );
-    }
+    // public function envelope(): Envelope
+    // {
+    //     return new Envelope(
+    //         from: new Address('mind@gmail.com', 'mind'),
+    //         subject: 'Test Sending Email',
+    //     );
+    // }
 
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'emails.test-mail',
-        );
-    }
+    // public function content(): Content
+    // {
+    //     return new Content(
+    //         view: 'emails.test-mail',
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    public function attachments(): array
-    {
-        return [];
+    // public function attachments(): array
+    // {
+    //     return [];
+    // }
+
+    public function build(){
+        return $this->view('emails.test-mail')
+        ->subject('okee');
     }
 }

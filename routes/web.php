@@ -10,7 +10,9 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\BantuanController;
 // use App\Http\Controllers\PrintController;
 use App\Http\Controllers\NotifikasiController;
-use App\Http\Controllers\SendEmail;
+use App\Mail\TestSendingEmail;
+// use App\Http\Controllers\SendEmail;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DokumenController;
@@ -138,7 +140,10 @@ Route::group(['middleware' => ['auth']], function(){
 
 
 Route::get('/test', [LayoutsController::class, 'index']);
-Route::get('/send-email', [SendEmail::class, 'index']);
+Route::get('/send-email', function(){
+    Mail::to('sitiawwalinaauliawati@gmail.com')
+    ->send(new TestSendingEmail());
+});
 //log-viewers
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
