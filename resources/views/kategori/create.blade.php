@@ -18,13 +18,19 @@
                             <div class="col-sm-12">
                                 <div class="form-group style-input">
                                     <label>Icon</label>
-                                    <input type="file" id="file" class="form-control " name="image" value=""  placeholder="No file choosen">
+                                    <input type="file" id="file" class="form-control @error('image') is-invalid @enderror" name="image" value=""  placeholder="No file choosen">
+                                    @error('image')
+                                            <small>{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 style-input">
                                 <div class="form-group">
                                     <label>Judul Kategori</label>
-                                    <input type="text" class="form-control " name="judul" value=""  placeholder="">
+                                    <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value=""  placeholder="">
+                                    @error('judul')
+                                            <small>{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
 

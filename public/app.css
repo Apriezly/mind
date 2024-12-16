@@ -64,7 +64,6 @@ p{
     color: white !important;
     font-size: 14px;
     font-weight: 600;
-
 }
 
 .login-maskot{
@@ -585,4 +584,8 @@ div.dataTables_info {
 .email-text{
     color: black;
     font-size: 12px;
+}
+
+.is-invalid{
+    border-color: #E06196 !important;
 }

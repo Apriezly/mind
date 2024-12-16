@@ -26,18 +26,14 @@
                                         <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value="{{ old('kegiatan', $dokumen->kegiatan) }}"  placeholder="">
 
                                         @error('kegiatan')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Deskripsi</label>
                                         <textarea id class="form-control  @error('deskripsi') is-invalid @enderror"  style="height:118px" name="deskripsi" value=""  placeholder="">{{ old('deskripsi', $dokumen->deskripsi) }}</textarea>
                                         @error('deskripsi')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
@@ -46,9 +42,7 @@
                                         <label>Tanggal Pelaksanaan</label>
                                         <input type="datetime-local" id="datetime-local" class="form-control  @error('expiration_date') is-invalid @enderror" name="expiration_date" value="{{ old('expiration_date', $dokumen->expiration_date) }}"  placeholder="">
                                         @error('expiration_date')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group style-input">
@@ -77,7 +71,7 @@
                                     <div class="form-group style-input">
                                         <label>Set</label>
                                         <input type="hidden" id="setValue" name="set">
-                                        <select class="form-control" name="set" id="set">
+                                        <select class="form-control @error('set') is-invalid @enderror" name="set" id="set">
                                             <option value="">-- Pilih Set --</option>
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}">
@@ -88,6 +82,9 @@
                                         <div id="inputCustom">
                                             <input type="datetime-local" class="form-control" name="set_custom">
                                         </div>
+                                        @error('set')
+                                            <small>{{ $message }}</small>
+                                        @enderror
                                     </div> 
                                 </div>
                                 <div class="col-6">

@@ -77,7 +77,7 @@ Route::post('/reset-password', function (Request $request){
     ]);
 
     $status = Password::reset(
-        $request->only('email', 'password', 'token'),
+        $request->only('email', 'password', 'ulangi_password', 'token'),
 
         function ($user, $password) {
             $user->forceFill([
@@ -89,7 +89,9 @@ Route::post('/reset-password', function (Request $request){
 
             event(new PasswordReset($user));
         }
+        
     );
+
 
     return $status === Password::PASSWORD_RESET
             ? redirect()->route('login')->with(['status' => __($status)])
@@ -140,10 +142,12 @@ Route::group(['middleware' => ['auth']], function(){
 
 
 Route::get('/test', [LayoutsController::class, 'index']);
+
 Route::get('/send-email', function(){
     Mail::to('sitiawwalinaauliawati@gmail.com')
     ->send(new TestSendingEmail());
 });
+
 //log-viewers
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 

@@ -23,18 +23,14 @@
                                         <input type="text" class="form-control  @error('kegiatan') is-invalid @enderror" name="kegiatan" value=""  placeholder="">
 
                                         @error('kegiatan')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Deskripsi</label>
                                         <textarea id class="form-control  @error('deskripsi') is-invalid @enderror"  style="height:118px" name="deskripsi" value=""  placeholder=""></textarea>
                                         @error('deskripsi')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
@@ -43,9 +39,7 @@
                                         <label>Tanggal Pelaksanaan</label>
                                         <input type="datetime-local" id="datetime-local" class="form-control  @error('expiration_date') is-invalid @enderror" name="expiration_date" value=""  placeholder="">
                                         @error('expiration_date')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group style-input">
@@ -73,8 +67,8 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Set</label>
-                                        <input type="hidden" class="@error('set') is-invalid @enderror" id="setValue" name="set">
-                                        <select  data-placeholder="-- Pilih Set --" class="form-control" id="set" multiple>
+                                        <input type="hidden" id="setValue" name="set">
+                                        <select  data-placeholder="-- Pilih Set --" class="form-control @error('set') is-invalid @enderror" id="set" multiple>
                                             @foreach ($set as $setID => $nama)
                                             <option value="{{ $setID }}">
                                                 {{ $nama }}
@@ -85,9 +79,7 @@
                                             <input type="datetime-local" class="form-control" name="set_custom">
                                         </div>
                                         @error('set')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
+                                            <small>{{ $message }}</small>
                                         @enderror
                                     </div> 
                                 </div>
@@ -147,13 +139,6 @@
                 }
             })
     })
-
-    
-    // var fruits = ["mango", "orange"];
-    // var str = fruits.toString();
-    // console.log(fruits);
-    // console.log(str);
-
 
 </script>
 @endsection

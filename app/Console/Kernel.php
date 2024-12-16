@@ -18,9 +18,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('demo:cron')
-            ->everyMinute();
-
+        // $schedule->command('demo:cron')
+        //     ->everyMinute();
+        $schedule->call(function(){
+            Draft::remove_draft();
+        })->everyMinute();
     }
 
     /**

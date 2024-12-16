@@ -22,41 +22,56 @@
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Foto Profil</label>
-                                        <input type="file" id="file" class="form-control" name="image" >
+                                        <input type="file" id="file" class="form-control @error('image') is-invalid @enderror" name="image" >
+                                        @error('image')
+                                            <small>{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Nama</label>
-                                        <input type="text" class="form-control" name="name" value="{{ old('name', Auth::user()->name) }}"  placeholder="">
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', Auth::user()->name) }}"  placeholder="">
+                                        @error('name')
+                                            <small>{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Email Aktif</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email', Auth::user()->email) }}"  placeholder="">
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', Auth::user()->email) }}"  placeholder="">
+                                        @error('email')
+                                            <small>{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Nomor WhatsApp Aktif</label>
-                                        <input type="tel" class="form-control" name="nomor" value="{{ old('nomor', Auth::user()->nomor) }}"  placeholder="">
+                                        <input type="tel" class="form-control @error('nomor') is-invalid @enderror" name="nomor" value="{{ old('nomor', Auth::user()->nomor) }}"  placeholder="">
+                                        @error('nomor')
+                                            <small>{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group style-input">
                                         <label>Password Lama</label>
                                         <div class="password-wrapper">
-                                            <input type="password" id="passLama" class="form-control" name="password" value="{{ old('ulangi_password', Auth::user()->ulangi_password) }}"  placeholder="">
+                                            <input type="password" id="passLama" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('ulangi_password', Auth::user()->ulangi_password) }}"  placeholder="">
                                             <i id="eyeIconLama" class="fa fa-eye password-icon" onclick="showPass()"></i>
+                                            @error('password')
+                                                <small>{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group style-input">
                                         <label>Password Baru</label>
                                         <div class="password-wrapper">
-                                            <input type="password" id="passBaru" class="form-control" name="password_baru" value=""  placeholder="">
+                                            <input type="password" id="passBaru" class="form-control @error('password_baru') is-invalid @enderror" name="password_baru" value=""  placeholder="">
                                             <i id="eyeIconBaru" class="fa fa-eye password-icon" onclick="showPassbaru()"></i>
+                                            @error('password_baru')
+                                                <small>{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @if($errors->any())
-                                {!! implode('', $errors->all('<div>:message</div>')) !!}
-                            @endif
 
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>

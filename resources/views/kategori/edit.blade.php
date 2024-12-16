@@ -20,18 +20,21 @@
                             <div class="col-sm-12">
                                 <div class="form-group style-input">
                                     <label>Icon</label>
-                                    <input type="file" id="file" class="form-control " name="image" value=""  placeholder="No file choosen">
+                                    <input type="file" id="file" class="form-control @error('image') is-invalid @enderror" name="image" value=""  placeholder="No file choosen">
+                                    @error('image')
+                                            <small>{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group style-input">
                                     <label>Judul Kategori</label>
-                                    <input type="text" class="form-control " name="judul" value="{{ old('judul', $kategori->judul) }}"  placeholder="">
+                                    <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul', $kategori->judul) }}"  placeholder="">
+                                    @error('judul')
+                                            <small>{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
-                            @if($errors->any())
-                                {!! implode('', $errors->all('<div>:message</div>')) !!}
-                            @endif
 
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-md button-simpan">Update</button>

@@ -48,6 +48,11 @@ class KategoriController extends Controller
         $this->validate($request, [
             'judul'             => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png,svg|max:10240',
+        ], [
+            'judul.required' => "Judul harus diisi.",
+            'image.image' => "Harus berupa gambar.",
+            'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
+            'image.max:10240' => "Ukuran gambar tidak boleh melebihi 10240 megabita",
         ]);
 
         if ($kategori < 8){
@@ -101,6 +106,11 @@ class KategoriController extends Controller
         $this->validate($request, [
             'judul'          => 'required',
             'image'          => 'image|mimes:jpeg,jpg,png,svg|max:10240',
+        ], [
+            'judul.required' => "Judul harus diisi.",
+            'image.image' => "Harus berupa gambar.",
+            'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
+            'image.max:10240' => "Ukuran gambar tidak boleh melebihi 10240 megabita",
         ]);
 
         $kategori = Kategori::findOrFail($id);

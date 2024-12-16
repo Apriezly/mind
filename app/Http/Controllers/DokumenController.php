@@ -51,6 +51,14 @@ class DokumenController extends Controller
             'expiration_date'   => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
             'set_custom'        => 'before:expiration_date',
+        ], [
+            'image.image' => "Harus berupa gambar.",
+            'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
+            'image.max:10240' => "Ukuran gambar tidak boleh melebihi 10240 megabita",
+            'kegiatan.required' => "Kegiatan harus diisi.",
+            'deskripsi.required' => "Deskripsi harus diisi.",
+            'expiration_date.required' => "Tanggal pelaksanaan harus diisi.",
+            'set_custom.before:expiration_date' => "Tanggal set tidak boleh melebihi tanggal expiration_date",
         ]);
 
         if ($request->hasFile('image')){
@@ -141,6 +149,14 @@ class DokumenController extends Controller
             'expiration_date'   => 'required',
             'image'             => 'image|mimes:jpeg,jpg,png|max:10240',
             'set_custom'        => 'before:expiration_date',
+        ], [
+            'image.image' => "Harus berupa gambar.",
+            'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
+            'image.max:10240' => "Ukuran gambar tidak boleh melebihi 10240 megabita",
+            'kegiatan.required' => "Kegiatan harus diisi.",
+            'deskripsi.required' => "Deskripsi harus diisi.",
+            'expiration_date.required' => "Tanggal pelaksanaan harus diisi.",
+            'set_custom.before:expiration_date' => "Tanggal set tidak boleh melebihi tanggal expiration_date",
         ]);
 
         $dokumen = Dokumen::findOrFail($id);

@@ -66,6 +66,17 @@ class ProfilController extends Controller
             'email'           => 'required|email',
             'nomor'           => 'required|numeric|min:11',
             'password_baru'        => 'required|min:6',
+        ], [
+            'image.image' => "Harus berupa gambar.",
+            'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
+            'image.max:10240' => "Ukuran gambar tidak boleh melebihi 10240 megabita",
+            'name.required' => "Nama harus diisi.",
+            'email.required' => "Email harus diisi.",
+            'nomor.required' => "Nomor harus diisi.",
+            'nomor.numeric' => "Nomor harus berupa angka.",
+            'nomor.min:11' => "Nomor berjumlah minimal 11 angka",
+            'password_baru.required' => "Masukkan password baru Anda.",
+            'password_baru.min:6' => "Password baru berjumlah minimal 6 karakter.",
         ]);
 
         $user = User::findOrFail($id);
