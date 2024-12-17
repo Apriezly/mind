@@ -20,16 +20,64 @@
                                     </div>
                                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                                     <script>
-                                        const ctx = document.getElementById('myChart');
-                                        new Chart(ctx, {
+                                        // Ambil data dari controller dan map sesuai dengan kebutuhan Chart.js
+                                        const dokumen = @json($Dokumen);  // Pastikan data ini ada di console
+                                         // Mapping data untuk labels dan values
+                                        const labels = dokumen.map(item => item.kategori );
+                                        const dataValues = dokumen.map(item => item.kategori_id) ;
+                                        // Inisialisasi Chart.js
+                                        const ctx = document.getElementById('myChart').getContext('2d');
+                                        const myChart = new Chart(ctx, {
                                             type: 'bar',
                                             data: {
                                                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt','Nov', 'Des',],
                                                 datasets: [{
                                                     label: 'Data',
+                                                    data: dataValues, // Data dari database
+                                                    backgroundColor: ['#E06196','#FAE3EC'],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="btn-group">
+                        <button class="btn button-simpan" class="btn btn-default" >Download</button> 
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+               
+                                    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                    <script>
+                                        const ctx = document.getElementById('myChart').getContext('2d');
+                                        constDokumen = @json($Dokumen);
+                                        var myChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt','Nov', 'Des',],
+                                                datasets: [{
+                                                    label: 'Data',
+                                                    // data: Array(labels.length).fill(1),
                                                     data: [200,  100, 23, 12,  194, 50, 150, 52, 85, 27, 43, 195],
                                                     backgroundColor: ['#E06196','#FAE3EC'],
                                                     borderWidth: 1
+                                                   
                                                 }]
                                             },
                                             options: {
@@ -43,20 +91,7 @@
                                             }
                                         });
                                         
-                                   </script>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="btn-group">
-                        <button class="btn button-simpan" class="btn btn-default" >Download</button> 
-        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                                   </script> -->
 
 <!-- <!doctype html>
 <html lang="en">
