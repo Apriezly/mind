@@ -24,12 +24,12 @@ class PengingatController extends Controller
         //foreach = mengawali loop
 
         $dokumen = Dokumen::with('pengingat')->where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
-        foreach ($dokumen as $key => $data) {
+        foreach ($dokumen as $item => $data) {
             $data->arr_set = Pengingat::with('set')->where('document_id',  $data->id )->get()->toArray();
         }
-        // dd($dokumen);die;
         $pengingat = Pengingat::with('set')->get();
         $set = Set::get();
+        
         return view('pengingat.index', compact('dokumen', 'pengingat', 'set'));
     }
 

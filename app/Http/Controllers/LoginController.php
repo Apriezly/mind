@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bcrypt;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailRegister;
 
 
 class LoginController extends Controller
@@ -23,8 +25,11 @@ class LoginController extends Controller
     public function login_proses(Request $request){
 
         $request->validate([
-            'email'     => 'required',
+            'email'     => 'required|email',
             'password'  => 'required',
+        ], [
+            'email.required' => "Email harus diisi.",
+            'password.required' => "Password harus diisi.",
         ]);
 
         $data = [
@@ -58,6 +63,18 @@ class LoginController extends Controller
             'nomor'     => 'required|numeric|min:11',
             'password'  => 'required|min:6',
             'ulangi_password' => 'required_with:password|same:password|min:6'
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'email.required' => "Email harus diisi.",
+            'email.unique' => "Email sudah digunakan.",
+            'nomor.required' => "Nomor harus diisi.",
+            'nomor.numeric' => "Nomor harus berupa angka.",
+            'nomor.min:11' => "Jumlah minimal nomor adalah 11 angka.",
+            'password.required' => "Password harus diisi.",
+            'password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
+            'ulangi_password.required_with' => "Jika input sandi memiliki data, maka input ulangi sandi wajib diisi.",
+            'ulangi_password.same' => "Sandi harus sama.",
+            'ulangi_password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
         ]);
 
         $data['name']       = $request->name;
@@ -75,6 +92,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($login)){
             // Session::put('name', $data->name);
+            Mail::to(Auth::user()->email)->send(new EmailRegister($request->all()));
             return redirect()->intended('/login')->with('success', 'Login dulu yaaa ^.^');
         }else{
             return redirect()->intended('/register')->with('failed', 'Ups! Ada yang salah nih kayaknya 0-0');

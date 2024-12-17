@@ -34,7 +34,7 @@
                             </thead>
                             <tbody class="isi-tabel">
                             
-                                @forelse ($dokumen as $data)
+                                @foreach ($dokumen as $data)
                                     <tr>
                                         <td class="col-2">{{$data->kegiatan}}</td>
                                         <td class="col-4">{{$data->deskripsi}}</td>
@@ -57,11 +57,7 @@
                                             </form>
                                         </td>   
                                     </tr>
-                                @empty
-                                    <div class="alert alert-danger">
-                                        Data belum tersedia.
-                                    </div>
-                                @endforelse
+                                @endforeach
                             <tbody>
                         </table>
                 

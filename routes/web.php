@@ -19,6 +19,7 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\SendEmail;
 
 
 
@@ -143,10 +144,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::get('/test', [LayoutsController::class, 'index']);
 
-Route::get('/send-email', function(){
-    Mail::to('sitiawwalinaauliawati@gmail.com')
-    ->send(new TestSendingEmail());
-});
+Route::get('/send-email', [SendEmail::class, 'index']);
 
 //log-viewers
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);

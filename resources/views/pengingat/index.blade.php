@@ -27,7 +27,7 @@
                         </tr>                        
                       </thead>
                       <tbody class="isi-tabel">
-                        @forelse ($dokumen as $data)
+                        @foreach ($dokumen as $data)
                         <tr>
                           <td>{{ $data->kegiatan }}</td>
                           <td>
@@ -56,7 +56,10 @@
 
                           </td>
                           <td>{{ $data->expiration_date }}</td>
-                          <td></td>
+                          <td class="col-3">{{ implode(', ', array_map(function($arr) {
+                                  return $arr['set']['nama'] ?? '';
+                              }, $data->arr_set)) }}
+                          </td>
                           <td>{{ ($data->tipe != null) ? $data->tipe : '' }}</td>
                           <td scope="row">
                             <?php
@@ -87,11 +90,7 @@
                             ?>  
                           </td>      
                         </tr>
-                        @empty
-                        <div class="alert alert-danger">
-                            Data belum tersedia.
-                        </div>
-                        @endforelse   
+                        @endforeach   
                       <tbody>
                     </table>
                 </div>

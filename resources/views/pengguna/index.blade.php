@@ -27,7 +27,7 @@
                             </tr>
                           </thead>
                           <tbody class="isi-tabel">
-                            @forelse ($dokumen as $data)
+                            @foreach ($dokumen as $data)
                               <tr>
                                 <td scope="row" class="col-2">{{$data->kegiatan}}</td>
                                 <td style="white-space: normal; word-wrap: break-word;" class="col-4">{{$data->deskripsi}}</td>
@@ -51,12 +51,8 @@
                                           else if($diff->days == 0 && $diff->h == 0 && $diff->i == 0 && $diff->s > 0)
                                           echo "<span style='color: #F56E6B'>$diff->s detik lagi</span>";
                                 ?></td>
-                              </tr>  
-                            @empty
-                            <div class="alert alert-danger">
-                                Data belum tersedia.
-                            </div>
-                            @endforelse 
+                              </tr> 
+                            @endforeach 
                           <tbody>
                         </table>
                       </div>
