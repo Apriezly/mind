@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 // use Laravolt\Avatar\Facade as Avatar;
 // use Intervention\Image\ImageManager;
 // use Intervention\Image\Drivers\Gd\Driver;
@@ -64,8 +65,9 @@ class ProfilController extends Controller
             'image'           => 'image|mimes:jpeg,jpg,png|max:10240',
             'name'            => 'required',
             'email'           => 'required|email',
-            'nomor'           => 'required|numeric|min:11',
-            'password_baru'        => 'required|min:6',
+            'nomor'           => 'required|numeric|digits_between:11,15',
+            'password_lama'   => 'required_with:password_baru|min:6',
+            'password_baru'   => 'nullable|min:6',
         ], [
             'image.image' => "Harus berupa gambar.",
             'image.mimes:jpeg,jpg,png' => "Format gambar harus JPEG, JPG, atau PNG",
@@ -74,9 +76,10 @@ class ProfilController extends Controller
             'email.required' => "Email harus diisi.",
             'nomor.required' => "Nomor harus diisi.",
             'nomor.numeric' => "Nomor harus berupa angka.",
-            'nomor.min:11' => "Nomor berjumlah minimal 11 angka",
-            'password_baru.required' => "Masukkan password baru Anda.",
-            'password_baru.min:6' => "Password baru berjumlah minimal 6 karakter.",
+            'nomor.digits_between:11,15' => "Jumlah nomor adalah 11 sampai 15 angka.",
+            'password_baru.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
+            'password_lama.required_with' => "Sandi lama harus diisi.",
+            'password_lama.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
         ]);
 
         $user = User::findOrFail($id);
@@ -86,17 +89,6 @@ class ProfilController extends Controller
             $image = $request->file('image');
             $image->storeAs('public/user', $image->hashName());
 
-            // $imgManager = new ImageManager(new Driver());
-            
-            // $thumbImage = $imgManager->read('public/user/'.$image);
-
-            // $thumbImage->cover(100, 100);
-
-            // $thumbImage->save(public_path('public/user/thumnails/'.$image));
-
-            // Storage::delete('public/user/'.$user->image);
-            // Storage::delete('public/user/thumnails/'.$user->image);
-
             Storage::disk('local')->delete('public/user/'.$user->image);
 
             $user->update([
@@ -104,23 +96,24 @@ class ProfilController extends Controller
                 'name'       => $request->name,
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
-                'password'   => bcrypt($request->password_baru),
-                'ulangi_password'    => $request->password_baru
+                'password'   => Hash::make($request->password_baru),
             ]);
 
-            // Avatar::create($request->name)->save(storage_path(path: 'app/public/avatar-' . $user->id . '.png'));
-       
         } else {
             $user->update([
                 'name'       => $request->name,
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
-                'password'   => bcrypt($request->password_baru),
-                'ulangi_password'    => $request->password_baru
+                'password'   => Hash::make($request->password_baru),
             ]);
         }
 
-        return redirect()->intended('/beranda')->with(['success' => 'Profil berhasil diubah!']);
+        if (!Hash::check($request->password_lama, $user->password)) {
+            return back()->withErrors(['password_lama' => 'Password lama tidak sesuai.']);
+        }else{
+            return redirect()->intended('/beranda')->with(['success' => 'Profil berhasil diubah!']);
+        }
+        
        
     }
     

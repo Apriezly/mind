@@ -55,7 +55,7 @@ class EmailRegister extends Mailable
 
     public function build(){
         return $this->view('emails.email-register')
-        ->subject('Akun Berhasil Terdaftar')
+        ->subject('Akun Berhasil Terdaftar🎉')
         ->with('data', $this->data); //kirim data ke view
     }
 }

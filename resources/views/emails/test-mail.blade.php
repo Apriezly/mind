@@ -8,7 +8,7 @@
 <body class="email-text">
     <p>Hai, {{ Auth::user()->name }} &#128075;</p>
     <p>
-        Data <b>"Ini Contoh Data"</b> akan kadaluarsa pada <b>2024-12-31 17:00:00</b>. Jangan sampai terlewat ya &#129321;
+        Data <b>"Ini Contoh Data"</b> akan kadaluarsa pada <b>2024-12-31 17:00:00</b>. Jangan sampai terlewat ya&#129321;
 </p>
     <p>Terimakasih telah menggunakan Aplikasi Mind sebagai pengingatmu.</p>
     <p><span style="color:#19A177;font-weight:700">Mind</span>, sahabat setiamu!</p>

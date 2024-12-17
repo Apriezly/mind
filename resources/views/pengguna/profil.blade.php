@@ -51,17 +51,17 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group style-input">
-                                        <label>Password Lama</label>
+                                        <label>Sandi Lama</label>
                                         <div class="password-wrapper">
-                                            <input type="password" id="passLama" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('ulangi_password', Auth::user()->ulangi_password) }}"  placeholder="">
+                                            <input type="password" id="passLama" class="form-control @error('password_lama') is-invalid @enderror" name="password_lama" value=""  placeholder="">
                                             <i id="eyeIconLama" class="fa fa-eye password-icon" onclick="showPass()"></i>
-                                            @error('password')
+                                            @error('password_lama')
                                                 <small>{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="form-group style-input">
-                                        <label>Password Baru</label>
+                                        <label>Sandi Baru</label>
                                         <div class="password-wrapper">
                                             <input type="password" id="passBaru" class="form-control @error('password_baru') is-invalid @enderror" name="password_baru" value=""  placeholder="">
                                             <i id="eyeIconBaru" class="fa fa-eye password-icon" onclick="showPassbaru()"></i>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nomor');
             $table->timestamp('nomor_verified_at')->nullable();
             $table->string('password');
-            $table->string('ulangi_password');
+            $table->string('ulangi_password')->nullable();
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
