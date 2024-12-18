@@ -9,13 +9,17 @@
     <p>Hai, {{ $data['name'] }} &#128075;</p>
     <p>Akun Anda berhasil terdaftar di Aplikasi Mind pada <strong>{{ date('Y-m-d H:i:s') }}</strong>, dengan detail:</p>
     <p>
-        &#9997;<strong>Nama&emsp;:&emsp;</strong> {{ $data['name'] }}<br>
-        &#128231;<strong>Email&emsp;:&emsp;</strong> {{ $data['email'] }}<br>
-        &#128222;<strong>Nomor HP&emsp;:&emsp;</strong> {{ $data['nomor'] }}
+        &#128204;<strong> Nama:</strong> {{ $data['name'] }}<br>
+        &#128231;<strong> Email:</strong> {{ $data['email'] }}<br>
+        &#128222;<strong> Nomor HP:</strong> {{ $data['nomor'] }}
     </p>
-    <p>&#128161;Hubungi Admin &emsp;: </p>
+    <p>&#128161;Hubungi Admin: https://bit.ly/adminMind</p>
     <p>
-        Salam,
+        Selalu lupa jadwal penting? Tenang, ada <span style="color:#19A177;font-weight:700">Mind</span>! &#128526;<br>
+        Aplikasi reminder yang siap mengingatkan Anda kapan saja dan di mana saja. Yuk, coba sekarang~
+    </p>
+    <p>
+        Salam,<br>
         Admin <span style="color:#19A177;font-weight:700">Mind</span>
     </p>
 </body>

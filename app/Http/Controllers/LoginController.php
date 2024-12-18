@@ -61,7 +61,7 @@ class LoginController extends Controller
             'name'      => 'required',
             'email'     => 'required|email|unique:user,email',
             'nomor'     => 'required|numeric|digits_between:11,15',
-            'password'  => 'required|min:6|confirmed',
+            'password'  => 'required|min:6',
             'ulangi_password' => 'required_with:password|same:password|min:6'
         ], [
             'name.required' => 'Nama harus diisi.',
@@ -72,7 +72,6 @@ class LoginController extends Controller
             'nomor.digits_between:11,15' => "Jumlah nomor adalah 11 sampai 15 angka.",
             'password.required' => "Password harus diisi.",
             'password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
-            'password.confirmed' => "Sandi tidak sama",
             'ulangi_password.required_with' => "Jika input sandi memiliki data, maka input ulangi sandi wajib diisi.",
             'ulangi_password.same' => "Sandi harus sama.",
             'ulangi_password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
@@ -113,6 +112,10 @@ class LoginController extends Controller
         return $status === Password::RESET_LINK_SENT
                 ? back()->with(['status' => __($status)])
                 : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function reset_password($token){
+        return view('auth.reset-password', ['token' => $token]);
     }
     
 }

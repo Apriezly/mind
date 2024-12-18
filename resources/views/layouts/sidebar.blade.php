@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://wa.me/6283174970400?text=Hai,%20Admin!%20Saya%20perlu%20penjelasan%20dan%20cara%20penggunaan%20Aplikasi%20Mind,%20bisa%20tolong%20dibantu?%20" class="nav-link {{ Request::segment(1) == 'bantuan' ? 'active-link' : 'nonactive-link'}}">
+            <a href="https://bit.ly/adminMind" class="nav-link {{ Request::segment(1) == 'bantuan' ? 'active-link' : 'nonactive-link'}}">
             <img src="{{ Request::segment(1) == 'bantuan'? asset('/element/bantuan-active.svg') : asset('/element/bantuan.svg')}}">
               <span>&emsp;Bantuan</span>
             </a>

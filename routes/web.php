@@ -46,6 +46,7 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 
 Route::get('/lupa-sandi', [LoginController::class, 'lupa_sandi'])->name('lupa_sandi');
 Route::post('/kirim-email', [LoginController::class, 'kirim_email'])->name('kirim_email');
+Route::get('/reset-password/{token}', [LoginController::class, 'reset_password'])->name('password.reset');
 
 
 // Route::get('/forgot-password', function() {
@@ -65,9 +66,9 @@ Route::post('/kirim-email', [LoginController::class, 'kirim_email'])->name('kiri
 
 // })->middleware('guest')->name('kirim_email');
 
-Route::get('/reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token]);
-})->middleware('guest')->name('password.reset');
+// Route::get('/reset-password/{token}', function ($token) {
+//     return view('auth.reset-password', ['token' => $token]);
+// })->middleware('guest')->name('password.reset');
 
 Route::post('/reset-password', function (Request $request){
     $request->validate([
