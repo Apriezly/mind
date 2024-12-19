@@ -10,6 +10,8 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailRegister;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 class LoginController extends Controller
@@ -77,7 +79,7 @@ class LoginController extends Controller
             'ulangi_password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
         ]);
 
-        $data['name']       = $request->name;
+        $data['name']       = ucwords($request->name);
         $data['email']      = $request->email;
         $data['nomor']      = $request->nomor;
         $data['password']   = bcrypt($request->password);
@@ -91,7 +93,8 @@ class LoginController extends Controller
 
         if(Auth::attempt($login)){
             // Session::put('name', $data->name);
-            Mail::to(Auth::user()->email)->send(new EmailRegister($request->all()));
+            Mail::to($request->email)->send(new EmailRegister($request->all()));
+            
             return redirect()->intended('/login')->with('success', 'Login dulu yaaa ^.^');
         }else{
             return redirect()->intended('/register')->with('failed', 'Ups! Ada yang salah nih kayaknya 0-0');
@@ -118,4 +121,33 @@ class LoginController extends Controller
         return view('auth.reset-password', ['token' => $token]);
     }
     
+    public function update_password(Request $request){
+        $request->validate([
+            'token'             => 'required',
+            'email'             => 'required|email',
+            'password'          => 'required|min:6',
+            'ulangi_password'   => 'required_with:password|same:password|min:6'
+        ]);
+    
+        $status = Password::reset(
+            $request->only('email', 'password', 'ulangi_password', 'token'),
+    
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+    
+                ])->setRememberToken(Str::random(60));
+    
+                $user->save();
+    
+                event(new PasswordReset($user));
+            }
+            
+        );
+    
+    
+        return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+    }
 }

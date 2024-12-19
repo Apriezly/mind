@@ -45,7 +45,7 @@
                                     <div class="form-group style-input">
                                         <label>Kategori</label>
                                         <select class="form-control" name="kategori_id">
-                                            <option style="color:#999999">-- Pilih kategori --</option>
+                                            <option style="color:#999999" value="" selected disabled>-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
                                             <option value="{{ $kategoriID }}">
                                                 {{ $judul }}

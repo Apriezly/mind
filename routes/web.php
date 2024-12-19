@@ -47,6 +47,7 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 Route::get('/lupa-sandi', [LoginController::class, 'lupa_sandi'])->name('lupa_sandi');
 Route::post('/kirim-email', [LoginController::class, 'kirim_email'])->name('kirim_email');
 Route::get('/reset-password/{token}', [LoginController::class, 'reset_password'])->name('password.reset');
+Route::post('/reset-password', [LoginController::class, 'update_password'])->name('password.update');
 
 
 // Route::get('/forgot-password', function() {
@@ -70,36 +71,36 @@ Route::get('/reset-password/{token}', [LoginController::class, 'reset_password']
 //     return view('auth.reset-password', ['token' => $token]);
 // })->middleware('guest')->name('password.reset');
 
-Route::post('/reset-password', function (Request $request){
-    $request->validate([
-        'token'             => 'required',
-        'email'             => 'required|email',
-        'password'          => 'required|min:6',
-        'ulangi_password'   => 'required_with:password|same:password|min:6'
-    ]);
+// Route::post('/reset-password', function (Request $request){
+//     $request->validate([
+//         'token'             => 'required',
+//         'email'             => 'required|email',
+//         'password'          => 'required|min:6',
+//         'ulangi_password'   => 'required_with:password|same:password|min:6'
+//     ]);
 
-    $status = Password::reset(
-        $request->only('email', 'password', 'ulangi_password', 'token'),
+//     $status = Password::reset(
+//         $request->only('email', 'password', 'ulangi_password', 'token'),
 
-        function ($user, $password) {
-            $user->forceFill([
-                'password' => Hash::make($password)
+//         function ($user, $password) {
+//             $user->forceFill([
+//                 'password' => Hash::make($password)
 
-            ])->setRememberToken(Str::random(60));
+//             ])->setRememberToken(Str::random(60));
 
-            $user->save();
+//             $user->save();
 
-            event(new PasswordReset($user));
-        }
+//             event(new PasswordReset($user));
+//         }
         
-    );
+//     );
 
 
-    return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+//     return $status === Password::PASSWORD_RESET
+//             ? redirect()->route('login')->with(['status' => __($status)])
+//             : back()->withErrors(['email' => __($status)]);
     
-})->middleware('guest')->name('password.update');
+// })->middleware('guest')->name('password.update');
 
 
 
@@ -160,19 +161,6 @@ Route::get('send-wa', function(){
     ]);
 });
 
-Route::get('try-wa', function(){
-    $response =
-        Http::post('https://graph.facebook.com/v15.0/12345678910/messages', [
-            'messaging_product' => 'whatsapp',
-            'recipient_type' => 'individual',
-            'to' => 'whatsapp:+628977924013',
-            'type' => 'template',
-            'template' => [
-                'name' => 'hello_world',
-                'languange' => ['code' => 'id_ID'],
-            ]
-        ]);
-});
 
 
 

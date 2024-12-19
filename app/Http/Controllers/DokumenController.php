@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumen;
+use App\Jobs\SendReminderEmail;
+use App\Jobs\RemoveDraft;
 use App\Models\Kategori;
 use Illuminate\View\View;
 use App\Models\Set;
@@ -14,6 +16,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReminderEmail;
 
 class DokumenController extends Controller
 {
@@ -43,7 +48,7 @@ class DokumenController extends Controller
     {
         
         $string = $request->set;
-        $setArray = explode(',', $string);
+        $setArray = explode(',', $string ?? '');
 
         $this->validate($request, [
             'kegiatan'          => 'required',
@@ -66,8 +71,8 @@ class DokumenController extends Controller
 
             $dokumen = Dokumen::create([
                 'user_id'           => Auth::user()->id,
-                'kegiatan'          => $request->kegiatan,
-                'deskripsi'         => $request->deskripsi,
+                'kegiatan'          => ucwords($request->kegiatan),
+                'deskripsi'         => ucfirst($request->deskripsi),
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
                 'image'             => $image->hashName(),  
@@ -75,35 +80,51 @@ class DokumenController extends Controller
                 'tipe'              => $request->tipe,
             ]);
 
-            foreach ($setArray as $item => $value) {
-                $data2 = array(
-                    'document_id' => $dokumen->id,
-                    'set_id' => $setArray[$item],
-                    'set_custom' => $request->set_custom,
-                );
-                Pengingat::create($data2);
-            }
-
         } else {
             $dokumen = Dokumen::create([
                 'user_id'           => Auth::user()->id,
-                'kegiatan'          => $request->kegiatan,  
-                'deskripsi'         => $request->deskripsi,
+                'kegiatan'          => ucwords($request->kegiatan),  
+                'deskripsi'         => ucfirst($request->deskripsi),
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
                 'tipe'              => $request->tipe,
             ]);
+            // dd($request);die;
+        }
 
-            foreach ($setArray as $item => $value) {
-                $data2 = array(
-                    'document_id' => $dokumen->id,
-                    'set_id' => $setArray[$item],
-                    'set_custom' => $request->set_custom,
-                );
-                Pengingat::create($data2);
+        foreach ($setArray as $item){
+            if (empty($item)) {
+                continue;
+            }
+            $set = Set::find($item);
+            $set_id = $set ? $set->id : null;
+            $reminderTime = Carbon::parse($dokumen->expiration_date);
+
+            if ($set_id == 2){
+                $reminderTime->subMinutes(5); 
+            } elseif ($set_id == 3){
+                $reminderTime->subMinutes(10);
+            } elseif ($set_id == 4){
+                $reminderTime->subMinutes(15);
+            } elseif ($set_id == 5){
+                $reminderTime->subMinutes(30);
+            } elseif ($set_id == 6){
+                $reminderTime->subHour();
+            } elseif ($set_id == 7){
+                $reminderTime = Carbon::parse($request->set_custom);
+            } elseif ($set_id == 1){
+                $reminderTime = Carbon::parse($request->expiration_date);
             }
 
-            // dd($request);die;
+            Pengingat::create([
+                'document_id' => $dokumen->id,
+                'set_id' => $set_id,
+                'set_custom' => $request->set_custom ?? null,
+            ]);
+
+            //penjadwalan email dengan queue
+            SendReminderEmail::dispatch($dokumen)->delay($reminderTime);
+
         }
         
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
@@ -139,7 +160,7 @@ class DokumenController extends Controller
     {
 
         $string = $request->set;
-        $setArray = explode(',', $string);
+        $setArray = explode(',', $string ?? '');
         
         $this->validate($request, [
             'kegiatan'          => 'required',
@@ -167,42 +188,61 @@ class DokumenController extends Controller
 
             $dokumen->update([
                 'user_id'           => Auth::user()->id,
-                'kegiatan'          => $request->kegiatan,
-                'deskripsi'         => $request->deskripsi,
+                'kegiatan'          => ucwords($request->kegiatan),
+                'deskripsi'         => ucfirst($request->deskripsi),
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
                 'image'             => $image->hashName(),  
                 'imageasli'         => $request->file('image')->getClientOriginalName(),
                 'tipe'              => $request->tipe,
             ]);
-
-            foreach ($setArray as $item => $value) {
-                $data2 = array(
-                    'document_id'   => $dokumen->id,
-                    'set_id'        => $setArray[$item],
-                    'set_custom'    => $request->set_custom,
-                );
-                $pengingat->update($data2);
-            }
        
         } else {
             $dokumen->update([
                 'user_id'           => Auth::user()->id,
-                'kegiatan'          => $request->kegiatan,
-                'deskripsi'         => $request->deskripsi,
+                'kegiatan'          => ucwords($request->kegiatan),
+                'deskripsi'         => ucfirst($request->deskripsi),
                 'expiration_date'   => $request->expiration_date,
                 'kategori_id'       => $request->kategori_id,
                 'tipe'              => $request->tipe,
             ]);
+        }
 
-            foreach ($setArray as $item => $value) {
-                $data2 = array(
-                    'document_id'   => $dokumen->id,
-                    'set_id'        => $setArray[$item],
-                    'set_custom'    => $request->set_custom,
-                );
-                $pengingat->update($data2);
+        Pengingat::where('document_id', $dokumen->id)->delete();
+
+        foreach ($setArray as $item){
+            if (empty($item)) {
+                continue;
             }
+            $set = Set::find($item);
+            $set_id = $set ? $set->id : null;
+            $reminderTime = Carbon::parse($dokumen->expiration_date);
+
+            if ($set_id == 2){
+                $reminderTime->subMinutes(5); 
+            } elseif ($set_id == 3){
+                $reminderTime->subMinutes(10);
+            } elseif ($set_id == 4){
+                $reminderTime->subMinutes(15);
+            } elseif ($set_id == 5){
+                $reminderTime->subMinutes(30);
+            } elseif ($set_id == 6){
+                $reminderTime->subHour();
+            } elseif ($set_id == 7){
+                $reminderTime = Carbon::parse($request->set_custom);
+            } elseif ($set_id == 1){
+                $reminderTime = Carbon::parse($request->expiration_date);
+            }
+
+            Pengingat::create([
+                'document_id' => $dokumen->id,
+                'set_id' => $set_id,
+                'set_custom' => $request->set_custom ?? null,
+            ]);
+
+            //penjadwalan email dengan queue
+            SendReminderEmail::dispatch($dokumen)->delay($reminderTime);
+
         }
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil diubah!']);

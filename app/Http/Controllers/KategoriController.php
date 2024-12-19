@@ -64,14 +64,14 @@ class KategoriController extends Controller
     
                 Kategori::create([
                     'user_id'        => Auth::user()->id,
-                    'judul'          => $request->judul,
+                    'judul'          => ucwords($request->judul),
                     'image'          => $image->hashName()
                 ]);
            
             } else {
                 Kategori::create([
                     'user_id'        => Auth::user()->id,
-                    'judul'          => $request->judul,
+                    'judul'          => ucwords($request->judul),
                 ]);
             }
             return redirect()->intended('/beranda')->with(['success' => 'Kategori berhasil dibuat!']);
@@ -124,14 +124,14 @@ class KategoriController extends Controller
 
             $kategori->update([
                 'user_id'        => Auth::user()->id,
-                'judul'          => $request->judul,
+                'judul'          => ucwords($request->judul),
                 'image'          => $image->hashName()
             ]);
        
         } else {
             $kategori->update([
                 'user_id'        => Auth::user()->id,
-                'judul'          => $request->judul,
+                'judul'          => ucwords($request->judul),
             ]);
         }
 

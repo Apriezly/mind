@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body class="email-text">
-    <p>Hai, {{ Auth::user()->name }} &#128075;</p>
+    <p>Hai, {{ $dokumen->user->name }} &#128075;</p>
     <p>
-        Data <b>"Ini Contoh Data"</b> akan kadaluarsa pada <b>2024-12-31 17:00:00</b>. Jangan sampai terlewat ya&#129321;
+        Data <b>{{ $dokumen->kegiatan }}</b> akan kadaluarsa pada <b>{{ $dokumen->expiration_date }}</b>. Jangan sampai terlewat ya&#129321;
 </p>
     <p>Terimakasih telah menggunakan Aplikasi Mind sebagai pengingatmu.</p>
     <p><span style="color:#19A177;font-weight:700">Mind</span>, sahabat setiamu!</p>
