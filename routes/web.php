@@ -111,7 +111,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/kategori', \App\Http\Controllers\KategoriController::class);
     Route::resource('/profil', \App\Http\Controllers\ProfilController::class);
     Route::get('/kalender', [KalenderController::class, 'index']);
-    Route::get('/laporan', [LaporanController::class, 'index']);
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/bantuan', [BantuanController::class, 'index']);
     Route::get('/notifikasi', [NotifikasiController::class, 'index']);
     Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);

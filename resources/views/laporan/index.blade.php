@@ -18,8 +18,105 @@
                                     <div>
                                         <canvas id="myChart"></canvas>
                                     </div>
-                                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                                    <script>
+                                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    const tahunSekarang = new Date().getFullYear(); // Ambil tahun sekarang
+                                                    loadDataByYear(tahunSekarang); // Load data untuk tahun sekarang ketika halaman pertama kali dimuat
+                                                });
+
+                                                function loadDataByYear(tahun) {
+                                                    // Kirim request ke server untuk mengambil data berdasarkan tahun
+                                                    fetch(`/laporan?tahun=${tahun}`)
+                                                        .then(response => response.json()) // Terima data JSON dari server
+                                                        .then(data => {
+                                                            updateChart(data);  // Update chart dengan data yang diterima
+                                                        })
+                                                        .catch(error => console.error('Error fetching data:', error));
+                                                }
+
+                                                // Ambil data dari backend
+                                                const dokumen = @json($Dokumen);
+
+                                                // Map data ke bulan
+                                                const bulanLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+
+                                                // Mengelompokkan data berdasarkan tahun
+                                                let tahunData = {};
+
+                                                // Kelompokkan data berdasarkan tahun dan bulan
+                                                dokumen.forEach(item => {
+                                                    if (!tahunData[item.tahun]) {
+                                                        tahunData[item.tahun] = Array(12).fill(0); // Inisialisasi array untuk tahun tersebut
+                                                    }
+                                                    tahunData[item.tahun][item.bulan - 1] = item.jumlah; // -1 karena bulan dimulai dari 0
+                                                });
+
+                                                // Membuat datasets berdasarkan tahun yang ada
+                                                const datasets = Object.keys(tahunData).map(tahun => ({
+                                                    label: `Tahun ${tahun}`,
+                                                    data: tahunData[tahun],
+                                                    backgroundColor: ['#E06196','#FAE3EC'],
+                                                    borderWidth: 1
+                                                }));
+
+                                                // Inisialisasi Chart.js
+                                                const ctx = document.getElementById('myChart').getContext('2d');
+                                                const myChart = new Chart(ctx, {
+                                                    type: 'bar', // Jenis chart bar
+                                                    data: {
+                                                        labels: bulanLabels, // Menampilkan label bulan
+                                                        datasets: datasets // Menampilkan datasets per tahun
+                                                    },
+                                                    options: {
+                                                        responsive: true,
+                                                        scales: {
+                                                            y: {
+                                                                beginAtZero: true
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                 </div>
+                            </div>
+                        </form>
+                    <div class="btn-group">
+                        <button class="btn button-simpan" class="btn btn-default" id="downloadCsv">Download</button>
+
+                        <!-- <button class="btn button-simpan" class="btn btn-default" >Download</button> -->
+                        <script>
+                                                    // Event listener untuk perubahan tahun
+                            document.getElementById('downloadCsv').addEventListener('click', function () {
+                            // Ambil data dari chart.js
+                            const labels = myChart.data.labels; // Label (bulan)
+                            const data = myChart.data.datasets[0].data; // Data jumlah dokumen
+                            // Buat header CSV
+                            let csvContent = 'Bulan,Jumlah\n';
+                            // Gabungkan data label dan jumlah
+                            labels.forEach((label, index) => {
+                                csvContent += `${label},${data[index]}\n`;
+                             });
+                            // Buat blob untuk CSV
+                            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                            // Buat URL untuk download
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'chart_data.csv'; // Nama file CSV
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            });
+                        </script> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <!-- <script>
                                         // Ambil data dari controller dan map sesuai dengan kebutuhan Chart.js
                                         const dokumen = @json($Dokumen);  // Pastikan data ini ada di console
                                          // Mapping data untuk labels dan values
@@ -48,21 +145,89 @@
                                             }
                                         
                                         });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="btn-group">
-                        <button class="btn button-simpan" class="btn btn-default" >Download</button> 
-        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                    </script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
     
-               
+    <canvas id="myChart"></canvas>
+
+    
+    <script>
+        function loadDataByYear() {
+        // Ambil tahun yang dipilih dari dropdown
+        const selectedYear = document.getElementById('tahun').value;
+
+        // Gunakan fetch untuk mengirimkan permintaan AJAX ke server dengan tahun yang dipilih
+        fetch(`/laporan?tahun=${selectedYear}`)
+            .then(response => response.json())
+            .then(data => {
+                updateChart(data);  // Update chart dengan data yang baru
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    let tahun = new Date().getFullYear(); // Ambil tahun sekarang
+    let tahunMax = 2025; // Misalnya kita ingin menampilkan data dari tahun 2020 hingga 2025
+    
+    // Timer untuk mengubah tahun setiap 5 detik (5000 ms)
+    setInterval(function () {
+        loadDataByYear(tahun);  // Load data berdasarkan tahun yang dipilih
+        tahun++;  // Ganti tahun
+        if (tahun > tahunMax) tahun = 2020;  // Jika sudah melebihi tahunMax, kembali ke 2020
+    }, 5000);  // Ganti setiap 5 detik
+});
+
+
+    // Ambil data dari backend
+    const dokumen = @json($Dokumen);
+
+    // Map data ke bulan
+    const bulanLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+
+    // Mengelompokkan data berdasarkan tahun
+    let tahunData = {};
+
+    // Kelompokkan data berdasarkan tahun dan bulan
+    dokumen.forEach(item => {
+        if (!tahunData[item.tahun]) {
+            tahunData[item.tahun] = Array(12).fill(0); // Inisialisasi array untuk tahun tersebut
+        }
+        tahunData[item.tahun][item.bulan - 1] = item.jumlah; // -1 karena bulan dimulai dari 0
+    });
+
+    // Membuat datasets berdasarkan tahun yang ada
+    const datasets = Object.keys(tahunData).map(tahun => ({
+        label: `Tahun ${tahun}`,
+        data: tahunData[tahun],
+        backgroundColor: ['#E06196','#FAE3EC'],
+        borderWidth: 1
+    }));
+
+    // Inisialisasi Chart.js
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar', // Jenis chart bar
+        data: {
+            labels: bulanLabels, // Menampilkan label bulan
+            datasets: datasets // Menampilkan datasets per tahun
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script> -->
+
+
+
+           
                                     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                                     <script>
                                         const ctx = document.getElementById('myChart').getContext('2d');
@@ -93,105 +258,7 @@
                                         
                                    </script> -->
 
-<!-- <!doctype html>
-<html lang="en">
-    <head>
-        <meta charshet="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>7array manipulatio</title>
-        <style type="text/css">
-            .chartBox{
-                widht: 700px;
-            
-            }
-                 </style>
-                 </head>
-                 <body>
-                    
-                 <?php
 
-                //  try{
-                //     $sql=
-                //     "SELECT * FROM chartjs.descriptionlabels INNER JOIN chartjs.datapoints ON description.id = datapoints.descriptionlabellid";
-
-                //     $result = $pdo->query($sql);
-                //     if($result->rowCount() > 0){
-                //         $revenue = array();
-                //         $labellaxis = array();
-                //         while($row = $result->fetch()){
-                //             $revenue[] =$row["datapoint"];
-                //             $labelaxis[] = ucwords($row["labellaxis"])
-                //             $description = ucwords($row["descriptionlabel"]);
-                //             $bgcolor = 4row["bgcolor"];
-                //             $bordercolor = $row["bordercolor"];
-                //         }
-                //         unset($result);
-                //     }else{
-                //         echo"No recorder matching your query were found.";
-                //     }
-                //     } catch(PDOException $e){
-                //         die("ERROR: Could not able to execute $sql. " . $e->getMessage());
-                //     }
-                //   unset($pdo);
-                //   ?>
-                  <div class="chartBox">
-                    <canvas id="myChart"></canvas>
-                </div>
-                <div class="buttonBox">
-                    <button onclick="showData(5)">Show 5 Data Points</button>
-                    <button onclick="showData(10)">Show 7 Data Points</button>
-                    <button onclick="resetData(10)">Reset</button>
-                </div>
-
-                <script scr="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-
-                    const revenue = 
-
-                    const data ={
-                        labels: labelaxsi,
-                        datasets: [{
-                            label: descriptionlabel,
-                            data: revenue,
-                            background: bgcolor,
-                            borderColor: bordercolor,
-                            borderWidth:
-
-                        }]
-                    };
-
-                    const config = {
-                        type: 'bar',
-                        data,
-                        options:{
-                            scales:{
-                            y:{
-                                beginAtZero:true
-                            }
-                        }
-                    }
-                };
-                const myChart new Chart{
-                    document.getLElementById('myChart'),
-                    config
-                };
-                funtion showData(num){
-                    const revenueSliced = revenue.slice(0, num);
-                    const labelaxisSliced = revenue.slice(0, num);
-                    myChart.data.datasets[0].data = revenueSliced;
-                    myChart.data.datasets[0].data = labelaxisSliced;
-                    myChart.data.labels = labelaxisSliced;
-                    myChart.update();
-                };
-                function resetData(){
-                    myChart.data.datasets[0].data = revenue;
-                    myChart.data,labels = labelaxis;
-                    myChart.update();
-                };
-
-                </script>
-                </body>
-                </html> -->
                 
 
 
