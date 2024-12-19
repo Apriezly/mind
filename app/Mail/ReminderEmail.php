@@ -10,16 +10,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class TestSendingEmail extends Mailable
+class ReminderEmail extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $dokumen;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($dokumen)
     {
-        //
+        $this->dokumen = $dokumen;
     }
 
     /**
@@ -56,7 +58,8 @@ class TestSendingEmail extends Mailable
     // }
 
     public function build(){
-        return $this->view('emails.test-mail')
-        ->subject('🔔 Pesan Pengingat');
+        return $this->view('emails.reminder-email')
+        ->subject('🔔 Pesan Pengingat')
+        ->with('dokumen', $this->dokumen);
     }
 }

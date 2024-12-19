@@ -93,7 +93,7 @@ class ProfilController extends Controller
 
             $user->update([
                 'image'      => $image->hashName(),
-                'name'       => $request->name,
+                'name'       => ucwords($request->name),
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
                 'password'   => Hash::make($request->password_baru),
@@ -101,7 +101,7 @@ class ProfilController extends Controller
 
         } else {
             $user->update([
-                'name'       => $request->name,
+                'name'       => ucwords($request->name),
                 'email'      => $request->email,
                 'nomor'      => $request->nomor,
                 'password'   => Hash::make($request->password_baru),
