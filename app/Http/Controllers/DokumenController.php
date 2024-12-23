@@ -25,6 +25,14 @@ class DokumenController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function filter($judul): view
+    // {
+    //     $kategori = Kategori::where('judul', $judul)->firstOrFail();
+    //     $dokumen = Dokumen::where('user_id', '=', Auth::user()->id)->where('kategori_id', $kategori->id)->orderBy('expiration_date', 'asc')->get();
+
+    //     return view('dokumen.index', compact('dokumen', 'kategori'));
+    // }
+    
     public function index(): View
     {
         $dokumen = Dokumen::where('user_id', '=',  Auth::user()->id)->orderBy('expiration_date', 'asc')->get();
@@ -135,7 +143,7 @@ class DokumenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): View
+    public function show($id): View
     {
         $dokumen = Dokumen::findOrFail($id);
         return view('dokumen.show', compact('dokumen'));
@@ -144,9 +152,8 @@ class DokumenController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): View
+    public function edit($id): View
     {
-        $dokumen = Dokumen::findOrFail($id);
         $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
         $set = Set::get()->pluck('nama', 'id');
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
@@ -255,15 +262,12 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
-        $relasi = Relasi::where('document_id', '=', $dokumen->id);
 
         Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
         $dokumen->delete();
 
         $pengingat->delete();
-
-        $relasi->delete();
 
         return redirect()->route('data.index')->with(['success' => 'Data berhasil dihapus!']);
     }

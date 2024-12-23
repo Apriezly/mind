@@ -423,6 +423,7 @@ small{
     width: 30px;
     height: 30px;
     object-fit: cover;
+    border: none !important;
 }
 
 .hapus-kategori{

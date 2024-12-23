@@ -31,12 +31,12 @@
       <!-- Messages Dropdown Menu -->
       
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="{{ url('/notifikasi') }}">
           <i class="fa fa-bell-o"></i>
           <span class="badge badge-warning navbar-badge">12</span>
         </a>
-      </li>
+      </li> -->
 
       
       <li class="nav-item dropdown no-arrow"> 

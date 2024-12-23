@@ -107,6 +107,7 @@ Route::post('/reset-password', [LoginController::class, 'update_password'])->nam
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/beranda', [PenggunaController::class, 'index']);
     Route::resource('/data', \App\Http\Controllers\DokumenController::class);
+    // Route::get('/data/filter/{kategori:judul}', [DokumenController::class, 'filter'])->name('data.filter');
     // Route::get('/show-download', [PrintController::class, 'print_show']);
     Route::resource('/pengingat', \App\Http\Controllers\PengingatController::class);
     Route::resource('/kategori', \App\Http\Controllers\KategoriController::class);
@@ -114,9 +115,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/kalender', [KalenderController::class, 'index']);
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/bantuan', [BantuanController::class, 'index']);
-    Route::get('/notifikasi', [NotifikasiController::class, 'index']);
-    Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);
-    Route::get('/pengguna', [PenggunaController::class, 'search'])->name('dokumen.search');
+    // Route::get('/notifikasi', [NotifikasiController::class, 'index']);
+    // Route::get('/lihatnotifikasi', [NotifikasiController::class, 'show']);
+    // Route::get('/pengguna', [PenggunaController::class, 'search'])->name('dokumen.search');
 });
 
 

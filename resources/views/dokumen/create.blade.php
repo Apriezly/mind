@@ -47,7 +47,7 @@
                                         <select class="form-control" name="kategori_id">
                                             <option style="color:#999999" value="" selected disabled>-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
-                                            <option value="{{ $kategoriID }}">
+                                            <option style="text-transform: capitalize;" value="{{ $kategoriID }}">
                                                 {{ $judul }}
                                             </option>
                                             @endforeach

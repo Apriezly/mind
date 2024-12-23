@@ -6,7 +6,7 @@
     </div><!-- /.row -->
 </div>
 
-<div class="container">   
+<div class="container">  
     <div class="row my-3">
         @foreach ($kategori as $data)
         <div class="col-sm-3 my-2">
@@ -27,11 +27,11 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('data.index')}}">
                     <div class="mt-3 text-center">
-                        <a href="{{ route('data.index')}}">
                         <?php
                         if($data->image != null)
-                            echo '<img src="/storage/kategori/' . $data->image . '">';
+                            echo '<img src="/storage/kategori/' . $data->image . '" class="icon-kategori">';
                         else
                             if($data->id % 2 == 0)
                                 echo '<img src="/element/cat.svg">';
@@ -39,10 +39,10 @@
                                 echo '<img src="/element/tiger.svg">';
                         ?>
                         <div class="mt-2 text-kategori">
-                            <span>{{$data->judul}}</span>
+                            <span style="text-transform: capitalize;">{{$data->judul}}</span>
                         </div>
-                        </a>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -69,6 +69,20 @@
 
                             ?></span>
                         </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <?php 
+            use App\Models\Dokumen;
+
+            $dokumen = Dokumen::where('kategori_id', '=', null)->get();
+        ?>
+        <div class="col-sm-3 my-2">
+            <div class="tambah-ktg" style="height:125px;">
+                <div class="card-body"> 
+                    <div class="text-center">
+                
                     </div>
                 </div>
             </div> 

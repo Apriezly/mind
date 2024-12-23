@@ -16,6 +16,7 @@ class LaporanController extends Controller
 
     // Ambil data berdasarkan tahun yang dipilih
     $Dokumen = DB::table('dokumen')
+        ->where('user_id', '=', Auth::user()->id)
         ->select(DB::raw('EXTRACT(YEAR FROM expiration_date) as tahun, EXTRACT(MONTH FROM expiration_date) as bulan, COUNT(*) as jumlah'))
         ->when($tahun, function ($query, $tahun) {
             // Filter data berdasarkan tahun jika ada input tahun

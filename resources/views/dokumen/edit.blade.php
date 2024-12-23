@@ -50,7 +50,7 @@
                                         <select class="form-control" name="kategori_id">
                                             <option value="">-- Pilih kategori --</option>
                                             @foreach ($kategori as $kategoriID => $judul)
-                                            <option value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID || $dokumen->kategori_id == $kategoriID)>
+                                            <option style="text-transform: capitalize;" value="{{ $kategoriID }}" @selected(old('kategori_id') == $kategoriID || $dokumen->kategori_id == $kategoriID)>
                                                 {{ $judul }}
                                             </option>
                                             @endforeach

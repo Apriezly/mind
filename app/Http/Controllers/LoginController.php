@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bcrypt;
 use Illuminate\Auth\Events\PasswordReset;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailRegister;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,7 @@ class LoginController extends Controller
         if(Auth::attempt($data)){
             return redirect()->intended('/beranda');
         }else{
-            return redirect()->intended('/login')->with('failed', 'Email atau Password Salah');
+            return redirect()->intended('/login')->with('error', 'Email atau Password Salah');
         }
     }
     
@@ -79,12 +80,59 @@ class LoginController extends Controller
             'ulangi_password.min:6' => "Jumlah minimal sandi adalah 6 karakter.",
         ]);
 
-        $data['name']       = ucwords($request->name);
-        $data['email']      = $request->email;
-        $data['nomor']      = $request->nomor;
-        $data['password']   = bcrypt($request->password);
+        $user = User::create([
+            'name'       => ucwords($request->name),
+            'email'      => $request->email,
+            'nomor'      => $request->nomor,
+            'password'   => bcrypt($request->password),
+        ]);
 
-        User::create($data);
+        $kategori = [
+            [
+                'judul'          => 'sekolah',
+                'image'          => 'sekolah.svg',
+    
+            ],
+            [
+                'judul'          => 'bisnis',
+                'image'          => 'bisnis.svg',
+    
+            ],
+            [
+                'judul'          => 'keluarga',
+                'image'          => 'keluarga.svg',
+    
+            ],
+            [
+                'judul'          => 'pribadi',
+                'image'          => 'pribadi.svg',
+    
+            ],
+        ];
+
+        foreach ($kategori as $data) {
+            $image = $data['image'];
+            $imageHash = uniqid() . '.' .pathinfo($image, PATHINFO_EXTENSION);
+            if (!Storage::exists('public/kategori')){
+                Storage::makeDirectory('public/kategori');
+            }
+            $lokasiAwal = public_path('element/' . $image);
+            $tujuan =  storage_path('app/public/kategori/' .$imageHash);
+            
+            if (file_exists($lokasiAwal)) {
+                copy($lokasiAwal, $tujuan); 
+            }else{
+                continue;
+            }
+
+
+            Kategori::create([
+                'user_id' => $user->id,
+                'judul' => $data['judul'],
+                'image' => $imageHash,
+            ]);
+        }
+        
 
         $login = [
             'email'     => $request->email,            
@@ -92,12 +140,11 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($login)){
-            // Session::put('name', $data->name);
             Mail::to($request->email)->send(new EmailRegister($request->all()));
             
             return redirect()->intended('/login')->with('success', 'Login dulu yaaa ^.^');
         }else{
-            return redirect()->intended('/register')->with('failed', 'Ups! Ada yang salah nih kayaknya 0-0');
+            return redirect()->intended('/register')->with('error', 'Ups! Ada yang salah nih kayaknya 0-0');
         }
     }
 

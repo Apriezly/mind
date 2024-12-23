@@ -80,15 +80,12 @@ class PengingatController extends Controller
     {
         $dokumen = Dokumen::findOrFail($id);
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
-        $relasi = Relasi::where('document_id', '=', $dokumen->id);
 
         Storage::disk('local')->delete('public/dokumen/'. $dokumen->image);
 
         $dokumen->delete();
 
         $pengingat->delete();
-
-        $relasi->delete();
 
         return redirect()->route('pengingat.index')->with(['success' => 'Data berhasil dihapus!']);
     }
