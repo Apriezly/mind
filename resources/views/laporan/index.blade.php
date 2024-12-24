@@ -82,11 +82,206 @@
                                  </div>
                             </div>
                         </form>
-                    <div class="btn-group">
-                        <button class="btn button-simpan" class="btn btn-default" id="downloadCsv">Download</button>
+    <!-- Tambahkan Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tambahkan jsPDF dan autoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        /* Tambahkan gaya khusus */
+        
+        .btn-primary.dropdown-toggle {
+            background-color: #1CAF82 !important;
+            border: none !important;
+        }
+
+        table {
+            display: none; /* Sembunyikan tabel dari tampilan browser */
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Dropdown untuk Mengunduh -->
+        <div class="dropdown mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+               Donwload
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="downloadDropdown">
+                <li><a class="dropdown-item" href="#" id="downloadChartPdf">Unduh Grafik sebagai PDF</a></li>
+                <li><a class="dropdown-item" href="#" id="downloadTablePdf">Unduh Tabel sebagai PDF</a></li>
+            </ul>
+        </div>
+
+        <!-- Canvas untuk Chart.js -->
+        <!-- <canvas id="myChart" width="400" height="200"></canvas> -->
+
+        <!-- Tabel Data (Tersembunyi) -->
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Tahun</th>
+                    <th>Bulan</th>
+                    <th>Jumlah Dokumen</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($Dokumen as $data)
+                    <tr>
+                        <td>{{ $data->tahun }}</td>
+                        <td>{{ $data->bulan }}</td>
+                        <td>{{ $data->jumlah }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Skrip untuk Mengunduh PDF -->
+    <script>
+        document.getElementById('downloadChartPdf').addEventListener('click', async function () {
+            const { jsPDF } = window.jspdf; // Ambil jsPDF dari pustaka
+
+            // Ambil elemen canvas dari Chart.js
+            const canvas = document.getElementById('myChart');
+            const canvasImage = canvas.toDataURL('image/png', 1.0); // Konversi canvas ke gambar
+
+            // Buat dokumen PDF baru
+            const pdf = new jsPDF();
+
+            // Tambahkan gambar canvas ke PDF
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const imgWidth = pageWidth; // Gambar akan memenuhi lebar halaman
+            const imgHeight = (canvas.height / canvas.width) * imgWidth; // Menjaga rasio aspek
+
+            pdf.addImage(canvasImage, 'PNG', 0, 10, imgWidth, imgHeight);
+
+            // Tambahkan teks deskripsi di PDF
+            pdf.text('Data grafik di atas adalah hasil dari laporan Anda.', 10, imgHeight + 20);
+
+            // Unduh PDF dengan nama file tertentu
+            pdf.save('Laporan_Grafik.pdf');
+        });
+
+        document.getElementById('downloadTablePdf').addEventListener('click', function () {
+            // Ambil elemen tabel
+            const table = document.querySelector('table');
+
+            // Buat objek jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Tambahkan judul di PDF
+            doc.setFontSize(18);
+            doc.text('Laporan Dokumen', 10, 10);
+            doc.setFontSize(12);
+            doc.text(`Tanggal: ${new Date().toLocaleDateString()}`, 10, 20);
+
+            // Konversi tabel ke PDF
+            doc.autoTable({ html: table, startY: 30 });
+
+            // Unduh file PDF
+            doc.save('Laporan_Dokumen.pdf');
+        });
+    </script>
+
+    <!-- Tambahkan Chart.js untuk menggambar grafik -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Contoh data untuk Chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
+                datasets: [{
+                    label: 'Jumlah Dokumen',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Tambahkan Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+    
+
+
+
+<!-- <script>
+    document.getElementById('downloadPdfText').addEventListener('click', function () {
+        // Ambil data dari backend yang di-render di frontend
+        const dokumen = @json($Dokumen);
+
+        // Buat tabel HTML sederhana untuk PDF
+        let pdfContent = `
+            <html>
+            <head>
+                <title>Laporan PDF</title>
+            </head>
+            <body>
+                <h1>Laporan Dokumen</h1>
+                <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Bulan</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        dokumen.forEach(item => {
+            pdfContent += `
+                <tr>
+                    <td>${item.tahun}</td>
+                    <td>${item.bulan}</td>
+                    <td>${item.jumlah}</td>
+                </tr>
+            `;
+        });
+
+        pdfContent += `
+                    </tbody>
+                </table>
+            </body>
+            </html>
+        `;
+
+        // Buka PDF di tab baru untuk diunduh
+        const pdfWindow = window.open('', '_blank');
+        pdfWindow.document.write(pdfContent);
+        pdfWindow.document.close();
+        pdfWindow.print(); // Dialog untuk menyimpan sebagai PDF
+    });
+</script> -->
+
+
+
+
+
+                        <!-- <button class="btn button-simpan" class="btn btn-default" id="downloadCsv">Download</button> -->
 
                         <!-- <button class="btn button-simpan" class="btn btn-default" >Download</button> -->
-                        <script>
+                        <!-- <script>
                                                     // Event listener untuk perubahan tahun
                             document.getElementById('downloadCsv').addEventListener('click', function () {
                             // Ambil data dari chart.js
@@ -109,7 +304,7 @@
                             a.click();
                             document.body.removeChild(a);
                             });
-                        </script> 
+                        </script>  -->
                     </div>
                 </div>
             </div>
