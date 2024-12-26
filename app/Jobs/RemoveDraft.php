@@ -14,12 +14,15 @@ class RemoveDraft implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $dokumen;
+
+
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($dokumen)
     {
-        //
+        $this->dokumen = $dokumen;
     }
 
     /**
@@ -27,17 +30,7 @@ class RemoveDraft implements ShouldQueue
      */
     public function handle(): void
     {
-        \Log::info('Proses hapus');
-        $dokumen = Dokumen::all();
-        foreach ($dokumen as $item){
-            if($item->status == 'draft'){
-                $pelaksanaan = strtotime($item->expiration_date) + 86400;
-                if($pelaksanaan < time()){
-                    \Log::info('Behasil hapus data');
-                    $pengingat = Pengingat::where('document_id', '=', $item->id)->delete();
-                    $item->delete();
-                }
-            }
-        }
+        Pengingat::where('document_id', '=', $this->dokumen->id)->delete();
+        $this->dokumen->delete();
     }
 }

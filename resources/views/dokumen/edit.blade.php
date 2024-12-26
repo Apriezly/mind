@@ -88,16 +88,16 @@
                                     </div> 
                                 </div>
                                 <div class="col-6">
-                                    <div class="form group style-input">
-                                        <label>Kirim Via</label>
+                                <div class="form group style-input">
+                                        <label>Hapus Otomatis</label>
                                         <div class="col-sm-10">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="tipe" value="Email">
-                                                <label class="form-check-label">Email</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="tipe" value="Aktif" {{ old('tipe') == 'Aktif' ? 'checked' : '' }}>
+                                                <label class="form-check-label">Aktif</label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="tipe" value="WhatsApp">
-                                                <label class="form-check-label">WhatsApp</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="tipe" value="Non Aktif" {{ old('tipe') == 'Non Aktif' ? 'checked' : '' }}>
+                                                <label class="form-check-label">Non Aktif</label>
                                             </div>
                                         </div>
                                     </div>  

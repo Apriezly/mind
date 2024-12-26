@@ -21,7 +21,7 @@
                           <th>Status</th>
                           <th>Selesai</th>
                           <th>Set</th>
-                          <th>Kirim Via</th>
+                          <th>Hapus Otomatis</th>
                           <th>Info</th>
                           <th>Aksi</th>
                         </tr>                        

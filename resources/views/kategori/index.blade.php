@@ -73,20 +73,6 @@
                 </div>
             </div> 
         </div>
-        <?php 
-            use App\Models\Dokumen;
-
-            $dokumen = Dokumen::where('kategori_id', '=', null)->get();
-        ?>
-        <div class="col-sm-3 my-2">
-            <div class="tambah-ktg" style="height:125px;">
-                <div class="card-body"> 
-                    <div class="text-center">
-                
-                    </div>
-                </div>
-            </div> 
-        </div>
     </div>
 </div>
 

@@ -133,6 +133,13 @@ class DokumenController extends Controller
             //penjadwalan email dengan queue
             SendReminderEmail::dispatch($dokumen)->delay($reminderTime);
 
+            if ($request->tipe == 'Aktif'){
+                $otomatis = Carbon::parse($request->expiration_date)->addMinutes(30);
+                RemoveDraft::dispatch($dokumen)->delay($otomatis);
+            }else{
+                Log::info("Dokumen dengan tipe {$request->tipe} tidak dijadwalkan untuk dihapus.");
+            }
+            
         }
         
         return redirect()->route('data.index')->with(['success' => 'Data berhasil disimpan!']);
@@ -154,6 +161,7 @@ class DokumenController extends Controller
      */
     public function edit($id): View
     {
+        $dokumen = Dokumen::findOrFail($id);
         $kategori = Kategori::where('user_id', '=',  Auth::user()->id)->orderBy('judul', 'asc')->get()->pluck('judul', 'id');
         $set = Set::get()->pluck('nama', 'id');
         $pengingat = Pengingat::where('document_id', '=', $dokumen->id);
@@ -249,6 +257,13 @@ class DokumenController extends Controller
 
             //penjadwalan email dengan queue
             SendReminderEmail::dispatch($dokumen)->delay($reminderTime);
+
+            if ($request->tipe == 'Aktif'){
+                $otomatis = Carbon::parse($request->expiration_date)->addMinutes(30);
+                RemoveDraft::dispatch($dokumen)->delay($otomatis);
+            }else{
+                Log::info("Dokumen dengan tipe {$request->tipe} tidak dijadwalkan untuk dihapus.");
+            }
 
         }
 

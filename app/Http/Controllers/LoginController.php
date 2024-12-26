@@ -128,7 +128,7 @@ class LoginController extends Controller
 
             Kategori::create([
                 'user_id' => $user->id,
-                'judul' => $data['judul'],
+                'judul' => ucwords($data['judul']),
                 'image' => $imageHash,
             ]);
         }
