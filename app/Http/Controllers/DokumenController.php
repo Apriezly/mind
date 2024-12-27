@@ -54,7 +54,7 @@ class DokumenController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
+       
         $string = $request->set;
         $setArray = explode(',', $string ?? '');
 
@@ -139,6 +139,7 @@ class DokumenController extends Controller
             }else{
                 Log::info("Dokumen dengan tipe {$request->tipe} tidak dijadwalkan untuk dihapus.");
             }
+            
             
         }
         
