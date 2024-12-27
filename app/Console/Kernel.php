@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
 
     protected $commands = [
         // Commands\DemoCron::class,
-        Commands\DeleteExpiredData::class,
+        // Commands\DeleteExpiredData::class,
     ];
 
     /**
@@ -21,19 +21,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('queue:work')->everyMinute();
-        $schedule->command('dokumen:delete-expired-data')->hourly();
-        // $schedule->command('demo:cron')->everyMinute();
-        // $schedule->job(new \App\Jobs\RemoveDraft)->everyMinute();
-        // $schedule->call(function () {
-        //     $dokumenKadaluarsa = \App\Models\Dokumen::where('expiration_date', '<=', now()->subMinutes(2))->get();
-    
-        //     foreach ($dokumenKadaluarsa as $dokumen) {
-        //         $dokumen->pengingat()->delete();
-        //         $dokumen->delete();
-        //     }
-        // })->everyMinute(); 
-
         \Log::info('Scheduler is running');
     }
 
