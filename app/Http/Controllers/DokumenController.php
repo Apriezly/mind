@@ -263,7 +263,7 @@ class DokumenController extends Controller
                 $otomatis = Carbon::parse($request->expiration_date)->addMinutes(30);
                 RemoveDraft::dispatch($dokumen)->delay($otomatis);
             }else{
-                Log::info("Dokumen dengan tipe {$request->tipe} tidak dijadwalkan untuk dihapus.");
+                \Log::info("Dokumen dengan tipe {$request->tipe} tidak dijadwalkan untuk dihapus.");
             }
 
         }
