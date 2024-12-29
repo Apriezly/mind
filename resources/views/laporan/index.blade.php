@@ -101,7 +101,7 @@
                                         <!-- Dropdown untuk Mengunduh -->
                                         <div class="dropdown mb-3">
                                             <button class="btn btn-primary dropdown-toggle" type="button" id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Donwload
+                                            Download
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="downloadDropdown">
                                                 <li><a class="dropdown-item" href="#" id="downloadChartPdf">Unduh Grafik sebagai PDF</a></li>
