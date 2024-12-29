@@ -63,7 +63,7 @@
                           <td>{{ ($data->tipe != null) ? $data->tipe : '' }}</td>
                           <td scope="row">
                             <?php
-                              if($data->tipe != null){
+                              if($data->arr_set != null){
                                 echo "<span class='sudah-diatur'>Sudah Diatur</span>";
                               }else{
                                 echo "<span class='belum-diatur'>Belum Diatur</span>";
