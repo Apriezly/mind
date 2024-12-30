@@ -63,6 +63,25 @@
         @endif
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script> 
+  $(document).ready(function () {
+    $('[data-widget="pushmenu"]').on('click', function () {
+      const $logo = $('#logo'); 
+      const $classlogo = $('#classlogo');
+      const currentSrc = $logo.attr('src');
+
+      if (currentSrc === "{{ asset('/element/mind-max.svg') }}") {
+        $logo.attr('src', "{{ asset('/element/mind-min.svg') }}"); 
+        $classlogo.removeClass('px-5').addClass('px-4');
+      } else {
+        $logo.attr('src', "{{ asset('/element/mind-max.svg') }}"); 
+        $classlogo.removeClass('px-4').addClass('px-5');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
 
