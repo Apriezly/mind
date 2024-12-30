@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <nav class="pt-5">
     <a class="px-5">
-      <img src="{{ asset('/element/mind-max.png') }}" alt="Mind">
+      <img src="{{ asset('/element/mind-max.svg') }}" alt="Mind">
     </a>
     </nav>
 

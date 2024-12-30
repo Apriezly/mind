@@ -5,7 +5,7 @@
 <div class="card-login">
     <div class="card-body login-card-body">
       <div class="login-logo">
-        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Logo">
+        <img src="{{ asset('/element/mind-b.svg')}}" alt="Mind Logo">
       </div>
 
       <p class="katamind"><span style="color:#19A177;font-weight:700">Mind</span> hadir sebagai sahabat yang akan senantiasa mengingatkan hal-hal penting dalam hidupmu!</p>
