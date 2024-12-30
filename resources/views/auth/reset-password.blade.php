@@ -5,7 +5,7 @@
 <div class="card-login">
     <div class="card-body login-card-body">
     <div class="login-logo">
-        <img src="{{ asset('/element/mind-b.png')}}" alt="Mind Logo">
+        <img src="{{ asset('/element/mind-b.svg')}}" alt="Mind Logo">
       </div>
 
       <p class="katamind">-- Reset Password --</p>
